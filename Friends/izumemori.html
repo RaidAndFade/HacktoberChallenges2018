@@ -1,0 +1,89 @@
+<html>
+    <head>
+        <style>
+            :root{
+                --main-text-color: #1f1f1f;
+            }
+
+            @import url('https://fonts.googleapis.com/css?family=Noto+Sans');
+            body {
+                overflow: hidden;
+            }
+            .center {
+                position: relative;
+                display: table;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 1;
+            }
+            .hidden {
+                display: block;
+            }
+            .footer {
+                top: 50%;
+            }
+            .greeter {
+                top: 50%;
+            }
+            .text {
+                font-family: 'Noto Sans', sans-serif;
+                color: var(--main-text-color);
+                text-shadow: 1px 1px white;
+            }
+            .background {
+                z-index: -1;
+                left: -20px;
+                right: -20px;
+                position: absolute;
+                filter: blur(10px) grayscale(100%);
+                width: 110%;
+                bottom:-20px;
+            }
+            a {
+                color: var(--main-text-color);
+            }
+            .play {
+                position: fixed;
+                font-size: 20pt;
+                bottom: 0;
+                left: 10;
+            }
+        </style>
+    </head>
+    <body>
+        <img class="background" src="https://media.giphy.com/media/12qXXrrsmfazxm/giphy.gif"/>
+        <div class="greeter center">
+            <h1 class="text">Hello, I'm Izumemori</h1>
+        </div>
+        <div class="footer center">
+            <p class="text hidden">I do stuff on the internet! Check out my <a href="https://github.com/Izumemori">Github</a> or add me on Discord (Izumemori#7920).</p>
+        </div>
+        
+        <div class="play" id="button">
+            <p id="button-icon" class="text">🔈</p>
+        </div>
+        
+        <script>
+            let audio = new Audio('https://r3---sn-i5heen7l.googlevideo.com/videoplayback?gir=yes&c=WEB&key=yt6&mn=sn-i5heen7l%2Csn-5hnedn7s&mm=31%2C26&ms=au%2Conr&ei=_QCyW7y8DdeAgQeAzZFY&pl=37&mv=m&fvip=5&clen=1382753&signature=B495C787A514DA1FAF21C4C17B78BB0068446B86.B973FF0F24D8D174D0F4ADE4BD9354070D6A7B32&keepalive=yes&ip=2a02%3A8109%3Ad40%3A1b28%3A213%3A3bff%3Afe2f%3A4927&requiressl=yes&mt=1538392239&lmt=1496800871640752&itag=251&id=o-AOCG0-PH47sm4v4IAovfQwvctC-il5uccRiaw82EAAwg&dur=77.081&source=youtube&sparams=clen%2Cdur%2Cei%2Cgir%2Cid%2Cinitcwndbps%2Cip%2Cipbits%2Citag%2Ckeepalive%2Clmt%2Cmime%2Cmm%2Cmn%2Cms%2Cmv%2Cpl%2Crequiressl%2Csource%2Cexpire&mime=audio%2Fwebm&ipbits=0&initcwndbps=1787500&expire=1538413917&ratebypass=yes');
+            audio.volume = 0;
+            audio.loop = true;
+            audio.play();
+            let loud = false;
+            let button = document.getElementById("button");
+            button.addEventListener("click", toggleVolume);
+            let buttonIcon = document.getElementById("button-icon")
+            function toggleVolume() {
+                if (loud) {
+                    buttonIcon.innerText = "🔈";
+                    audio.volume = 0;
+                    loud = false;
+                }
+                else {
+                    buttonIcon.innerText = "🔊";
+                    audio.volume = 1;
+                    loud = true;
+                }
+            }
+        </script>
+    </body>
+</html>
