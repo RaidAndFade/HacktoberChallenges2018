@@ -1,6 +1,8 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <style>
             :root{
                 --main-text-color: #1f1f1f;
@@ -33,17 +35,43 @@
             }
             .background {
                 z-index: -1;
-                left: -20px;
-                right: -20px;
-                position: absolute;
+                left: -40px;
+                right: -40px;
+                position: fixed;
                 filter: blur(10px) grayscale(100%);
                 height: 110%;
-                bottom:-20px;
+                bottom: -40px;
                 background-image: url("https://media.giphy.com/media/12qXXrrsmfazxm/giphy.gif");
                 background-position: center;
                 background-repeat: no-repeat;
+                -webkit-background-size: cover;
+                -moz-background-size: cover;
+                -o-background-size: cover;
                 background-size: cover;
             }
+
+            @media only screen and (max-width: 600px) {
+                .background {
+                    filter: blur(10px) grayscale(100%) !important;
+                    height: 125% !important;
+                }
+
+                .greeter {
+                    top: 33%;
+                }
+
+                .footer .text {
+                    font-size: 10px;
+                }
+            }
+
+            @media only screen and (max-height: 600px) {
+                .background {
+                    filter: blur(10px) grayscale(100%) !important;
+                    height: 125% !important;
+                }
+            }
+
             a {
                 color: var(--main-text-color);
             }
@@ -52,6 +80,18 @@
                 font-size: 20pt;
                 bottom: 0;
                 left: 10;
+            }
+
+            .translucent {
+                opacity: 0;
+            }
+
+            .player {
+                position: absolute;
+                bottom: 100px;
+                width: 0;
+                height: 0;
+                bottom: -100px;
             }
         </style>
     </head>
@@ -67,26 +107,68 @@
         <div class="play" id="button">
             <p id="button-icon" class="text">🔈</p>
         </div>
-        
+        <div class="play translucent" id="yt-player"></div>
+        <script async src="https://www.youtube.com/iframe_api"></script>
         <script>
-            let audio = new Audio('https://r3---sn-i5heen7l.googlevideo.com/videoplayback?gir=yes&c=WEB&key=yt6&mn=sn-i5heen7l%2Csn-5hnedn7s&mm=31%2C26&ms=au%2Conr&ei=_QCyW7y8DdeAgQeAzZFY&pl=37&mv=m&fvip=5&clen=1382753&signature=B495C787A514DA1FAF21C4C17B78BB0068446B86.B973FF0F24D8D174D0F4ADE4BD9354070D6A7B32&keepalive=yes&ip=2a02%3A8109%3Ad40%3A1b28%3A213%3A3bff%3Afe2f%3A4927&requiressl=yes&mt=1538392239&lmt=1496800871640752&itag=251&id=o-AOCG0-PH47sm4v4IAovfQwvctC-il5uccRiaw82EAAwg&dur=77.081&source=youtube&sparams=clen%2Cdur%2Cei%2Cgir%2Cid%2Cinitcwndbps%2Cip%2Cipbits%2Citag%2Ckeepalive%2Clmt%2Cmime%2Cmm%2Cmn%2Cms%2Cmv%2Cpl%2Crequiressl%2Csource%2Cexpire&mime=audio%2Fwebm&ipbits=0&initcwndbps=1787500&expire=1538413917&ratebypass=yes');
-            audio.volume = 0;
-            audio.loop = true;
-            audio.play();
-            let loud = false;
+            var player;
+            var first = true;
+            var autoplay = false;
+            function onYouTubeIframeAPIReady() {
+                player = new YT.Player('yt-player', {
+                    videoId: 'b_6K7vB_yhc',
+                    width: 0,
+                    height: 0,
+                    playerVars: {
+                        autoplay: 1,
+                        controls: 0,
+                        showinfo: 0,
+                        modestbranding: 1,
+                        loop: 1,
+                        fs: 0,
+                        cc_load_policy: 0,
+                        iv_load_policy: 3,
+                        autohide: 0
+                    },
+                    events: {
+                        onReady: function(e) {
+                            e.target.mute();
+                        },
+                        onStateChange: function(e) {
+                            console.log(e.data);
+                            if (e.data === YT.PlayerState.ENDED) {
+                                player.playVideo();
+                            }
+                            if (e.data === YT.PlayerState.UNSTARTED) { // only happens when started manually
+                                autoplay = true;
+                            }
+                            if (e.data === YT.PlayerState.PLAYING) {
+                                if (first)
+                                {
+                                    if (autoplay) {
+                                        $('#button').click();
+                                    }
+                                    $('#yt-player').removeClass("play");
+                                    $('#yt-player').addClass("player");
+                                    first = false;
+                                }
+                            }
+                        }
+                    }
+                });
+            }
             let button = document.getElementById("button");
             button.addEventListener("click", toggleVolume);
             let buttonIcon = document.getElementById("button-icon")
             function toggleVolume() {
-                if (loud) {
+                if (!player.isMuted()) {
+                    player.mute();
                     buttonIcon.innerText = "🔈";
-                    audio.volume = 0;
-                    loud = false;
+                    muted = false;
                 }
                 else {
+                    player.unMute();
                     buttonIcon.innerText = "🔊";
-                    audio.volume = 1;
-                    loud = true;
+                    muted = true;
                 }
             }
         </script>
