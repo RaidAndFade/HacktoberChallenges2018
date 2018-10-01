@@ -1,6 +1,6 @@
 *this is satire, it's meant to be cute and to see what potential PRs have (both during hacktoberfest and otherwise)*
 
-# Hacktoberfest2018
+# Friends-List (Hacktoberfest 2018 project)
 Welcome! I need some help making my website, I'm writing a list of all my friends!
 
 
