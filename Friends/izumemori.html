@@ -111,7 +111,8 @@
         <script async src="https://www.youtube.com/iframe_api"></script>
         <script>
             var player;
-            var first = false;
+            var first = true;
+            var autoplay = false;
             function onYouTubeIframeAPIReady() {
                 player = new YT.Player('yt-player', {
                     videoId: 'b_6K7vB_yhc',
@@ -138,14 +139,18 @@
                                 player.playVideo();
                             }
                             if (e.data === YT.PlayerState.UNSTARTED) { // only happens when started manually
-                                first = true;
+                                autoplay = true;
                             }
                             if (e.data === YT.PlayerState.PLAYING) {
-                                if (first) {
-                                    $('#button').click();
+                                if (first)
+                                {
+                                    if (autoplay) {
+                                        $('#button').click();
+                                    }
+                                    $('#yt-player').removeClass("play");
+                                    $('#yt-player').addClass("player");
+                                    first = false;
                                 }
-                                $('#yt-player').removeClass("play");
-                                $('#yt-player').addClass("player");
                             }
                         }
                     }
