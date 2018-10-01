@@ -1,5 +1,6 @@
 <html>
     <head>
+        <meta charset="UTF-8">
         <style>
             :root{
                 --main-text-color: #1f1f1f;
@@ -14,15 +15,18 @@
                 display: table;
                 left: 50%;
                 transform: translate(-50%, -50%);
+                -moz-transform: translate(-50%, -50%);
                 z-index: 1;
             }
             .hidden {
                 display: block;
             }
             .footer {
-                top: 50%;
+                position: fixed;
+                top: 75%;
             }
             .greeter {
+                position: fixed;
                 top: 50%;
             }
             .text {
