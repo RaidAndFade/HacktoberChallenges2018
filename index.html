@@ -1,0 +1,23 @@
+<ul id="d">
+<li>Loading...</li>
+</ul>
+
+<script>
+function setList(l){
+  var h = document.getElementById("d");
+  h.innerHTML = "";
+  for(var x of l){
+    h.innerHTML += "<li><a href=\""+x.path+"\">"+x.name+"</a></li>";
+  }
+}
+
+const gitapiurl = "https://api.github.com/repos/raidandfade/hacktoberfest2018/contents/Friends";
+var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function() {
+  if (this.readyState == 4 && this.status == 200) {
+    setList(JSON.parse(this.responseText))
+  }
+};
+xhttp.open("GET", gitapiurl, true);
+xhttp.send();
+</script>
