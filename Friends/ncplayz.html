@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <style>
+      .footer {
+          position: fixed;
+          left: 0;
+          bottom: 0;
+          width: 100%;
+          text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1><span class="badge badge-secondary">I'm NCPlayz</span></h1>
+    <div class="input-group input-group-lg">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-lg">Who are you?</span>
+      </div>
+      <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" onkeyup=myFunction(this)>
+    </div>
+    <h3 id="myAnchor"></h3>
+    <div class="github-widget" data-username="NCPlayz"></div>
+    <script src="https://unpkg.com/github-card@1.2.1/dist/widget.js"></script>
+    <p class="bg-danger">I'm <strong>NCPlayz#7941</strong> on Discord. This page sucks. Amen<br><br></p>
+      <div class="footer bg-dark text-white">
+        <p>NCPlayz</p>
+      </div>
+  </body>
+  <script>
+    function myFunction(input){
+      var elementValue = "Hello " + input.value + "!";
+      document.getElementById("myAnchor").innerHTML = elementValue;
+    }
+  </script>
+</html>
