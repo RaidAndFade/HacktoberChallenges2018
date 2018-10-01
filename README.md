@@ -17,7 +17,7 @@ That's the thing, I dont have many friends, so I dont know what friends do.
 I've got the best idea, my friends should make ***HTML FILES*** that have their username as the filename, for example 
 `raidandfade.html`
 
-***YOUR FILE SHOULD MUST YOUR GITHUB URL***
+***YOUR FILE NAME MUST BE YOUR GITHUB URL (ex: https://github.com/raidandfade -> raidandfade.html)***
 
 ***Your GITHUB URL (ex: https://github.com/raidandfade) MUST BE CLEARLY VISIBLE, ACCURATE, AND UNIQUE.***
 
