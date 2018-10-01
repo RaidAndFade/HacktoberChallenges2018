@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8" />
+    <title>ljoonal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      *,
+      *:before,
+      *:after {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        vertical-align: baseline;
+        font-weight: inherit;
+        font-style: inherit;
+        font-size: 100%;
+        border: 0 none;
+        outline: 0;
+        padding: 0;
+        margin: 0;
+      }
+
+      body,
+      ul,
+      li,
+      table,
+      a,
+      span,
+      q,
+      p {
+        font-family: "Fira Sans", sans-serif;
+        color: white;
+      }
+
+      hr {
+        background-color: #ff8ba8;
+        outline-color: #ff8ba8;
+        height: 1px;
+      }
+
+      @media only screen and (min-width: 360px) {
+        .flow-text {
+          font-size: 1rem;
+        }
+      }
+
+      @media only screen and (min-width: 460px) {
+        .flow-text {
+          font-size: 1.02rem;
+        }
+      }
+
+      @media only screen and (min-width: 560px) {
+        .flow-text {
+          font-size: 1.04rem;
+        }
+      }
+
+      @media only screen and (min-width: 660px) {
+        .flow-text {
+          font-size: 1.06rem;
+        }
+      }
+
+      @media only screen and (min-width: 760px) {
+        .flow-text {
+          font-size: 1.08rem;
+        }
+      }
+
+      @media only screen and (min-width: 860px) {
+        .flow-text {
+          font-size: 1.1rem;
+        }
+      }
+
+      @media only screen and (min-width: 960px) {
+        .flow-text {
+          font-size: 1.12rem;
+        }
+      }
+
+      @media only screen and (min-width: 1060px) {
+        .flow-text {
+          font-size: 1.14rem;
+        }
+      }
+
+      @media only screen and (min-width: 1160px) {
+        .flow-text {
+          font-size: 1.16rem;
+        }
+      }
+
+      @media only screen and (min-width: 1260px) {
+        .flow-text {
+          font-size: 1.18rem;
+        }
+      }
+
+      @media only screen and (min-width: 1360px) {
+        .flow-text {
+          font-size: 1.2rem;
+        }
+      }
+
+      @media only screen and (min-width: 1460px) {
+        .flow-text {
+          font-size: 1.22rem;
+        }
+      }
+
+      @media only screen and (min-width: 1560px) {
+        .flow-text {
+          font-size: 1.24rem;
+        }
+      }
+
+      @media only screen and (min-width: 1660px) {
+        .flow-text {
+          font-size: 1.26rem;
+        }
+      }
+
+      @media only screen and (min-width: 1760px) {
+        .flow-text {
+          font-size: 1.28rem;
+        }
+      }
+
+      @media only screen and (min-width: 1860px) {
+        .flow-text {
+          font-size: 1.3rem;
+        }
+      }
+
+      @media only screen and (max-width: 360px) {
+        .flow-text {
+          font-size: 1rem;
+        }
+      }
+
+      body {
+        background-color: black;
+        display: flex;
+        flex-direction: column;
+      }
+
+      main {
+        display: block;
+        width: 100%;
+        margin-top: 15px;
+      }
+
+      @media screen and (max-width: 500px) {
+        .container {
+          width: 99%;
+        }
+      }
+
+      @media screen and (max-width: 600px) {
+        .container {
+          width: 96%;
+        }
+      }
+
+      @media screen and (max-width: 1200px) and (min-width: 601px) {
+        .container {
+          width: 90%;
+        }
+      }
+
+      @media screen and (min-width: 1201px) {
+        .container {
+          width: 80%;
+        }
+      }
+
+      .container {
+        margin: auto;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+    </style>
+  </head>
+
+  <body>
+    <main>
+      <div class="container">
+        <h1>Hello</h1>
+        <p class="flow-text">
+          I like sass. It lets you do cool stuff like scaling text or scaling containers very easily. This page should demonstrate it well enough.
+          Below is an an example of how the text can be done:
+        </p>
+        <pre>
+          <code>
+.flow-text {
+  $i: 0;
+
+  @while $i <= 20 {
+    @media only screen and (min-width: 360 + $i * 100px) {
+      font-size: 1rem * (1 + 0.02 * $i);
+    }
+
+    $i: $i + 1;
+  }
+
+  @media only screen and (max-width: 360px) {
+    font-size: 1rem;
+  }
+}
+          </code>
+        </pre>
+        <p>
+          I hope that someone will find that to be usefull.
+        </p>
+        <br>
+        <span>Ps: Gotta love that black background-color</span>
+      </div>
+    </main>
+  <!-- Sneaky you, looking at the source code! ljoonal.xyz and all subdomains are under my control. Feel free to visit me, friends. -->
+  </body>
+
+</html>
