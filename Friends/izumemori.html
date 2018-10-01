@@ -63,8 +63,6 @@
                 .footer .text {
                     font-size: 10px;
                 }
-
-                .play { display: none !important; }
             }
 
             @media only screen and (max-height: 600px) {
@@ -72,8 +70,6 @@
                     filter: blur(10px) grayscale(100%) !important;
                     height: 125% !important;
                 }
-
-                .play { display: none !important; }
             }
 
             a {
@@ -86,7 +82,11 @@
                 left: 10;
             }
 
-            #player {
+            .translucent {
+                opacity: 0;
+            }
+
+            .player {
                 position: absolute;
                 bottom: 100px;
                 width: 0;
@@ -107,12 +107,13 @@
         <div class="play" id="button">
             <p id="button-icon" class="text">🔈</p>
         </div>
-        <div id="player"></div>
+        <div class="play translucent" id="yt-player"></div>
         <script async src="https://www.youtube.com/iframe_api"></script>
         <script>
             var player;
+            var first = false;
             function onYouTubeIframeAPIReady() {
-                player = new YT.Player('player', {
+                player = new YT.Player('yt-player', {
                     videoId: 'b_6K7vB_yhc',
                     width: 0,
                     height: 0,
@@ -132,7 +133,20 @@
                             e.target.mute();
                         },
                         onStateChange: function(e) {
-
+                            console.log(e.data);
+                            if (e.data === YT.PlayerState.ENDED) {
+                                player.playVideo();
+                            }
+                            if (e.data === YT.PlayerState.UNSTARTED) { // only happens when started manually
+                                first = true;
+                            }
+                            if (e.data === YT.PlayerState.PLAYING) {
+                                if (first) {
+                                    $('#button').click();
+                                }
+                                $('#yt-player').removeClass("play");
+                                $('#yt-player').addClass("player");
+                            }
                         }
                     }
                 });
