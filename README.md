@@ -1,8 +1,10 @@
+*This is part of a series of weekly projects that will be in this repository over the span of hacktoberfest.*
 *this is satire, it's meant to be cute and to see what potential PRs have (both during hacktoberfest and otherwise)*
 
-# Friends-List (Hacktoberfest 2018 project)
-Welcome! I need some help making my website, I'm writing a list of all my friends!
+# Hacktoberfest2018 ~ Week 1 Challenge.
 
+# Friends-List 
+Welcome! I need some help making my website, I'm writing a list of all my friends!
 
 # You have friends...?
 Believe it or not... **No!** 
