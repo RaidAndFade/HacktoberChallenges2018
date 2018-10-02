@@ -2,6 +2,32 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <title>Izumemori</title>
+        <link rel="shortcut icon" href="https://cdn.discordapp.com/attachments/496471618734915584/496471682349793313/favicon.ico">
+        <link rel="icon" sizes="16x16 32x32 64x64" href="https://cdn.discordapp.com/attachments/496471618734915584/496471682349793313/favicon.ico">
+        <link rel="icon" type="image/png" sizes="196x196" href="https://cdn.discordapp.com/attachments/496471618734915584/496473828956962847/favicon-192.png">
+        <link rel="icon" type="image/png" sizes="160x160" href="https://cdn.discordapp.com/attachments/496471618734915584/496473828675813389/favicon-160.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="https://cdn.discordapp.com/attachments/496471618734915584/496473390350073857/favicon-96.png">
+        <link rel="icon" type="image/png" sizes="64x64" href="https://cdn.discordapp.com/attachments/496471618734915584/496472562017239050/favicon-64.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://cdn.discordapp.com/attachments/496471618734915584/496472561727700992/favicon-32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://cdn.discordapp.com/attachments/496471618734915584/496471844552179757/favicon-16.png">
+        <link rel="apple-touch-icon" href="https://cdn.discordapp.com/attachments/496471618734915584/496472561782226964/favicon-57.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="https://cdn.discordapp.com/attachments/496471618734915584/496473390702526529/favicon-114.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="https://cdn.discordapp.com/attachments/496471618734915584/496472841424732163/favicon-72.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="https://cdn.discordapp.com/attachments/496471618734915584/496473390937538560/favicon-144.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="https://cdn.discordapp.com/attachments/496471618734915584/496472561832427532/favicon-60.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="https://cdn.discordapp.com/attachments/496471618734915584/496473390526496768/favicon-120.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="https://cdn.discordapp.com/attachments/496471618734915584/496472841819258890/favicon-76.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="https://cdn.discordapp.com/attachments/496471618734915584/496473828613029888/favicon-152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="https://cdn.discordapp.com/attachments/496471618734915584/496473829049368587/favicon-180.png">
+        <meta name="msapplication-TileColor" content="#FFFFFF">
+        <meta name="msapplication-TileImage" content="/favicon-144.png">
+        <meta name="msapplication-config" content="/browserconfig.xml">
+        <meta property="og:title" content="Izumemori" />
+        <meta property="og:type" content="website" />
+        <meta property="og:description" content="Very cool page by Izumemori" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:image" content="https://cdn.discordapp.com/attachments/321768194501115905/496465933619953664/a_0e0b5a51b7e32ef36a90b057fbe55729.gif" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <style>
             :root{
@@ -38,7 +64,7 @@
                 left: -40px;
                 right: -40px;
                 position: fixed;
-                filter: blur(10px) grayscale(100%);
+                filter: blur(7px) grayscale(100%);
                 height: 110%;
                 bottom: -40px;
                 background-image: url("https://media.giphy.com/media/12qXXrrsmfazxm/giphy.gif");
@@ -52,7 +78,7 @@
 
             @media only screen and (max-width: 600px) {
                 .background {
-                    filter: blur(10px) grayscale(100%) !important;
+                    filter: blur(5px) grayscale(100%) !important;
                     height: 125% !important;
                 }
 
@@ -67,7 +93,7 @@
 
             @media only screen and (max-height: 600px) {
                 .background {
-                    filter: blur(10px) grayscale(100%) !important;
+                    filter: blur(4px) grayscale(100%) !important;
                     height: 125% !important;
                 }
             }
@@ -112,7 +138,7 @@
         <script>
             var player;
             var first = true;
-            var autoplay = false;
+            var autoplay = true;
             function onYouTubeIframeAPIReady() {
                 player = new YT.Player('yt-player', {
                     videoId: 'b_6K7vB_yhc',
@@ -139,12 +165,12 @@
                                 player.playVideo();
                             }
                             if (e.data === YT.PlayerState.UNSTARTED) { // only happens when started manually
-                                autoplay = true;
+                                autoplay = false;
                             }
                             if (e.data === YT.PlayerState.PLAYING) {
                                 if (first)
                                 {
-                                    if (autoplay) {
+                                    if (!autoplay) {
                                         $('#button').click();
                                     }
                                     $('#yt-player').removeClass("play");
