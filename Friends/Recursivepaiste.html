@@ -1,0 +1,116 @@
+<html>
+    <head>
+        <title>Recursivepaiste</title>
+
+        <link href="https://fonts.googleapis.com/css?family=Anonymous+Pro" rel="stylesheet">
+
+        <style>
+            body {
+                margin: 0;
+                font-family: 'Anonymous Pro', monospace;
+                font-size:2em;
+                height: 100vh;
+            }
+
+            main {
+                background: #333;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .hidden {
+                opacity: 0;
+            }
+
+            .console-container {
+                font-size:2.5em;
+                text-align:center;
+                height:100%;
+            }
+
+            .console-underscore {
+                display:inline-block;
+                position:relative;
+                top:-0.10em;
+                left:10px;
+                color: #bdbdbd;
+            }
+
+            .test {
+                position: absolute;
+                bottom: 0;
+                font-size: .5em;
+                padding: .5em;
+            }
+
+            .test a {
+                color: #1976d2 !important;
+            }
+        </style>
+    </head>
+
+    <body>
+        <main class="console-container">
+            <span id='text'></span><div class='console-underscore' id='console'>&#95;</div>
+            <span class="test"><a href="https://github.com/Recursivepaiste">Recursivepaiste</a></span>
+        </main>
+
+        <script>
+        // function([string1, string2],target id,[color1,color2])
+        consoleText(['console.log()', 'findFriends()', 'Made with Love'], 'text', ['#d32f2f', '#1976d2', '#00796b']);
+
+        function consoleText(words, id, colors) {
+            var visible     = true,
+                con         = document.getElementById('console'),
+                letterCount = 1,
+                x           = 1,
+                waiting     = false,
+                target      = document.getElementById(id);
+
+            colors = (colors === undefined) ? ['fff'] : colors;
+
+            target.setAttribute('style', 'color:' + colors[0]);
+
+            window.setInterval(function() {
+                if (letterCount === 0 && waiting === false) {
+                    waiting = true;
+
+                    target.innerHTML = words[0].substring(0, letterCount);
+
+                    window.setTimeout(function() {
+                        var usedColor = colors.shift(),
+                            usedWord  = words.shift();
+
+                        colors.push(usedColor);
+                        words.push(usedWord);
+
+                        x = 1;
+
+                        target.setAttribute('style', 'color:' + colors[0]);
+
+                        letterCount += x;
+                        waiting = false;
+                    }, 1000)
+                } else if (letterCount === words[0].length + 1 && waiting === false) {
+                    waiting = true;
+
+                    window.setTimeout(function() {
+                        x = -1;
+                        letterCount += x;
+                        waiting = false;
+                    }, 5000)
+                } else if (waiting === false) {
+                    target.innerHTML = words[0].substring(0, letterCount);
+                    letterCount += x;
+                }
+            }, 120);
+
+            window.setInterval(function() {
+                con.className = (visible === true) ? 'console-underscore hidden' : 'console-underscore';
+                visible       = !visible;
+            }, 400)
+        }
+        </script>
+    </body>
+</html>
