@@ -28,6 +28,7 @@ I've got the best idea, my friends should make ***HTML FILES*** that have their 
 1. No Malicious Code (cookie sniffing, iframe hacking, css local file stealing, ios rootkits, while loops that never end, CPU Monero Miners)
 2. No NSFW (porn, nudes, pictures of your cat's testicles, severed heads)
 3. No ADS (No advertising your product, No having third party ads)
+4. Only a single file may be added per GitHub account. That's one. O N E.
 
 # Final Note
 Remember to be friendly, you're here to make friends.
