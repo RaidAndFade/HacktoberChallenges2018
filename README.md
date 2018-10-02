@@ -27,5 +27,11 @@ I've got the best idea, my friends should make ***HTML FILES*** that have their 
 2. No NSFW (porn, nudes, pictures of your cat's testicles, severed heads)
 3. No ADS (No advertising your product, No having third party ads)
 
+# Game Folder Rules
+**Your game must be HTML5**
+1. Name your game folder the title of your game
+2. All of your files must go in the relevant game folder
+3. You are allowed to contribute to other games; you aren't a prisoner to your own game.
+
 # Final Note
 Remember to be friendly, you're here to make friends.
