@@ -2,6 +2,32 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <title>Izumemori</title>
+        <link rel="shortcut icon" href="https://owo.whats-th.is/3e17a4.ico">
+        <link rel="icon" sizes="16x16 32x32 64x64" href="https://owo.whats-th.is/3e17a4.ico">
+        <link rel="icon" type="image/png" sizes="196x196" href="https://owo.whats-th.is/8abec9.png">
+        <link rel="icon" type="image/png" sizes="160x160" href="https://owo.whats-th.is/341754.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="https://owo.whats-th.is/aed9d3.png">
+        <link rel="icon" type="image/png" sizes="64x64" href="https://owo.whats-th.is/306d29.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://owo.whats-th.is/acb992.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://owo.whats-th.is/9d1491.png">
+        <link rel="apple-touch-icon" href="https://owo.whats-th.is/698df7.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="https://owo.whats-th.is/16a2c0.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="https://owo.whats-th.is/bb29a0.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="https://owo.whats-th.is/2b880a.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="https://owo.whats-th.is/e497a0.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="https://owo.whats-th.is/a69494.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="https://owo.whats-th.is/23806a.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="https://owo.whats-th.is/a80b30.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="https://owo.whats-th.is/957e8f.png">
+        <meta name="msapplication-TileColor" content="#FFFFFF">
+        <meta name="msapplication-TileImage" content="https://owo.whats-th.is/2b880a.png">
+        <meta name="msapplication-config" content="https://owo.whats-th.is/a9a536.xml">
+        <meta property="og:title" content="Izumemori" />
+        <meta property="og:type" content="website" />
+        <meta property="og:description" content="Very cool page by Izumemori" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:image" content="https://owo.whats-th.is/e33e4f.gif" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <style>
             :root{
@@ -38,7 +64,7 @@
                 left: -40px;
                 right: -40px;
                 position: fixed;
-                filter: blur(10px) grayscale(100%);
+                filter: blur(7px) grayscale(100%);
                 height: 110%;
                 bottom: -40px;
                 background-image: url("https://media.giphy.com/media/12qXXrrsmfazxm/giphy.gif");
@@ -52,7 +78,7 @@
 
             @media only screen and (max-width: 600px) {
                 .background {
-                    filter: blur(10px) grayscale(100%) !important;
+                    filter: blur(5px) grayscale(100%) !important;
                     height: 125% !important;
                 }
 
@@ -67,7 +93,7 @@
 
             @media only screen and (max-height: 600px) {
                 .background {
-                    filter: blur(10px) grayscale(100%) !important;
+                    filter: blur(4px) grayscale(100%) !important;
                     height: 125% !important;
                 }
             }
@@ -112,7 +138,7 @@
         <script>
             var player;
             var first = true;
-            var autoplay = false;
+            var autoplay = true;
             function onYouTubeIframeAPIReady() {
                 player = new YT.Player('yt-player', {
                     videoId: 'b_6K7vB_yhc',
@@ -139,12 +165,12 @@
                                 player.playVideo();
                             }
                             if (e.data === YT.PlayerState.UNSTARTED) { // only happens when started manually
-                                autoplay = true;
+                                autoplay = false;
                             }
                             if (e.data === YT.PlayerState.PLAYING) {
                                 if (first)
                                 {
-                                    if (autoplay) {
+                                    if (!autoplay) {
                                         $('#button').click();
                                     }
                                     $('#yt-player').removeClass("play");
