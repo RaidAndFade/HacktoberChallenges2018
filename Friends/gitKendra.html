@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+  <title>gitKendra</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+
+<body>
+  <nav class="red lighten-1" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="https://www.github.com/gitKendra" class="brand-logo">gitKendra</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="https://hacktoberfest.digitalocean.com/" target="_blank">About Hacktoberfest</a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="sidenav">
+        <li><a href="https://hacktoberfest.digitalocean.com/" target="_blank">About Hacktoberfest</a></li>
+      </ul>
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+  <div class="section no-pad-bot deep-purple" id="index-banner">
+    <div class="container">
+      <br><br>
+      <h1 class="header center white-text">Hi Hackers!</h1>
+      <div class="row center">
+        <h5 class="header col s12 light amber-text">
+          <div class="typewrite" style="height:2rem;" data-period="2000" data-type='[ "Hi, I am Kendra.", "I love to Code.", "I Love to Play.", "I Love to Develop.", "I Love Hacktoberfest!" ]'>
+            <span class="wrap"></span></div>
+        </h5>
+      </div>
+      <div class="row center">
+        <p class="col s12 dark">
+          I created this page quickly using the <a href="http://materializecss.com/getting-started.html" id="download-button"
+            class="btn-large waves-effect waves-light deep-purple">Materialize</a> starter template
+        </p>
+      </div>
+      <br><br>
+
+    </div>
+  </div>
+
+
+  <div class="container">
+    <div class="section">
+
+      <!--   Icon Section   -->
+      <div class="row">
+        <div class="col s12 m6">
+          <div class="icon-block">
+            <h2 class="center red-text"><i class="large material-icons">code</i></h2>
+            <h5 class="center">Likes to Code...</h5>
+
+            <p class="center light">All day long</p>
+            <p class="center light">JavaScript | HTML | CSS | Node.js | React</p>
+          </div>
+        </div>
+
+        <div class="col s12 m6">
+          <div class="icon-block">
+            <h2 class="center red-text"><i class="large material-icons">videogame_asset</i></h2>
+            <h5 class="center">Likes to Play...</h5>
+
+            <p class="center light">Lots and lots of games</p>
+            <p class="center light">Outdoors. Indoors. Cards. Boards. Digital. Console. PC.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+    <br><br>
+  </div>
+
+  <footer class="page-footer deep-purple">
+    <div class="container">
+      <div class="row">
+        <div class="col l3 s12">
+        </div>
+        <div class="col l6 s12">
+          <h5 class="amber-text">A Little About Me</h5>
+          <p class="grey-text text-lighten-4">My name is Kendra. I recently found a passion for coding and LOVE it!</p>
+        </div>
+        <div class="col l3 s12">
+          <h5 class="amber-text"></h5>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+        Made by <a class="deep-purple-text text-lighten-3" href="https://www.github.com/gitKendra">
+          gitKendra</a> utilizing <a class="deep-purple-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+        starter template
+      </div>
+    </div>
+  </footer>
+
+
+  <!--  Scripts-->
+  <script>
+    var TxtType = function (el, toRotate, period) {
+      this.toRotate = toRotate;
+      this.el = el;
+      this.loopNum = 0;
+      this.period = parseInt(period, 10) || 2000;
+      this.txt = '';
+      this.tick();
+      this.isDeleting = false;
+    };
+
+    TxtType.prototype.tick = function () {
+      var i = this.loopNum % this.toRotate.length;
+      var fullTxt = this.toRotate[i];
+
+      if (this.isDeleting) {
+        this.txt = fullTxt.substring(0, this.txt.length - 1);
+      } else {
+        this.txt = fullTxt.substring(0, this.txt.length + 1);
+      }
+
+      this.el.innerHTML = '<span class="wrap">' + this.txt + '</span>';
+
+      var that = this;
+      var delta = 200 - Math.random() * 100;
+
+      if (this.isDeleting) { delta /= 2; }
+
+      if (!this.isDeleting && this.txt === fullTxt) {
+        delta = this.period;
+        this.isDeleting = true;
+      } else if (this.isDeleting && this.txt === '') {
+        this.isDeleting = false;
+        this.loopNum++;
+        delta = 500;
+      }
+
+      setTimeout(function () {
+        that.tick();
+      }, delta);
+    };
+
+    window.onload = function () {
+      var elements = document.getElementsByClassName('typewrite');
+      for (var i = 0; i < elements.length; i++) {
+        var toRotate = elements[i].getAttribute('data-type');
+        var period = elements[i].getAttribute('data-period');
+        if (toRotate) {
+          new TxtType(elements[i], JSON.parse(toRotate), period);
+        }
+      }
+      // INJECT CSS
+      var css = document.createElement("style");
+      css.type = "text/css";
+      css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid amber}";
+      document.body.appendChild(css);
+    };
+  </script>
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+</body>
+
+</html>
