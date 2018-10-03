@@ -10,7 +10,7 @@ from datetime import datetime
 API_AUTH = ()
 REPO_URL = "https://api.github.com/repos/RaidAndFade/Hacktoberfest2018/pulls"
 RAIDANDFADE_ID = 5139165
-HAZARDOUS_TAGS = ["script","style","meta","iframe","img","video","audio","link","svg"]
+HAZARDOUS_TAGS = ("script","style","meta","iframe","img","video","audio","link","svg")
 
 class PRChecker:
     def __init__(self, pr_info: dict):
@@ -65,8 +65,8 @@ class PRChecker:
 
             if path[1].lower().endswith('.html'):
 
-                valid_urls = [f"https://www.github.com/{uname}",f"https://github.com/{uname}",
-                                f"http://github.com/{uname}",f"http://www.github.com/{uname}"]
+                valid_urls = (f"https://www.github.com/{uname}",f"https://github.com/{uname}",
+                                f"http://github.com/{uname}",f"http://www.github.com/{uname}")
                 has_url = False
 
                 for l in valid_urls:
