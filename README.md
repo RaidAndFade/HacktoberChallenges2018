@@ -1,6 +1,9 @@
 *This is part of a series of weekly projects that will be in this repository over the span of hacktoberfest.*
 *this is satire, it's meant to be cute and to see what potential PRs have (both during hacktoberfest and otherwise)*
 
+# What is Hacktoberfest?
+Hacktoberfest is a program by Digital Ocean and Github, where you can easily win a T-Shirt just by making 5 pull requests in the month of October to any open source projects on Github.
+
 # Hacktoberfest2018 ~ Week 1 Challenge.
 
 # Friends-List 
