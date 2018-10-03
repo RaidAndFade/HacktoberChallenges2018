@@ -190,12 +190,12 @@ if __name__ == '__main__':
                 prcomments = requests.get(i['comments_url'], auth=API_AUTH).json()
                 last_bot_comment = get_most_recent_bot_comment(i,prcomments)
                 last_check = get_bot_checked_sha(last_bot_comment)
-                if last_check == i['merge_commit_sha']:
+                if last_check == i['head']['sha']:
                     continue
 
             #these need to be checked/merged by humans, don't bother unless something changes
             if has_label(i,"attention") or has_label(i,"checked"): 
-                if not (last_check == i['merge_commit_sha']):
+                if not (last_check == i['head']['sha']):
                     msgtime = datetime.strptime(last_bot_comment['created_at'],"%Y-%m-%dT%H:%M:%SZ")
                     curtime = datetime.utcnow()
                     timediff = (curtime-msgtime).total_seconds()
