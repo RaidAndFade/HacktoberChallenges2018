@@ -157,7 +157,7 @@ def remove_label(pr,lblname):
         print(rml_r)
 def send_comment(pr,msg):
     msg += "\n\n***This is an automated response, beep boop.\nif you think there is a mistake, contact a maintainer***"
-    msg += "\n> "+pr['merge_commit_sha']
+    msg += "\n> "+pr['head']['sha']
     print(msg)
     #return
     mr = requests.post(pr['comments_url'],auth=API_AUTH,json={'body':msg}).json()
