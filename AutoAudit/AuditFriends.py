@@ -2,6 +2,7 @@
 
 import os
 import requests
+from threading import Timer
 from unidiff import PatchSet
 from datetime import datetime
 
@@ -158,7 +159,7 @@ def remove_label(pr,lblname):
 def send_comment(pr,msg):
     msg += "\n\n***This is an automated response, beep boop.\nif you think there is a mistake, contact a maintainer***"
     msg += "\n> "+pr['head']['sha']
-    print(msg)
+    #print(msg)
     #return
     mr = requests.post(pr['comments_url'],auth=API_AUTH,json={'body':msg}).json()
     if 'message' in mr:
@@ -180,17 +181,30 @@ def get_bot_checked_sha(c):
         return bdy[-1][2:]
     return None
 
-if __name__ == '__main__':
+def get_labels(i):
+    lbls = []
+    for l in i['labels']:
+        lbls = lbls + [l['name']]
+    return ",".join(lbls)
+
+def get_cur_time():
+    return datetime.time(datetime.now().replace(microsecond=0))
+
+def check_prs():
+    print(f"[{get_cur_time()}] ==== Checking PRs ====")
     r = requests.get(REPO_URL, auth=API_AUTH)
     for i in r.json():
         if i['state'] == 'open':
             comment = ""
             
+            print(f"[{get_cur_time()}] "+str(i['number'])+": ",end="")
+
             if len(i['labels']) > 0:
                 prcomments = requests.get(i['comments_url'], auth=API_AUTH).json()
                 last_bot_comment = get_most_recent_bot_comment(i,prcomments)
                 last_check = get_bot_checked_sha(last_bot_comment)
                 if last_check == i['head']['sha']:
+                    print("<"+get_labels(i)+"> No change since last comment, skipping.")
                     continue
 
             #these need to be checked/merged by humans, don't bother unless something changes
@@ -200,7 +214,9 @@ if __name__ == '__main__':
                     curtime = datetime.utcnow()
                     timediff = (curtime-msgtime).total_seconds()
                     if timediff < 3600: # if its been less than an hour since last comment
+                        print("Changed less than an hour ago, skipping.")
                         continue
+                    print("Changed more than an hour ago: ",end="")
                     comment += "This request's code has changed since approval. Re-Judging contents...\n"
             
             if has_label(i,"needs work"):
@@ -208,18 +224,20 @@ if __name__ == '__main__':
                 # is the last comment still by the bot? if so, don't re-check
                 if len(prcomments) > 0: # how the fuck can it be <0 other than someone just doing an invalid tag for fuck-all
                     if prcomments[-1]['id'] == last_bot_comment['id']:
-                        print(i['number'],"has changed, but is marked invalid and has not been responded to, Skipping")
+                        print("Marked invalid and has not been responded to, skipping.")
                         continue
                 
             pr = PRChecker(i)
 
             if pr.invalid: # the pr contains a mistake, and is invalid
-                print(f"\nPull Request #{pr.number} has {len(pr.invalid_reasons)} Invalid Reason(s):\n")
                 reasons = ""
                 rc = 1
                 for r in pr.invalid_reasons:
                     reasons += f"\n{rc}. {r}"
                     rc += 1 
+
+                
+                print(" invalid because :"+reasons)
                 
                 comment += "Your pull request needs further work because of the following reason(s):"
                 comment += reasons
@@ -232,12 +250,13 @@ if __name__ == '__main__':
                 if not has_label(i,"needs work"):
                     add_label(i,"needs work")
             elif pr.attention_required: #something is wrong and the pr needs manual approval
-                print(f"\nPull Request #{pr.number} has {len(pr.attention_reasons)} Attention Reason(s):\n")
                 reasons = ""
                 rc = 1
                 for r in pr.attention_reasons:
                     reasons += f"\n{rc}. {r}"
                     rc += 1 
+
+                print(" needs attention because :"+reasons)
                 
                 comment += "Your pull request seems good, but must be checked by a human maintainer for the following reason(s):"
                 comment += reasons
@@ -256,8 +275,19 @@ if __name__ == '__main__':
                     remove_label(i,"attention")
                 if not has_label(i,"autochecked"):
                     add_label(i,"autochecked")
+
+                print(" clean, being merged now. ",end="")
         
                 comment += "Your pull request looks good, and is ready for merging!"
                 comment += "\n\nThank you for being a part of Open Source, I hope you continue to help other repositories in the future!"
                 send_comment(i,comment)
                 do_merge(i)
+            print("",flush=True)
+    print(f"[{get_cur_time()}] ==== Finished ===")
+
+if __name__ == '__main__':
+    check_prs()
+    while True:
+        t = Timer(900, check_prs) # check every 900s (15m)
+        t.start()
+        t.join()
