@@ -203,7 +203,7 @@ if __name__ == '__main__':
                         continue
                     comment += "This request's code has changed since approval. Re-Judging contents...\n"
             
-            if has_label(i,"invalid"):
+            if has_label(i,"needs work"):
                 # if the api hasnt properly updated yet, continue
                 # is the last comment still by the bot? if so, don't re-check
                 if len(prcomments) > 0: # how the fuck can it be <0 other than someone just doing an invalid tag for fuck-all
@@ -221,16 +221,16 @@ if __name__ == '__main__':
                     reasons += f"\n{rc}. {r}"
                     rc += 1 
                 
-                comment += "Your pull request is currently considered invalid for the following reason(s):"
+                comment += "Your pull request needs further work because of the following reason(s):"
                 comment += reasons
-                comment += "\n\nOnce you have resolved the issues, comment on this request to be re-judged"
+                comment += "\n\nOnce you have resolved the issues, **comment on this request to be re-judged**"
                 if has_label(i,"autochecked"):
                     remove_label(i,"autochecked")
                 if has_label(i,"attention"):
                     remove_label(i,"attention")
                 send_comment(i,comment)
-                if not has_label(i,"invalid"):
-                    add_label(i,"invalid")
+                if not has_label(i,"needs work"):
+                    add_label(i,"needs work")
             elif pr.attention_required: #something is wrong and the pr needs manual approval
                 print(f"\nPull Request #{pr.number} has {len(pr.attention_reasons)} Attention Reason(s):\n")
                 reasons = ""
@@ -244,14 +244,14 @@ if __name__ == '__main__':
                 comment += "\n\nPlease be patient until a maintainer has time to look over your contribution."
                 if has_label(i,"autochecked"):
                     remove_label(i,"autochecked")
-                if has_label(i,"invalid"):
-                    remove_label(i,"invalid")
+                if has_label(i,"needs work"):
+                    remove_label(i,"needs work")
                 send_comment(i,comment)
                 if not has_label(i,"attention"):
                     add_label(i,"attention")
             else: # the pr looks good and can be merged by a maintainer
-                if has_label(i,"invalid"):
-                    remove_label(i,"invalid")
+                if has_label(i,"needs work"):
+                    remove_label(i,"needs work")
                 if has_label(i,"attention"):
                     remove_label(i,"attention")
                 if not has_label(i,"autochecked"):
