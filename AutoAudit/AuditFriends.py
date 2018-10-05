@@ -179,15 +179,26 @@ def get_most_recent_bot_comment(pr,cmlist):
                 return c
     return None
 
+def op_reply_to_latest_bot(pr,cmlist,botcmt):
+    found_latest = False
+    for c in cmlist:
+        if not found_latest:
+            if c['id'] == botcmt['id']:
+                found_latest = True
+            continue
+        if c['user']['id'] == pr['user']['id']:
+            return c
+    return None
+
 def get_bot_checked_sha(c):
     if c is not None:
         bdy = c['body'].replace("\r","").split('\n')
         return bdy[-1][2:]
     return None
 
-def get_labels(i):
+def get_labels(pr):
     lbls = []
-    for l in i['labels']:
+    for l in pr['labels']:
         lbls = lbls + [l['name']]
     return ",".join(lbls)
 
@@ -234,8 +245,9 @@ def check_prs():
                     comment += "This request's code has changed since approval. Re-Judging contents...\n"
             
             if has_label(i,"needs work") and len(prcomments) > 0:
-                # is the last comment still by the bot? if so, don't re-check
-                if prcomments[-1]['id'] == last_bot_comment['id']:
+                # checks if there are new comments BUT the op has not replied since the latest bot comment
+                if last_bot_comment['id'] != prcomments[-1]['id'] and 
+                    op_reply_to_latest_bot(i,prcomments,last_bot_comment) is None:
                     print("<needs work> Changed but no response from OP, skipping.")
                     continue
                 
