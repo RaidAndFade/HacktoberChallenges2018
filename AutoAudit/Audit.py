@@ -48,6 +48,9 @@ class PRChecker:
         if not self.invalid:
             self.invalid = True
 
+    def check_game_submission(self,uname,new_file,fcount):
+        pass
+
     def check_friends_submission(self,uname,new_file,fcount):
         path = os.path.split(new_file['diff'][0].path)
 
@@ -103,19 +106,20 @@ class PRChecker:
 
             fcount = new_file['diff_file'].count("diff --git")
 
-            uname = self.pr_info['user']['login']
-
             if fcount < 1:
                 self.add_invalid('Less than one file has been added/removed/modified.')
                 return
             
+
+            uname = self.pr_info['user']['login']
+
             # get the first file (this should be fine)
             path = os.path.split(new_file['diff'][0].path)
 
 
             if path[0].split("/")[0] == "Game":
-
-                pass
+                
+                self.check_game_submission(uname,new_file,fcount)
                 
             elif path[0] == "Friends":
 
@@ -141,7 +145,17 @@ class PRChecker:
 
     def check_diff(self):
         diff_file = requests.get(self.pr_info['diff_url'], auth=API_AUTH).text
+        if diff_file == "Sorry, this diff is unavailable.":
+            self.add_invalid('Your PR looks like an ORPHAN (you deleted the fork). This cannot be automatically checked. Please close this PR and create a new one without removing the fork.')
+            return
+
         diff = PatchSet(diff_file)
+
+        fcount = diff_file.count("diff --git")
+
+        if fcount < 1:
+            self.add_invalid('Less than one file has been added/removed/modified.')
+            return
 
         if diff[0].is_modified_file:
             self.add_attention('This file modifies a pre-existing file.')
