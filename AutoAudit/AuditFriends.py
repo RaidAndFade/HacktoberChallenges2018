@@ -246,8 +246,8 @@ def check_prs():
             
             if has_label(i,"needs work") and len(prcomments) > 0:
                 # checks if there are new comments BUT the op has not replied since the latest bot comment
-                if last_bot_comment['id'] != prcomments[-1]['id'] and 
-                    op_reply_to_latest_bot(i,prcomments,last_bot_comment) is None:
+                if last_bot_comment['id'] != prcomments[-1]['id'] \
+                    and op_reply_to_latest_bot(i,prcomments,last_bot_comment) is None:
                     print("<needs work> Changed but no response from OP, skipping.")
                     continue
                 
