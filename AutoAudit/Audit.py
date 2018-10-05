@@ -108,16 +108,21 @@ class PRChecker:
             if fcount < 1:
                 self.add_invalid('Less than one file has been added/removed/modified.')
                 return
+            
+            # get the first file (this should be fine)
+            path = os.path.split(new_file['diff'][0].path)
 
-            if path[0] == "Game":
 
+            if path[0].split("/")[0] == "Game":
+
+                pass
                 
             elif path[0] == "Friends":
 
-                check_friends_submission(uname,new_file,fcount)
+                self.check_friends_submission(uname,new_file,fcount)
 
             else:
-                self.add_attention(f'Your file is not in a project folder ("Friends"). This may be intentional, but most likely not.')
+                self.add_attention('Your file is not in a project folder ("Friends"). This may be intentional, but most likely not.')
 
         result = {
             'number': self.pr_info['number'],
