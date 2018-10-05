@@ -76,7 +76,6 @@ class PRChecker:
                         break
                 
                 if not has_url:
-                    print("has ")
                     self.add_invalid('Your file does not clearly show a link to your github profile.')
 
                 needs_review = False
@@ -146,6 +145,11 @@ def do_merge(pr):
     merge_r = requests.put(pr['url']+"/merge",auth=API_AUTH,json={"commit_title":"Auto-Merging PR#"+str(pr['number']),"commit_message":"Automatically merged PR#"+str(pr['number'])+" as it seemed safe."})
     if 'message' in merge_r:
         print(merge_r)
+def close(pr):
+    #PATCH /repos/:owner/:repo/pulls/:number state=closed
+    close_r = requests.patch(pr['url'],auth=API_AUTH,json={"state":"closed"})
+    if 'message' in close_r:
+        print(close_r)
 def add_label(pr,lblname):
     #return
     addl_r = requests.post(pr['issue_url']+"/labels",auth=API_AUTH,json=[lblname]).json()
@@ -203,29 +207,37 @@ def check_prs():
                 prcomments = requests.get(i['comments_url'], auth=API_AUTH).json()
                 last_bot_comment = get_most_recent_bot_comment(i,prcomments)
                 last_check = get_bot_checked_sha(last_bot_comment)
-                if last_check == i['head']['sha']:
+                msgtime = datetime.strptime(last_bot_comment['created_at'],"%Y-%m-%dT%H:%M:%SZ")
+                curtime = datetime.utcnow()
+                # if its been > 24h since issues posted, and needs-work
+                if has_label(i,"needs work") and (curtime-msgtime).total_seconds() > 60*60*24: 
+                    comment = "This PR has been idle for more than 24 hours, and will now be closed. Feel free to re-open."
+                    send_comment(i,comment)
+                    close(i)
+                    print("<needs work> 24h since issues posted, no response, closing.")
+                    continue
+                if last_check == i['head']['sha']: # if no new commits were pushed
+
                     print("<"+get_labels(i)+"> No change since last comment, skipping.")
                     continue
 
             #these need to be checked/merged by humans, don't bother unless something changes
-            if has_label(i,"attention") or has_label(i,"checked"): 
+            if (has_label(i,"attention") or has_label(i,"checked")) and len(prcomments) > 0: 
                 if not (last_check == i['head']['sha']):
                     msgtime = datetime.strptime(last_bot_comment['created_at'],"%Y-%m-%dT%H:%M:%SZ")
                     curtime = datetime.utcnow()
                     timediff = (curtime-msgtime).total_seconds()
                     if timediff < 3600: # if its been less than an hour since last comment
-                        print("Changed less than an hour ago, skipping.")
+                        print("<"+get_labels(i)+"> Changed less than an hour ago, skipping.")
                         continue
-                    print("Changed more than an hour ago: ",end="")
+                    print("<"+get_labels(i)+"> Changed more than an hour ago: ",end="")
                     comment += "This request's code has changed since approval. Re-Judging contents...\n"
             
-            if has_label(i,"needs work"):
-                # if the api hasnt properly updated yet, continue
+            if has_label(i,"needs work") and len(prcomments) > 0:
                 # is the last comment still by the bot? if so, don't re-check
-                if len(prcomments) > 0: # how the fuck can it be <0 other than someone just doing an invalid tag for fuck-all
-                    if prcomments[-1]['id'] == last_bot_comment['id']:
-                        print("Marked invalid and has not been responded to, skipping.")
-                        continue
+                if prcomments[-1]['id'] == last_bot_comment['id']:
+                    print("<needs work> Changed but no response from OP, skipping.")
+                    continue
                 
             pr = PRChecker(i)
 
