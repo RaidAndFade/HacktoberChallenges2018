@@ -1,0 +1,33 @@
+<!DOCTYPE html5>
+
+<html>
+
+  <style>
+
+    body {
+
+      background-color: darkslateblue;
+
+      color: lightblue;
+
+    }
+
+  </style>
+
+  <head>
+
+    <title>Hey.</title>
+
+  </head>
+
+  <body>
+
+    hello world~ <br/>
+
+    <br />
+
+    check out my github here: <a href="http://github.com/thomascowburn">http://github.com/thomascowburn</a>
+
+  </body>
+
+</html>
