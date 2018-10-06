@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Ste Royle</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <style>
+      body {
+        font-family: 'Open Sans', sans-serif;
+        text-align: center;
+        padding: 50px 10px;
+      }
+      h1 { margin: 0 0 10px;}
+      p { margin: 0 0 20px;}
+      a { color: #599231;}
+      .card {
+        margin: auto;
+        width: 250px;
+        height: 250px;
+        border: 40px solid #599231;
+        -webkit-box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        animation-name: pulse;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-in-out;
+      }
+      @keyframes pulse {
+        0% {border-radius: 30%}
+        50% {border-radius: 50%}
+        100% {border-radius: 30%}
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h1>Ste Royle</h1>
+      <p><a href="https://github.com/steroyle">https://github.com/steroyle</a></p>
+    </div>
+  </body>
+</html>
