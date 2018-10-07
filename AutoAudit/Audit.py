@@ -12,6 +12,8 @@ API_AUTH = ()
 REPO_URL = "https://api.github.com/repos/RaidAndFade/Hacktoberfest2018/pulls"
 RAIDANDFADE_ID = 5139165
 HAZARDOUS_TAGS = ("script","style","meta","iframe","img","video","audio","link","svg")
+BAD_WORDS = ("anal","anus","ballsack","blowjob","blow job","boner","clit","cock","cunt","dick","fag","dildo","fuck","jizz",
+             "labia","urethra","nigg","penis","pussy","scrotum","sex","slut","smegma","spunk","twat","vagina","wank","whore")
 
 class PRChecker:
     def __init__(self, pr_info: dict):
