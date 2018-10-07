@@ -5,15 +5,15 @@ import requests
 from threading import Timer
 from unidiff import PatchSet
 from datetime import datetime
-
+import gitkey
 
 #this should be an env var but i use this script on more than one device so it's just a pain to make it an envvar
-API_AUTH = ()
+API_AUTH = gitkey.AUTH
 REPO_URL = "https://api.github.com/repos/RaidAndFade/Hacktoberfest2018/pulls"
 RAIDANDFADE_ID = 5139165
 HAZARDOUS_TAGS = ("script","style","meta","iframe","img","video","audio","link","svg")
 BAD_WORDS = ("anal","anus","ballsack","blowjob","blow job","boner","clit","cock","cunt","dick","fag","dildo","fuck","jizz",
-             "labia","urethra","nigg","penis","pussy","scrotum","sex","slut","smegma","spunk","twat","vagina","wank","whore")
+             "labia","urethra","nigg","penis","porn","pussy","scrotum","sex","slut","smegma","spunk","twat","vagina","wank","whore")
 
 class PRChecker:
     def __init__(self, pr_info: dict):
@@ -71,6 +71,11 @@ class PRChecker:
             has_url = False
             has_bad_url = False
 
+            #todo if shit gets rowdy, have a list of alternate chars {"a":["4"]} and if any of those variations are included 
+            # just straight up lock the pr for spam (and possibly auto-close future prs by the same person)
+            if any(w in new_file['lines'] for w in BAD_WORDS):
+                self.add_attention('Your file potentially has references to foul language.')
+
             for l in valid_urls:
                 if l.lower() in new_file['lines']:
                     p = new_file['lines'][new_file['lines'].index(l.lower())+len(l):]
@@ -78,7 +83,9 @@ class PRChecker:
                     if forbidden_next_chars.count(p[0]) > 0:
                         has_bad_url = True
                         continue
-                    
+                    else:
+                        has_bad_url = False
+
                     has_url = True
                     break
             
