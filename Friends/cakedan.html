@@ -121,6 +121,13 @@
           context.fillText('faggot', canvas.width / 2, canvas.height / 2);
           context.closePath();
 
+          context.beginPath();
+          context.fillStyle = 'white';
+          context.font = `${canvas.width / 50}px Arial`;
+          context.textAlign = 'center';
+          context.fillText('not a faggot: https://github.com/cakedan', canvas.width / 2, canvas.height - (canvas.height / 3));
+          context.closePath();
+
           balls.forEach((ball) => ball.draw(context, canvas));
           window.requestAnimationFrame(frame);
         };
