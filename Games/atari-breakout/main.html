@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Atari Breakout</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+	<style type="text/css">
+		button {
+			margin:  10px;
+		}
+	</style>
+</head>
+<body>
+<div class="container ">
+	<div class="row" style="padding: 10px">
+		<div class="col-md-12 text-center alert alert-primary">
+			<h1>ATARI BREAKOUT</h1>			
+		</div>	
+	</div>
+	<div class="row ">
+		<div class="col-sm-4 text-center border border-primary  mr-auto" style="padding: 35px">
+			<h3><strong><u>Instructions</u></strong></h3>
+			<ul>
+				<li> Slide Mouse or press left arrow,right arrow to control the paddle.</li>
+				<li> Press P to pause the game , press P again to resume.</li>
+				<li> Each brick needs three hit to be completely destroyed.</li>
+				<li> Click on Easy,Medium,Hard button to set ball speed. </li>
+				<li> Click Start button to play.</li>
+			</ul>
+			<button id="startbutton" class="btn btn-success" onclick="draw()">Start</button><br/>
+			<button id="easybutton" class="btn btn-info"  onclick="choose_difficulty('Easy')" disabled="true">Easy</button>
+			<button id="mediumbutton" class="btn btn-warning"  onclick="choose_difficulty('Medium')">Medium</button>
+			<button id="hardbutton" class="btn btn-danger"  onclick="choose_difficulty('Hard')">Hard</button>
+		</div>
+		<div class="col-sm-7 border border-primary">
+			<canvas id="myCanvas" width="640" height="480"></canvas>	
+		</div>
+	</div>
+	<hr>
+</div>
+<script>	
+	var canvas = document.getElementById("myCanvas");
+	var ctx = canvas.getContext("2d");
+	var ballRadius = 10;
+	var x = canvas.width/2;
+	var y = canvas.height-30;
+	var dx = 2;
+	var dy = -2;
+	var paddleHeight = 10;
+	var paddleWidth = 75;
+	var paddleX = (canvas.width-paddleWidth)/2;
+	var rightPressed = false;
+	var leftPressed = false;
+	var brickRowCount = 7;
+	var brickColumnCount = 6;
+	var brickWidth = 75;
+	var brickHeight = 20;
+	var brickPadding = 10;
+	var brickOffsetTop = 30;
+	var brickOffsetLeft = 30;
+	var score = 0;
+	var lives = 3;
+	var pause = false;
+	// var colorArray = ["#FF8C00","#FF00FF","#008000","#FFA500","#FF0000","#00FF7F","#FFFF00","#4682B4","#A0522D","#800080"]
+	var bricks = [];
+	for(c=0; c<brickColumnCount; c++) {
+	    bricks[c] = [];
+	    for(r=0; r<brickRowCount; r++) {
+	        bricks[c][r] = { x: 0, y: 0, status: 3 };
+	    }
+	}
+	document.addEventListener("keydown", keyDownHandler, false);
+	document.addEventListener("keyup", keyUpHandler, false);
+	document.addEventListener("mousemove", mouseMoveHandler, false);
+	function choose_difficulty(choice) {
+		if (choice == 'Easy') {
+			choice = 2;
+			document.getElementById("easybutton").disabled = true;
+			document.getElementById("mediumbutton").disabled = false;
+			document.getElementById("hardbutton").disabled = false;
+		}
+		else if (choice == 'Medium') {
+			choice = 4;
+			document.getElementById("easybutton").disabled = false;
+			document.getElementById("mediumbutton").disabled = true;
+			document.getElementById("hardbutton").disabled = false;			
+		}
+		else {
+			choice = 6;
+			document.getElementById("easybutton").disabled = false;
+			document.getElementById("mediumbutton").disabled = false;
+			document.getElementById("hardbutton").disabled = true;			
+		}
+		dx = (dx/Math.abs(dx))*choice;
+		dy = (dy/Math.abs(dy))*choice;
+	}
+	function keyDownHandler(e) {
+	    if(e.keyCode == 39) {
+	        rightPressed = true;
+	    }
+	    else if(e.keyCode == 37) {
+	        leftPressed = true;
+	    }
+	    else if(e.keyCode == 80) {
+	    	if (pause == true)
+	        	pause = false;
+	        else
+	        	pause = true;
+	    }
+	}
+	function keyUpHandler(e) {
+	    if(e.keyCode == 39) {
+	        rightPressed = false;
+	    }
+	    else if(e.keyCode == 37) {
+	        leftPressed = false;
+	    }
+	}
+	function mouseMoveHandler(e) {
+	    var relativeX = e.clientX - canvas.offsetLeft - screen.width/2.32;
+	    if(relativeX > 0 && relativeX < canvas.width) {
+	        paddleX = relativeX - paddleWidth/2;
+	    }
+	}
+	function collisionDetection() {
+	    for(c=0; c<brickColumnCount; c++) {
+	        for(r=0; r<brickRowCount; r++) {
+	            var b = bricks[c][r];
+	            if(b.status > 0 ) {
+	                if(x > b.x && x < b.x+brickWidth && y > b.y && y < b.y+brickHeight) {
+	                    dy = -dy;
+	                    b.status--;
+	                    if (b.status == 0)
+	                    	score++;
+	                    if(score == brickRowCount*brickColumnCount) {
+	                        alert("YOU WIN, CONGRATS!");
+	                        document.location.reload();
+	                    }
+	                }
+	            }
+	        }
+	    }
+	}
+	
+	function drawBackground() {
+	    ctx.beginPath();
+	    ctx.rect(0, 0, canvas.width, canvas.height);
+	    ctx.fillStyle = "#FFFFFF";
+	    ctx.fill();
+	    ctx.closePath();
+	}
+	function drawBall() {
+	    ctx.beginPath();
+	    ctx.arc(x, y, ballRadius, 0, Math.PI*2);
+	    ctx.fillStyle = "#0095DD";
+	    ctx.fill();
+	    ctx.closePath();
+	}
+	function drawPaddle() {
+	    ctx.beginPath();
+	    ctx.rect(paddleX, canvas.height-paddleHeight, paddleWidth, paddleHeight);
+	    ctx.fillStyle = "#004085";
+	    ctx.fill();
+	    ctx.closePath();
+	}
+	function drawBricks() {
+	    for(c=0; c<brickColumnCount; c++) {
+	        for(r=0; r<brickRowCount; r++) {
+	            if(bricks[c][r].status > 0) {
+	                var brickX = (r*(brickWidth+brickPadding))+brickOffsetLeft;
+	                var brickY = (c*(brickHeight+brickPadding))+brickOffsetTop;
+	                bricks[c][r].x = brickX;
+	                bricks[c][r].y = brickY;
+	                ctx.beginPath();
+	                ctx.rect(brickX, brickY, brickWidth-5, brickHeight);
+	                if (bricks[c][r].status == 1)
+	                	ctx.fillStyle = "#FF0000";
+	                else if (bricks[c][r].status == 2)
+	                	ctx.fillStyle = "#b12b38";
+	                else
+	                	ctx.fillStyle = "#32373c";
+	                ctx.fill();
+	                ctx.closePath();
+	            }
+	        }
+	    }
+	}
+	function drawScore() {
+	    ctx.font = "16px Arial";
+	    ctx.fillStyle = "#0095DD";
+	    ctx.fillText("Score: "+score, 8, 20);
+	}
+	function drawLives() {
+	    ctx.font = "16px Arial";
+	    ctx.fillStyle = "#0095DD";
+	    ctx.fillText("Lives: "+lives, canvas.width-65, 20);
+	}
+	function pausecomp(millis)
+	{
+	    var date = new Date();
+	    var curDate = null;
+	    do { curDate = new Date(); }
+	    while(curDate-date < millis);
+	}
+	function draw() {
+		document.getElementById("startbutton").disabled = true;	
+		if (pause == false) {				
+		    ctx.clearRect(0, 0, canvas.width, canvas.height);
+		    drawBackground();
+		    drawBricks();
+		    drawBall();
+		    drawPaddle();
+		    drawScore();
+		    drawLives();
+		    collisionDetection();
+		    if(x + dx > canvas.width-ballRadius || x + dx < ballRadius) {
+		        dx = -dx;
+		    }
+		    if(y + dy < ballRadius) {
+		        dy = -dy;
+		    }
+		    else if(y + dy > canvas.height-ballRadius) {
+		        if(x > paddleX && x < paddleX + paddleWidth) {
+		            dy = -dy;
+		        }
+		        else {
+		            lives--;
+		            if(!lives) {
+		                alert("GAME OVER");
+		                document.location.reload();
+		            }
+		            else {
+		                x = canvas.width/2;
+		                y = canvas.height-30;
+		                dx = Math.abs(dx);
+		                dy = -Math.abs(dy);
+		                paddleX = (canvas.width-paddleWidth)/2;	
+		                pausecomp(500);
+		            }
+		        }
+		    }
+		    
+		    if(rightPressed && paddleX < canvas.width-paddleWidth) {
+		        paddleX += 7;
+		    }
+		    else if(leftPressed && paddleX > 0) {
+		        paddleX -= 7;
+		    }
+		    
+		    x += dx;
+		    y += dy;
+		}
+		requestAnimationFrame(draw);
+	}
+</script>
+
+</body>
+</html>
