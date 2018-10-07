@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css">
-    <title> </title>
+    <title></title>
 </head>
 
 <style>
@@ -17,6 +17,7 @@
         height: 100%;
         background-color: #999
     }
+
     body {
         display: flex;
         align-items: center;
@@ -25,28 +26,31 @@
 
 <body>
 
-    <div class="card mx-auto" style="width: 18rem;">
-        <img class="card-img-top" src="https://github.com/HenD-11.png" alt="Card image cap">
-        <div class="card-body">
-            <h5 class="card-title">HenD-11</h5>
-            <p class="card-text">Hi
-                <hr>Have an awesome Hacktoberfest 2018 and happy hacking !</p>
-            <a href="https://github.com/HenD-11" target="_blank" class="btn btn-primary">Github&nbsp;<span id="badge"
-                    class="badge badge-light"></span></a>
-        </div>
+<div class="card mx-auto" style="width: 18rem;">
+    <img class="card-img-top" src="https://github.com/HenD-11.png" alt="Card image cap">
+    <div class="card-body">
+        <h5 class="card-title">HenD-11</h5>
+        <p class="card-text">Hi
+        <hr>
+        Have an awesome Hacktoberfest 2018 and happy hacking !</p>
+        <a href="https://github.com/HenD-11" target="_blank" class="btn btn-primary">Github&nbsp;<span id="badge"
+                                                                                                       class="badge badge-light"></span></a>
     </div>
+</div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/js/bootstrap.min.js"></script>
-    <script>
-        var public_repos = 0;
-        fetch('https://api.github.com/users/HenD-11')
-            .then(response => response.json())
-            .then(data => {
-                public_repos = data['public_repos']
-                let s = document.getElementById('badge');
-                s.textContent = public_repos.toString() + " repos";
-            }).catch(error => console.error(error))
-    </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/js/bootstrap.min.js"></script>
+<script>
+    var public_repos = 0;
+    fetch('https://api.github.com/users/HenD-11')
+        .then(response = > response.json()
+    )
+    .then(data = > {
+        public_repos = data['public_repos']
+        let s = document.getElementById('badge');
+    s.textContent = public_repos.toString() + " repos";
+    }).catch(error = > console.error(error)
+    )
+</script>
 </body>
 
 </html>
