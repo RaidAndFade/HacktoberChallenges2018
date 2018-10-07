@@ -1,25 +1,26 @@
 <html>
-	<head>
-		<title>fat man</title>
-		<style>
-			body {
-				background-color: rgb(54, 57, 63);
-				height: 100%;
-				width: 100%;
-				margin: 0;
-				padding: 0;
-			}
-			canvas {
+  <head>
+    <title>fat man</title>
+    <link rel='shortcut icon' href='https://cdn.discordapp.com/avatars/120308435639074816/a_409d8edf0c0535b5d039776a8e6870d0.gif?size=128'/>
+    <style>
+      body {
         background-color: rgb(54, 57, 63);
-				height: 100%;
-				width: 100%;
-			}
-		</style>
-	</head>
-	<body>
-		<canvas></canvas>
-		<script>
-			(() => {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      canvas {
+        background-color: rgb(54, 57, 63);
+        height: 100%;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas></canvas>
+    <script>
+      (() => {
         const canvas = document.getElementsByTagName('canvas')[0];
 
         const balls = [];
@@ -59,13 +60,17 @@
 
             draw(context, canvas) {
               let boundaryX = this.x + this.vx;
-              if ((boundaryX + this.radius) > canvas.width || (boundaryX - this.radius) < 0) {
-                this.vx = -this.vx;
+              if ((boundaryX + this.radius) > canvas.width) {
+                this.vx = -Math.abs(this.vx);
+              } else if ((boundaryX - this.radius) < 0) {
+                this.vx = Math.abs(this.vx);
               }
 
               let boundaryY = this.y + this.vy;
-              if ((boundaryY + this.radius) > canvas.height || (boundaryY - this.radius) < 0) {
-                this.vy = -this.vy;
+              if ((boundaryY + this.radius) > canvas.height) {
+                this.vy = -Math.abs(this.vy);
+              } else if ((boundaryY - this.radius) < 0) {
+                this.vy = Math.abs(this.vy);
               }
 
               this.x = this.x + this.vx;
@@ -120,7 +125,7 @@
           window.requestAnimationFrame(frame);
         };
         window.requestAnimationFrame(frame);
-			})();
-		</script>
-	</body>
+      })();
+    </script>
+  </body>
 </html>
