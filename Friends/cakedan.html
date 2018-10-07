@@ -90,7 +90,7 @@
 
               context.beginPath();
               context.textAlign = 'center';
-              context.fillText('gaylord', this.x, this.y);
+              context.fillText('a proud member of the LGBT society', this.x, this.y);
               context.closePath();
             }
           }
@@ -118,14 +118,14 @@
           context.fillStyle = 'white';
           context.font = `${canvas.width / 5}px Arial`;
           context.textAlign = 'center';
-          context.fillText('gaylord', canvas.width / 2, canvas.height / 2);
+          context.fillText('a proud member of the LGBT society', canvas.width / 2, canvas.height / 2);
           context.closePath();
 
           context.beginPath();
           context.fillStyle = 'white';
           context.font = `${canvas.width / 50}px Arial`;
           context.textAlign = 'center';
-          context.fillText('not a gaylord: https://github.com/cakedan', canvas.width / 2, canvas.height - (canvas.height / 3));
+          context.fillText('not a proud member of the LGBT society: https://github.com/cakedan', canvas.width / 2, canvas.height - (canvas.height / 3));
           context.closePath();
 
           balls.forEach((ball) => ball.draw(context, canvas));
