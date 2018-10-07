@@ -11,18 +11,19 @@
         body {
             background-color: black;
         }
+
         #centered {
 
             width: 100%;
-            margin:auto;
-            color:white;
+            margin: auto;
+            color: white;
             font-family: 'Space Mono', monospace;
             text-align: center;
         }
 
-        .avatar img{
-            width:30%;
-            height:30%;
+        .avatar img {
+            width: 30%;
+            height: 30%;
             border-radius: 50% 50%;
         }
 
@@ -31,67 +32,68 @@
 
 </head>
 <body>
-    <div id="centered">
-        <div class="avatar">
-            <img src="https://avatars3.githubusercontent.com/u/6307093?s=400&v=4" />
-        </div>
-        <h1></h1>
-        <h2 class="backend"></h2>
-        <a target="_blank" href="https://github.com/llinaresvicent" class="github"></h4>
+<div id="centered">
+    <div class="avatar">
+        <img src="https://avatars3.githubusercontent.com/u/6307093?s=400&v=4"/>
     </div>
+    <h1></h1>
+    <h2 class="backend"></h2>
+    <a target="_blank" href="https://github.com/llinaresvicent" class="github"></h4>
+</div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script>
-        var intevalBetweenChars = 100;
-        function printChar(char, el, last = false) {
-            $(el).html( $(el).text().replace('|','') + char + ( last ? '' : '|'));
-        }
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    var intevalBetweenChars = 100;
 
-        function printLine(text, el) {
-            charPosition = 0;
-            var interval = setInterval(function () {
+    function printChar(char, el, last = false) {
+        $(el).html($(el).text().replace('|', '') + char + (last ? '' : '|'));
+    }
 
-                printChar(text[charPosition], el, charPosition === text.length - 1);
-                charPosition++;
+    function printLine(text, el) {
+        charPosition = 0;
+        var interval = setInterval(function () {
 
-                if(charPosition === text.length) {
-                    clearInterval(interval);
-                    el.text().replace('|', '');
-                }
+            printChar(text[charPosition], el, charPosition === text.length - 1);
+            charPosition++;
+
+            if (charPosition === text.length) {
+                clearInterval(interval);
+                el.text().replace('|', '');
+            }
 
 
-            },intevalBetweenChars);
-        }
+        }, intevalBetweenChars);
+    }
 
-        var textsByEl = [
-            {
-                'text': "VicentDev",
-                'querySelector': "#centered h1"
-            },
-            {
-                'text': "Backend developer",
-                'querySelector': "#centered .backend"
-            },
-            {
-                'text': "https://github.com/llinaresvicent",
-                'querySelector': "#centered .github"
-            },
-        ];
+    var textsByEl = [
+        {
+            'text': "VicentDev",
+            'querySelector': "#centered h1"
+        },
+        {
+            'text': "Backend developer",
+            'querySelector': "#centered .backend"
+        },
+        {
+            'text': "https://github.com/llinaresvicent",
+            'querySelector': "#centered .github"
+        },
+    ];
 
-        printLine(textsByEl[0].text, $(textsByEl[0].querySelector));
+    printLine(textsByEl[0].text, $(textsByEl[0].querySelector));
+
+    setTimeout(function () {
+        printLine(textsByEl[1].text, $(textsByEl[1].querySelector));
 
         setTimeout(function () {
-            printLine(textsByEl[1].text, $(textsByEl[1].querySelector));
+            printLine(textsByEl[2].text, $(textsByEl[2].querySelector));
 
-            setTimeout(function () {
-                printLine(textsByEl[2].text, $(textsByEl[2].querySelector));
+        }, (textsByEl[1].text.length + 3) * intevalBetweenChars);
 
-            }, (textsByEl[1].text.length + 3 )* intevalBetweenChars);
-
-        }, (textsByEl[0].text.length + 3 )* intevalBetweenChars);
+    }, (textsByEl[0].text.length + 3) * intevalBetweenChars);
 
 
-    </script>
+</script>
 
 </body>
 </html>
