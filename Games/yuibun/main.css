@@ -1,0 +1,28 @@
+body {
+    font-family: 'Muli', sans-serif;
+    font-size: 15px;
+}
+h2 {
+    font-Size: 20px;
+    font-style: italic;
+    text-align: center;
+}
+h3 {
+    Font-Size: 15px;
+    text-align: center;
+}
+#header {
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+.header-title {
+    text-align: center;
+    font-family: 'Copse', serif;
+    Font-Size: 50px;
+}
+#game {
+    margin: auto;
+    margin-top: 50px;
+    width: 600px;
+    height: 200px;
+}
