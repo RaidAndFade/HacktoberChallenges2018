@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>Hello, friends!</title>
+
+
+		<style>
+			body {
+				padding: 2% 5%;
+			}
+
+			body, span {
+				transition: all 1000ms ease-in-out;
+			}
+		</style>
+
+		<script>
+			const message = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';
+
+			const rand = (min, max) => Math.round(Math.random() * (max - min)) + min;
+			const randomColor = () => `rgba(${rand(128,255)}, ${rand(128,255)}, ${rand(128,255)},1)`;
+
+			let body, spans;
+
+			function redecorate() {
+				body.style.backgroundColor = randomColor();
+
+				spans.forEach(span => {
+					span.style.color = randomColor();
+					span.style.fontSize = rand(10, 1000) + '%';
+					span.style.fontWeight = rand(1, 9) * 100;
+					span.style.fontStyle = rand(0, 1) ? 'italic' : 'normal';
+					span.style.fontVariant = rand(0, 1) ? 'small-caps' : 'normal';
+					span.style.fontFamily = rand(0, 1) ? 'sans-serif' : 'serif';
+					span.style.textDecoration = ['none', 'underline', 'overline', 'line-through'][rand(0, 3)];
+					span.style.textTransform = rand(0, 1) ? 'uppercase' : 'lowercase';
+				});
+			}
+
+			window.onload = function() {
+				body = document.getElementsByTagName('body')[0];
+
+				body.style.backgroundColor = randomColor();
+
+				body.innerHTML = message
+					.split('')
+					.map(x => `<span>${x}</span>`)
+					.join('');
+
+				spans = Array.from(document.getElementsByTagName('span'));
+
+				window.INTERVAL = setInterval(redecorate, 1000);
+
+				body.onclick = () => clearInterval(window.INTERVAL);
+			};
+		</script>
+
+	</head>
+	<body>
+		<a href="https://github.com/C-Bouthoorn">My GitHub-page</a>
+	</body>
+</html>
