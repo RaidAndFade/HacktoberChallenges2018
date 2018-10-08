@@ -5,17 +5,26 @@ function Card() {
   el.classList.add('card');
   el.deselect = function() {
     el.classList.remove('selected');
+    el.gameProps.selected = false;
     el.innerHTML = '';
   }
   el.select = function() {
     el.classList.add('selected');
+    el.gameProps.selected = true;
     setTimeout(()=> {
       el.innerHTML = el.gameProps.value;
     }, 250);
   }
+
+  el.matched = function() {
+    el.classList.add('matched');
+    el.gameProps.matched = true;
+    el.innerHTML = el.gameProps.value;
+  }
   
   el.gameProps = {
     value: '',
+    selected: false,
     matched: false
   };
   return el;
@@ -115,7 +124,7 @@ function Game() {
     this.board.appendChild(card);
   }
   this.selectCard = function(card) {
-    if(this.inCooldown) return;
+    if(this.inCooldown || card.gameProps.selected) return;
     if(this.selectedPair.length === 0) {
       card.select();
       this.selectedPair.push(card);
@@ -133,12 +142,10 @@ function Game() {
 
   this.comparCards = function() {
     if(this.selectedPair[0].gameProps.value === this.selectedPair[1].gameProps.value) {
-      this.selectedPair[0].gameProps.matched = true;
-      this.selectedPair[1].gameProps.matched = true;
-      this.selectedPair[0].classList.add('matched');
-      this.selectedPair[1].classList.add('matched');
-      this.selectedPair[0].classList.remove('selected');
-      this.selectedPair[1].classList.remove('selected');
+      this.selectedPair[0].deselect();
+      this.selectedPair[1].deselect();
+      this.selectedPair[0].matched();
+      this.selectedPair[1].matched();
       this.matches++;
       if(this.matches == Math.floor(this.cards.length/2)) {
         this.endGame();

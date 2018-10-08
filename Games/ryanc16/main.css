@@ -52,7 +52,7 @@ a:hover {
   text-align: center;
 }
 
-.card:not(.selected):hover {
+.card:not(.selected):not(.matched):hover {
   border-color: black;
 }
 
