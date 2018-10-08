@@ -5,17 +5,26 @@ function Card() {
   el.classList.add('card');
   el.deselect = function() {
     el.classList.remove('selected');
+    el.gameProps.selected = false;
     el.innerHTML = '';
   }
   el.select = function() {
     el.classList.add('selected');
+    el.gameProps.selected = true;
     setTimeout(()=> {
       el.innerHTML = el.gameProps.value;
     }, 250);
   }
+
+  el.matched = function() {
+    el.classList.add('matched');
+    el.gameProps.matched = true;
+    el.innerHTML = el.gameProps.value;
+  }
   
   el.gameProps = {
     value: '',
+    selected: false,
     matched: false
   };
   return el;
@@ -30,18 +39,22 @@ function Game() {
   this.difficulties = {
     easy: {
       name: 'easy',
+      display: '4x4',
       gridSize: 4
     },
     medium: {
       name: 'medium',
+      display: '6x6',
       gridSize: 6
     },
     hard: {
       name: 'hard',
+      display: '8x8',
       gridSize: 8
     },
     insane: {
       name: 'insane',
+      display: '10x10',
       gridSize: 10
     }
   };
@@ -64,9 +77,7 @@ function Game() {
     for(let i = 0; i < totalCards; i++) {
       const card = new Card();
       card.addEventListener('click', () => {
-        if(!this.inCooldown && !card.gameProps.matched) {
-          this.selectCard(card);
-        }
+        this.selectCard(card);
       });
       newcards.push(card);
     }
@@ -91,20 +102,19 @@ function Game() {
     this.gameControls.appendChild(btnRestart);
 
     const gameModeText = document.createElement('span');
-    gameModeText.innerText = 'Game Mode: ';
+    gameModeText.innerText = 'Board Size: ';
     this.gameControls.appendChild(gameModeText);
 
     const difficultySelection = document.createElement('select');
     for(let key of Object.keys(this.difficulties)) {
       const opt = document.createElement('option');
       const difficulty = this.difficulties[key];
-      opt.innerText = difficulty.name;
+      opt.innerText = difficulty.display;
       opt.value = difficulty.name;
       difficultySelection.appendChild(opt);
     }
     difficultySelection.addEventListener('change', (e) => {
       this.difficulty = this.difficulties[e.target.value];
-      this.reset();
     });
     this.gameControls.appendChild(difficultySelection);
 
@@ -115,7 +125,8 @@ function Game() {
     this.board.appendChild(card);
   }
   this.selectCard = function(card) {
-    if(this.inCooldown) return;
+    if(this.inCooldown || card.gameProps.selected || card.gameProps.matched) return;
+
     if(this.selectedPair.length === 0) {
       card.select();
       this.selectedPair.push(card);
@@ -124,21 +135,19 @@ function Game() {
       this.selectedPair.push(card);
       card.select();
       setTimeout( () => {
-        this.comparCards();
+        this.compareCards();
         this.resetSelections();
       }, this.cooldownTime);
       this.inCooldown = true;
     }
   }
 
-  this.comparCards = function() {
+  this.compareCards = function() {
     if(this.selectedPair[0].gameProps.value === this.selectedPair[1].gameProps.value) {
-      this.selectedPair[0].gameProps.matched = true;
-      this.selectedPair[1].gameProps.matched = true;
-      this.selectedPair[0].classList.add('matched');
-      this.selectedPair[1].classList.add('matched');
-      this.selectedPair[0].classList.remove('selected');
-      this.selectedPair[1].classList.remove('selected');
+      this.selectedPair[0].deselect();
+      this.selectedPair[1].deselect();
+      this.selectedPair[0].matched();
+      this.selectedPair[1].matched();
       this.matches++;
       if(this.matches == Math.floor(this.cards.length/2)) {
         this.endGame();
