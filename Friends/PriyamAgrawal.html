@@ -3,9 +3,9 @@
 <head>
 	<title>Change Color</title>
 </head>
-<body>
-	<h1 id="color">Click on the button below to see this sentence change color</h1>
-	<button onclick="changeColor()">Click Me</button>
+<body onload="changeColor()">
+	<h1>Hi my name is Priyam Agrawal</h1>
+	<a href="https://github.com/PriyamAgrawal">Click here to visit my Github Profile</a>
 </body>
 </html>
 <script type="text/javascript">
@@ -13,6 +13,6 @@
 		var colors=['red','green','blue','brown','orange'];
 		var index = Math.floor(Math.random() * 5);
 		var newColor=colors[index];
-		document.getElementById('color').style.color=newColor;	
+		document.body.style.backgroundColor=newColor;	
 	}
 </script>
