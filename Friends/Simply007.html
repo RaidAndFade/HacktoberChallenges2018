@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Ondřej Chrastina | Simply007</title>
+  <script src="https://github.com/piotrl/github-profile-card/releases/download/2.0.0/gh-profile-card.min.js"></script>
+</head>
+<style>
+  .gh-profile-card {
+    width: 280px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: Helvetica;
+    background: #FAFAFA;
+    border-width: 1px 1px 2px;
+    border-style: solid;
+    border-color: #DDD;
+    overflow: hidden;
+  }
+
+  .gh-profile-card a {
+    text-decoration: none;
+    color: #444;
+  }
+
+  .gh-profile-card a:hover {
+    color: #4183C4;
+  }
+
+  .gh-profile-card .name {
+    display: block;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #222;
+  }
+
+  .gh-profile-card .error {
+    font-size: 0.8em;
+    color: #444;
+    padding: 10px;
+  }
+
+  .gh-profile-card .error span {
+    display: block;
+    border-bottom: 1px solid #DDD;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+  }
+
+  .gh-profile-card .error span.remain {
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .gh-profile-card .profile {
+    background: #FFF;
+    overflow: hidden;
+    padding: 15px 10px;
+    padding-bottom: 0;
+    min-height: 135px;
+  }
+
+  .gh-profile-card .stats {
+    padding: 5px;
+  }
+
+  .gh-profile-card .languages {
+    position: relative;
+    clear: both;
+    margin: 0 -10px;
+    padding: 10px;
+    border-top: 1px solid #DEDEDE;
+    font-size: 0.8em;
+  }
+
+  .gh-profile-card .languages::before {
+    position: absolute;
+    top: -0.7em;
+    background: #FFF;
+    padding-right: 5px;
+    content: 'Top languages';
+    font-style: italic;
+    color: #555;
+  }
+
+  .gh-profile-card .languages li {
+    display: inline-block;
+    color: #444;
+    font-weight: bold;
+    margin-left: 10px;
+  }
+
+  .gh-profile-card .languages li::after {
+    content: '\2022';
+    margin-left: 10px;
+    color: #999;
+  }
+
+  .gh-profile-card .languages li:last-child::after {
+    content: '';
+  }
+
+  .gh-profile-card .followMe {
+    margin-top: 3px;
+  }
+
+  .gh-profile-card .follow-button {
+    font-size: 0.8em;
+    color: #333;
+    float: left;
+    padding: 0 10px;
+    line-height: 1.5em;
+    border: 1px solid #D5D5D5;
+    border-radius: 3px;
+    font-weight: bold;
+    background: #EAEAEA;
+    background-image: linear-gradient(#FAFAFA, #EAEAEA);
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.9);
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  .gh-profile-card .follow-button:hover {
+    color: inherit;
+    background: #DDD;
+    background-image: linear-gradient(#EEE, #DDD);
+  }
+
+  .gh-profile-card .followMe span {
+    position: relative;
+    background: #FFF;
+    margin-left: 8px;
+    padding: 0 5px;
+    color: #444;
+    font-size: 0.8em;
+    border: 1px solid;
+    border-color: #BBB;
+  }
+
+  .gh-profile-card .followMe span::before {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 5px;
+    height: 5px;
+    left: -4px;
+    top: 30%;
+    background: inherit;
+    border-left: 1px solid;
+    border-top: 1px solid;
+    border-color: inherit;
+    transform: rotate(-45deg);
+  }
+
+  .gh-profile-card .avatar {
+    width: 64px;
+    height: 64px;
+    float: left;
+    margin: 0 10px 15px 0;
+    margin-left: 0;
+    border-radius: 5px;
+    box-shadow: 0 0 2px 0 #DDD;
+  }
+
+  .gh-profile-card .repos {
+    clear: both;
+  }
+
+  .gh-profile-card .repos .header {
+    display: block;
+    width: 100%;
+    font-weight: bold;
+    background: #EAEAEA;
+    background-image: linear-gradient(#FAFAFA, #EAEAEA);
+    border: solid #D5D5D5;
+    border-width: 1px 0;
+    color: #555;
+    font-size: 0.8em;
+    padding: 5px 10px;
+  }
+
+  .gh-profile-card .repos a {
+    position: relative;
+    display: block;
+    padding: 7px 10px;
+    font-size: 0.9em;
+    border-top: 1px solid #DDD;
+  }
+
+  .gh-profile-card .repos a:first-of-type {
+    border: none;
+  }
+
+  .gh-profile-card .repos .repo-name {
+    max-width: 280px;
+    font-weight: bold;
+    text-overflow: ellipsis;
+  }
+
+  .gh-profile-card .repos .updated {
+    display: block;
+    font-size: 0.75em;
+    font-style: italic;
+    color: #777;
+  }
+
+  .gh-profile-card .repos .star {
+    position: absolute;
+    font-size: 0.9em;
+    right: 0.5em;
+    top: 1.1em;
+    color: #888;
+  }
+
+  .gh-profile-card .repos .star::after {
+    content: '\a0\2605';
+    font-size: 1.1em;
+    font-weight: bold;
+  }
+
+  /* Demo styles */
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    max-width: 500px;
+    margin: 10px auto;
+    font-size: 18px;
+
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #232323;
+    background-color: #FBFAF7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1 {
+    font-size: 30px;
+  }
+
+  h1,
+  h2,
+  h3 {
+    display: block;
+    font-family: Arvo, Monaco, serif;
+    line-height: 1.3;
+    font-weight: normal;
+    color: #232323;
+    margin: 36px 0 10px;
+
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+  }
+
+  a {
+    font-weight: 200;
+    text-decoration: none;
+  }
+
+  .row {
+    padding: 5px;
+    margin-top: 20px;
+    overflow: hidden;
+  }
+
+  .content-section,
+  #github-card-demo {
+    margin: auto;
+  }
+
+  #github-profile-card {
+    text-align: center;
+  }
+
+  footer {
+    margin: auto;
+    text-align: center;
+    margin-top: 1em;
+  }
+</style>
+<script>
+  (function () {
+    'use strict';
+
+    const attributes = {
+      username: 'data-username',
+      maxRepos: 'data-max-repos',
+      sortBy: 'data-sort-by',
+      headerText: 'data-header-text'
+    };
+
+    window.widgetGenerator = {
+      regenerate: regenerate
+    };
+
+    function regenerate(options) {
+      const attributesTemplate = Object.keys(options)
+        .map(option => {
+          const attribute = attributes[option];
+          const value = options[option];
+          if (!attribute) {
+            return '';
+          }
+          return `\n\t${attribute}="${value}"`;
+        })
+        .join('');
+
+      return `<div id="github-card" ${attributesTemplate}>\n</div>`;
+    }
+  })();
+  (function (GitHubCard, widgetGenerator) {
+    "use strict";
+
+    // Generating new widget from user input
+    document.addEventListener('DOMContentLoaded', function () {
+      var options = {
+        template: '#github-card-demo',
+        sortBy: 'stars', // possible: 'stars', 'updateTime'
+        headerText: 'Most starred repositories',
+        maxRepos: 5
+      };
+
+      var widget = new GitHubCard(options);
+      widget.init();
+      regenerate(options);
+
+      initSortingControl(options, refreshWidget);
+      initRepositoriesControl(options, refreshWidget);
+
+      function initWidget(options) {
+        widget = new GitHubCard(options);
+        widget.init();
+        regenerate(options);
+      }
+
+      function refreshWidget(updatedOptions) {
+        widget.refresh(updatedOptions);
+        regenerate(updatedOptions);
+      }
+
+      function regenerate(updatedOptions) {
+        var textarea = document.getElementById("install-code");
+        textarea.value = widgetGenerator.regenerate(updatedOptions);
+      }
+    });
+
+    // Sort repository acording to
+    // radio inputs on website
+    function initSortingControl(options, refreshWidget) {
+      var $sortingRadios = document.querySelectorAll('.choose-repo-sorting label');
+
+      // sort by update time
+      $sortingRadios[0].addEventListener('click', function (element) {
+        element.target.classList.add('active');
+        $sortingRadios[1].classList.remove('active');
+
+        options.sortBy = 'updateTime';
+        options.headerText = element.target.textContent + ' repositories';
+
+        refreshWidget(options);
+      });
+
+      // sort by starrgazers
+      $sortingRadios[1].addEventListener('click', function (element) {
+        element.target.classList.add('active');
+        $sortingRadios[0].classList.remove('active');
+
+        options.sortBy = 'stars';
+        options.headerText = element.target.textContent + ' repositories';
+
+        refreshWidget(options);
+      });
+    }
+
+    // Manipulating the number of repositories
+    function initRepositoriesControl(options, refreshWidget) {
+      var $inputNumber = document.getElementById('gh-reposNum');
+
+      $inputNumber.onchange = function () {
+        options.maxRepos = $inputNumber.value;
+
+        refreshWidget(options);
+      };
+    }
+  })(window.GitHubCard, window.widgetGenerator);
+</script>
+
+<body>
+  <section class="row">
+    <h1 id="github-profile-card">
+      <a href="https://github.com/Simply007">Ondřej Chrastina - Simply007</a>
+    </h1>
+
+    <div class="content-section">
+      <div id="github-card-demo" data-username="Simply007" data-sort-by="star"></div>
+    </div>
+  </section>
+  <footer>
+    Thanks
+    <a href="http://github-profile.com">github-profile.com</a>!
+  </footer>
+</body>
+
+</html>
