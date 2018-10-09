@@ -23,7 +23,6 @@ _(People who have participated in the challenges!)_
 - [nik1082](https://github.com/nik1082)
 - [ryanc16](https://github.com/ryanc16)
 - [darrenrector91](https://github.com/darrenrector91)
-- [emilycolon](https://github.com/emilycolon)
 - [JanuriDP](https://github.com/JanuriDP)
 
 # Contributors
