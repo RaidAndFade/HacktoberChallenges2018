@@ -1,0 +1,17 @@
+h2,h3, #gameChoice {
+  text-align: center;
+}
+
+h2 {
+  font-family: 'Homemade Apple', cursive;
+}
+
+h3 {
+  font-family: 'Press Start 2P', cursive;
+}
+
+#game {
+  margin-left : 39%;
+  margin-top: 2%;
+  visibility: hidden;
+}
