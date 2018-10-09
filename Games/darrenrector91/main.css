@@ -15,7 +15,7 @@ header {
 }
 
 #puzzleGrid {
-    background: url('images/BorderBrown.png');
+    background: url('https://i.imgur.com/83um0sM.png');
     background-repeat: no-repeat;
     float: right;
     height: 452px;
@@ -23,7 +23,7 @@ header {
 }
 
 #puzzleGrid.win{
-    background: url('images/BorderGreen.png');
+    background: url('https://i.imgur.com/hylvmmS.png');
     background-repeat: no-repeat;
 }
 
