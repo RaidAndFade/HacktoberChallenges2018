@@ -1,0 +1,44 @@
+body {
+    background-color: #097c99;
+    margin: 0;
+    text-align: center;
+}
+
+header {
+    font-family: Papyrus,fantasy;
+    font-size: 2em;
+}
+
+#puzzle {
+    margin: 0 auto 0 auto;
+    width: 452px;
+}
+
+#puzzleGrid {
+    background: url('images/BorderBrown.png');
+    background-repeat: no-repeat;
+    float: right;
+    height: 452px;
+    width: 452px;
+}
+
+#puzzleGrid.win{
+    background: url('images/BorderGreen.png');
+    background-repeat: no-repeat;
+}
+
+#puzzleGrid table {
+    margin-left: 25px;
+    margin-top: 25px;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+#puzzleGrid td {
+    padding: 0;
+    margin: 0;
+}
+
+#puzzleGrid td img {
+    display: block;
+}
