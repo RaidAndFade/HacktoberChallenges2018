@@ -15,6 +15,7 @@
 *(People who have participated in the challenges!)*
 - [edpen](https://github.com/edpen)
 - [leahmpersand](https://github.com/leahmpersand)
+- [nik1082](https://github.com/nik1082)
 
 
 # Contributors 
