@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Trivia!</title>
+  <!-- Custom Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Notable|Montserrat" rel="stylesheet">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous">
+  <!-- Include custom CSS -->
+  <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+  <main>
+    <!-- Jumbotron to pick TV Show -->
+    <div class="jumbotron">
+      <h1>Let's Play Trivia</h1>
+      <p>Pick a show!</p>
+      <div class="btn-group btn-group-lg btn-group-vertical" role="group">
+        <button class="btn btn-default supernatural" role="button">&nbsp</button>
+        <button class="btn btn-default game-of-thrones" role="button">&nbsp</button>
+        <button class="btn btn-default doctor-who" role="button">&nbsp</button>
+      </div>
+    </div>
+
+    <div class="quiz-content">
+      <!-- Panel that shows each question -->
+      <div class="panel panel-default trivia hidden">
+        <div class="panel-heading question">Panel heading</div>
+        <form>
+          <fieldset>
+            <ul class="list-group answers">
+              <li class="list-group-item answer">
+                <input type="radio" name="answer-field" id="answer1" value="1">
+                <label for="answer1" class="answer-field1">Cras justo odio</label>
+              </li>
+              <li class="list-group-item answer">
+                <input type="radio" name="answer-field" id="answer2" value="2">
+                <label for="answer2" class="answer-field2">Cras justo odio</label>
+              </li>
+              <li class="list-group-item answer">
+                <input type="radio" name="answer-field" id="answer3" value="3">
+                <label for="answer3" class="answer-field3">Cras justo odio</label>
+              </li>
+              <li class="list-group-item answer">
+                <input type="radio" name="answer-field" id="answer4" value="4">
+                <label for="answer4" class="answer-field4">Cras justo odio</label>
+              </li>
+            </ul>
+            <input class="btn btn-success submit" type="submit" value="SUBMIT">
+          </fieldset>
+        </form>
+        <div class="progress">
+          <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"
+            style="width: 0%;">
+            <!-- Note re: inline styling above: this was specific code provided by Bootstrap -->
+            <span class="sr-only">0% Complete</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Div that shows score -->
+      <div class="show-score hidden">
+        <h2>You got
+          <span class="number"></span> out of 10 correct!</h2>
+        <button class="btn btn-success btn-lg refresh">Play New Game</button>
+      </div>
+
+      <!-- Div that shows each question's submitted response and correct answer -->
+      <div class="results hidden">
+        <div class="q0 alert" role="alert">
+          <h4>Question #1</h4>
+          <p>Your answer:
+            <span class="user-answer0"></span>
+            <span class="glyphicon glyphicon-minus" aria hidden="true"></span> Correct answer:
+            <span class="correct-answer0"></span>
+          </p>
+        </div>
+        <div class="q1 alert" role="alert">
+          <h4>Question #2</h4>
+          <p>Your answer:
+            <span class="user-answer1"></span>
+            <span class="glyphicon glyphicon-minus" aria hidden="true"></span> Correct answer:
+            <span class="correct-answer1"></span>
+          </p>
+        </div>
+        <div class="q2 alert" role="alert">
+          <h4>Question #3</h4>
+          <p>Your answer:
+            <span class="user-answer2"></span>
+            <span class="glyphicon glyphicon-minus" aria hidden="true"></span> Correct answer:
+            <span class="correct-answer2"></span>
+          </p>
+        </div>
+        <div class="q3 alert" role="alert">
+          <h4>Question #4</h4>
+          <p>Your answer:
+            <span class="user-answer3"></span>
+            <span class="glyphicon glyphicon-minus" aria hidden="true"></span> Correct answer:
+            <span class="correct-answer3"></span>
+          </p>
+        </div>
+        <div class="q4 alert" role="alert">
+          <h4>Question #5</h4>
+          <p>Your answer:
+            <span class="user-answer4"></span>
+            <span class="glyphicon glyphicon-minus" aria hidden="true"></span> Correct answer:
+            <span class="correct-answer4"></span>
+          </p>
+        </div>
+        <div class="q5 alert" role="alert">
+          <h4>Question #6</h4>
+          <p>Your answer:
+            <span class="user-answer5"></span>
+            <span class="glyphicon glyphicon-minus" aria hidden="true"></span> Correct answer:
+            <span class="correct-answer5"></span>
+          </p>
+        </div>
+        <div class="q6 alert" role="alert">
+          <h4>Question #7</h4>
+          <p>Your answer:
+            <span class="user-answer6"></span>
+            <span class="glyphicon glyphicon-minus" aria hidden="true"></span> Correct answer:
+            <span class="correct-answer6"></span>
+          </p>
+        </div>
+        <div class="q7 alert" role="alert">
+          <h4>Question #8</h4>
+          <p>Your answer:
+            <span class="user-answer7"></span>
+            <span class="glyphicon glyphicon-minus" aria hidden="true"></span> Correct answer:
+            <span class="correct-answer7"></span>
+          </p>
+        </div>
+        <div class="q8 alert" role="alert">
+          <h4>Question #9</h4>
+          <p>Your answer:
+            <span class="user-answer8"></span>
+            <span class="glyphicon glyphicon-minus" aria hidden="true"></span> Correct answer:
+            <span class="correct-answer8"></span>
+          </p>
+        </div>
+        <div class="q9 alert" role="alert">
+          <h4>Question #10</h4>
+          <p>Your answer:
+            <span class="user-answer9"></span>
+            <span class="glyphicon glyphicon-minus" aria hidden="true"></span> Correct answer:
+            <span class="correct-answer9"></span>
+          </p>
+        </div>
+
+      </div>
+  </main>
+  <footer>
+    <button class="btn btn-primary btn-md refresh">Home</button>
+  </footer>
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+  <!-- Include custom Scripts -->
+  <script src="main.js"></script>
+</body>
+
+</html>
