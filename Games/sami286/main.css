@@ -1,0 +1,40 @@
+.miNav {
+    background: #007bff;
+    color: white;
+}
+
+body {
+    background: #bdebfa;
+}
+
+
+[id^=tab-] {
+    min-height: 16vw;
+    font-size: x-large;
+}
+
+/* SM */
+@media (min-width: 576px) {
+
+}
+
+/* MD */
+@media (min-width: 768px) {
+
+}
+
+/* LG */
+@media (min-width: 992px) {
+    [id^=tab-] {
+        min-height: 8vw;
+        font-size: x-large;
+    }
+}
+
+/* XLG */
+@media (min-width: 1200px) {
+    [id^=tab-] {
+        min-height: 8vw;
+        font-size: xx-large;
+    }
+}
