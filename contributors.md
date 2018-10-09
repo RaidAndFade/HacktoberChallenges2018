@@ -20,5 +20,7 @@
 - [darrenrector91](https://github.com/darrenrector91)
 - [JanuriDP](https://github.com/JanuriDP)
 
+
 # Contributors 
 *(People who have not participated in challenges but want to be a part of the project!)*
+- [KojiAdrianoJr.](https://github.com/kojiadrianojr)
