@@ -17,6 +17,7 @@
 - [leahmpersand](https://github.com/leahmpersand)
 - [nik1082](https://github.com/nik1082)
 - [ryanc16](https://github.com/ryanc16)
+- [JanuriDP](https://github.com/JanuriDP)
 
 # Contributors 
 *(People who have not participated in challenges but want to be a part of the project!)*
