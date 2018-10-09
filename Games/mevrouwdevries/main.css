@@ -1,0 +1,14 @@
+body {
+    margin-left: 50px;
+}
+
+canvas {
+    border:1px solid #d3d3d3;
+    margin-top: 120px;
+    position: absolute;
+    background-color: #111111;
+}
+
+.vspace {
+    margin-bottom: 320px;
+}

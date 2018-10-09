@@ -1,0 +1,96 @@
+body,
+.jumbotron {
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  background: rgb(0, 0, 0) url('https://i.imgur.com/dWdp7ai.png') no-repeat
+    fixed center;
+  background-size: contain;
+}
+
+.jumbotron {
+  height: 30em;
+  font-family: 'Notable', sans-serif;
+  color: rgb(86, 131, 61);
+}
+
+h1 {
+  margin: 2em 0 1em 0;
+  text-shadow: -2px 2px rgb(243, 243, 226);
+  letter-spacing: 6px;
+}
+
+.jumbotron p {
+  font-family: 'Montserrat', sans-serif;
+  color: rgb(255, 255, 255);
+}
+
+.btn-group-lg {
+  width: 14em;
+  height: 3em;
+}
+
+.supernatural {
+  background-image: url('https://i.imgur.com/xq3hz0Y.jpg') !important;
+  background-size: cover !important;
+}
+
+.game-of-thrones {
+  background-image: url('https://i.imgur.com/PwQxrqq.jpg') !important;
+  background-size: cover !important;
+}
+
+.doctor-who {
+  background-image: url('https://i.imgur.com/SzoDMa2.jpg') !important;
+  background-size: cover !important;
+}
+
+.quiz-content {
+  margin: 15em auto;
+  width: 75%;
+}
+
+.panel-heading {
+  background-color: rgba(0, 0, 0, 0.75) !important;
+  color: rgb(255, 255, 255) !important;
+}
+
+.list-group-item {
+  background-color: rgba(238, 238, 238, 0.5);
+}
+
+.submit,
+.refresh {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.25em;
+  margin-bottom: 1em;
+}
+
+.answer {
+  text-align: left;
+}
+
+h2 {
+  margin: 0 auto 1em auto;
+  font-family: 'Notable', sans-serif;
+  font-size: 4em;
+  color: rgb(86, 131, 61);
+  text-shadow: -2px 2px rgb(243, 243, 226);
+  letter-spacing: 6px;
+}
+
+.alert {
+  margin: 1em auto;
+  width: 75%;
+}
+
+.results {
+  margin-bottom: 10em;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  color: rgb(255, 255, 255);
+  background-color: rgb(0, 0, 0);
+}

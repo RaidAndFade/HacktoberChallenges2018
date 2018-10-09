@@ -5,13 +5,15 @@ import requests
 from threading import Timer
 from unidiff import PatchSet
 from datetime import datetime
-
+import gitkey
 
 #this should be an env var but i use this script on more than one device so it's just a pain to make it an envvar
-API_AUTH = ()
+API_AUTH = gitkey.AUTH
 REPO_URL = "https://api.github.com/repos/RaidAndFade/Hacktoberfest2018/pulls"
 RAIDANDFADE_ID = 5139165
 HAZARDOUS_TAGS = ("script","style","meta","iframe","img","video","audio","link","svg")
+BAD_WORDS = ("anal","anus","ballsack","blowjob","blow job","boner","clit","cock","cunt","dick","fag","dildo","fuck","jizz",
+             "labia","urethra","nigg","penis","porn","pussy","scrotum","sex","slut","smegma","spunk","twat","vagina","wank","whore")
 
 class PRChecker:
     def __init__(self, pr_info: dict):
@@ -48,49 +50,92 @@ class PRChecker:
         if not self.invalid:
             self.invalid = True
 
+    def check_game_submission(self,uname,new_file,fcount):
+        pass
+
+    def check_friends_submission(self,uname,new_file,fcount):
+        path = os.path.split(new_file['diff'][0].path)
+
+        if fcount > 1:
+            self.add_invalid('More than one file has been added/removed/modified.')
+            return
+
+        if f'{uname}.html'.lower() != path[1].lower():
+            self.add_invalid(f'Your filename must be `{uname}.html`')
+
+        if path[1].lower().endswith('.html'):
+
+            valid_urls = (f"https://www.github.com/{uname}",f"https://github.com/{uname}",
+                            f"http://github.com/{uname}",f"http://www.github.com/{uname}")
+            forbidden_next_chars = ("/",".","\\","?","#")
+            has_url = False
+            has_bad_url = False
+
+            #todo if shit gets rowdy, have a list of alternate chars {"a":["4"]} and if any of those variations are included 
+            # just straight up lock the pr for spam (and possibly auto-close future prs by the same person)
+            if any(w in new_file['lines'] for w in BAD_WORDS):
+                self.add_attention('Your file potentially has references to foul language.')
+
+            for l in valid_urls:
+                if l.lower() in new_file['lines']:
+                    p = new_file['lines'][new_file['lines'].index(l.lower())+len(l):]
+
+                    if forbidden_next_chars.count(p[0]) > 0:
+                        has_bad_url = True
+                        continue
+                    else:
+                        has_bad_url = False
+
+                    has_url = True
+                    break
+            
+            if not has_url:
+                if has_bad_url:
+                    self.add_invalid('Your file has a github link but it\'s (probably) not to your profile.')
+                else:
+                    self.add_invalid('Your file does not clearly show a link to your github profile.')
+
+            needs_review = False
+
+            for h in HAZARDOUS_TAGS:
+                if ("<"+h.lower()) in new_file['lines']:
+                    needs_review = True
+                    break
+
+            if needs_review:
+                self.add_attention('This contains potentially hazardous tags that need manual review.')
+
+        else:
+            self.add_invalid('Your file does not have the `.html` extension.')
+
     def interpret_pr(self):
         new_file = self.check_diff()
 
         if new_file is not None:
 
+            fcount = new_file['diff_file'].count("diff --git")
+
+            if fcount < 1:
+                self.add_invalid('Less than one file has been added/removed/modified.')
+                return
+            
+
             uname = self.pr_info['user']['login']
 
+            # get the first file (this should be fine)
             path = os.path.split(new_file['diff'][0].path)
 
 
-            if f'{uname}.html'.lower() != path[1].lower():
-                self.add_invalid(f'Your filename must be `{uname}.html`')
-            
-            if path[0] != "Friends":
-                self.add_invalid(f'Your file is not in the `Friends` folder.')
-
-            if path[1].lower().endswith('.html'):
-
-                valid_urls = (f"https://www.github.com/{uname}",f"https://github.com/{uname}",
-                                f"http://github.com/{uname}",f"http://www.github.com/{uname}")
-                has_url = False
-
-                for l in valid_urls:
-                    if l.lower() in new_file['lines']:
-                        has_url = True
-                        break
+            if path[0].split("/")[0] == "Game":
                 
-                if not has_url:
-                    print("has ")
-                    self.add_invalid('Your file does not clearly show a link to your github profile.')
+                self.check_game_submission(uname,new_file,fcount)
+                
+            elif path[0] == "Friends":
 
-                needs_review = False
-
-                for h in HAZARDOUS_TAGS:
-                    if ("<"+h.lower()) in new_file['lines']:
-                        needs_review = True
-                        break
-
-                if needs_review:
-                    self.add_attention('This contains potentially hazardous tags that need manual review.')
+                self.check_friends_submission(uname,new_file,fcount)
 
             else:
-                self.add_invalid('Your file does not have the `.html` extension.')
+                self.add_attention('Your file is not in a project folder ("Friends"). This may be intentional, but most likely not.')
 
         result = {
             'number': self.pr_info['number'],
@@ -109,23 +154,25 @@ class PRChecker:
 
     def check_diff(self):
         diff_file = requests.get(self.pr_info['diff_url'], auth=API_AUTH).text
+        if diff_file == "Sorry, this diff is unavailable.":
+            self.add_invalid('Your PR looks like an ORPHAN (you deleted the fork). This cannot be automatically checked. Please close this PR and create a new one without removing the fork.')
+            return
+
         diff = PatchSet(diff_file)
 
         fcount = diff_file.count("diff --git")
 
-        if fcount > 1:
-            self.add_invalid('More than one file has been added/removed/modified.')
-            return
-        elif fcount < 1:
+        if fcount < 1:
             self.add_invalid('Less than one file has been added/removed/modified.')
             return
-        elif diff[0].is_modified_file:
-            self.add_attention('This file has modifies a pre-existing file.')
+
+        if diff[0].is_modified_file:
+            self.add_attention('This file modifies a pre-existing file.')
             return
 
         new_file = self.parse_diff(str(diff[0]).split('\n'))
 
-        return {'lines': new_file, 'diff': diff}
+        return {'lines': new_file, 'diff': diff, 'diff_file': diff_file}
 
     def parse_diff(self, diff: list):
         new_file_lines = ""
@@ -146,6 +193,11 @@ def do_merge(pr):
     merge_r = requests.put(pr['url']+"/merge",auth=API_AUTH,json={"commit_title":"Auto-Merging PR#"+str(pr['number']),"commit_message":"Automatically merged PR#"+str(pr['number'])+" as it seemed safe."})
     if 'message' in merge_r:
         print(merge_r)
+def close(pr):
+    #PATCH /repos/:owner/:repo/pulls/:number state=closed
+    close_r = requests.patch(pr['url'],auth=API_AUTH,json={"state":"closed"})
+    if 'message' in close_r:
+        print(close_r)
 def add_label(pr,lblname):
     #return
     addl_r = requests.post(pr['issue_url']+"/labels",auth=API_AUTH,json=[lblname]).json()
@@ -175,15 +227,26 @@ def get_most_recent_bot_comment(pr,cmlist):
                 return c
     return None
 
+def op_reply_to_latest_bot(pr,cmlist,botcmt):
+    found_latest = False
+    for c in cmlist:
+        if not found_latest:
+            if c['id'] == botcmt['id']:
+                found_latest = True
+            continue
+        if c['user']['id'] == pr['user']['id']:
+            return c
+    return None
+
 def get_bot_checked_sha(c):
     if c is not None:
         bdy = c['body'].replace("\r","").split('\n')
         return bdy[-1][2:]
     return None
 
-def get_labels(i):
+def get_labels(pr):
     lbls = []
-    for l in i['labels']:
+    for l in pr['labels']:
         lbls = lbls + [l['name']]
     return ",".join(lbls)
 
@@ -203,29 +266,44 @@ def check_prs():
                 prcomments = requests.get(i['comments_url'], auth=API_AUTH).json()
                 last_bot_comment = get_most_recent_bot_comment(i,prcomments)
                 last_check = get_bot_checked_sha(last_bot_comment)
-                if last_check == i['head']['sha']:
+                msgtime = datetime.strptime(last_bot_comment['created_at'],"%Y-%m-%dT%H:%M:%SZ")
+                curtime = datetime.utcnow()
+
+                if len(prcomments) == 0 or last_bot_comment is None:
+                    # Basically, someone else labeled this, or someone deleted the bots' comment. Either way we're out
+                    print("<"+get_labels(i)+"> External change to automated flow, skipping.")
+                    continue
+
+                # if its been > 24h since issues posted, and needs-work
+                if has_label(i,"needs work") and (curtime-msgtime).total_seconds() > 60*60*24: 
+                    comment = "This PR has been idle for more than 24 hours, and will now be closed. Feel free to re-open."
+                    send_comment(i,comment)
+                    close(i)
+                    print("<needs work> 24h since issues posted, no response, closing.")
+                    continue
+                    
+                if last_check == i['head']['sha']: # if no new commits were pushed
                     print("<"+get_labels(i)+"> No change since last comment, skipping.")
                     continue
 
             #these need to be checked/merged by humans, don't bother unless something changes
-            if has_label(i,"attention") or has_label(i,"checked"): 
+            if (has_label(i,"attention") or has_label(i,"checked")) and len(prcomments) > 0: 
                 if not (last_check == i['head']['sha']):
                     msgtime = datetime.strptime(last_bot_comment['created_at'],"%Y-%m-%dT%H:%M:%SZ")
                     curtime = datetime.utcnow()
                     timediff = (curtime-msgtime).total_seconds()
                     if timediff < 3600: # if its been less than an hour since last comment
-                        print("Changed less than an hour ago, skipping.")
+                        print("<"+get_labels(i)+"> Changed less than an hour ago, skipping.")
                         continue
-                    print("Changed more than an hour ago: ",end="")
+                    print("<"+get_labels(i)+"> Changed more than an hour ago: ",end="")
                     comment += "This request's code has changed since approval. Re-Judging contents...\n"
             
-            if has_label(i,"needs work"):
-                # if the api hasnt properly updated yet, continue
-                # is the last comment still by the bot? if so, don't re-check
-                if len(prcomments) > 0: # how the fuck can it be <0 other than someone just doing an invalid tag for fuck-all
-                    if prcomments[-1]['id'] == last_bot_comment['id']:
-                        print("Marked invalid and has not been responded to, skipping.")
-                        continue
+            if has_label(i,"needs work") and len(prcomments) > 0:
+                # checks if there are new comments BUT the op has not replied since the latest bot comment
+                if last_bot_comment['id'] == prcomments[-1]['id'] or (last_bot_comment['id'] != prcomments[-1]['id'] \
+                    and op_reply_to_latest_bot(i,prcomments,last_bot_comment) is None):
+                    print("<needs work> Changed but no response from OP, skipping.")
+                    continue
                 
             pr = PRChecker(i)
 
@@ -236,7 +314,6 @@ def check_prs():
                     reasons += f"\n{rc}. {r}"
                     rc += 1 
 
-                
                 print(" invalid because :"+reasons)
                 
                 comment += "Your pull request needs further work because of the following reason(s):"
@@ -268,7 +345,7 @@ def check_prs():
                 send_comment(i,comment)
                 if not has_label(i,"attention"):
                     add_label(i,"attention")
-            else: # the pr looks good and can be merged by a maintainer
+            else: # the pr looks good and can be merged by me
                 if has_label(i,"needs work"):
                     remove_label(i,"needs work")
                 if has_label(i,"attention"):

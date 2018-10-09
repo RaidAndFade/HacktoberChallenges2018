@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>pepper-seattle</title>
+    
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:800" rel="stylesheet">
+    <style>
+      a {
+        color: #ffff34;
+        text-decoration: none;
+      }
+      body {
+        background-color: #000000;
+        height: 100%;
+      }
+      button {
+        background-color: #000000;
+        border: none;
+        cursor: pointer;
+        float: right;
+        margin: 42px 38px;
+        outline: none;
+      }
+      button:hover {
+        background-color: #ffff34;
+        color: #000000;
+      }
+      h1 {
+        margin: 0;
+        padding: 0;
+      }
+      .hello {
+        background-color: #ffffff;
+        color: #000000;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 60px;
+        margin: 0;
+        width: 100%;
+      }
+      .info {
+        color: #ffffff;
+        display: flex;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        height: 50%;
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="hello">
+      <h1>HELLO.</h1>
+    </div>
+    <div class="info">
+      <p>My name is pepper-seattle and I live here: <a href="https://github.com/pepper-seattle" target="_blank">https://github.com/pepper-seattle</a></p>
+      <p class="sub-text">Just a Code Squatch living in a human world.</p>
+    </div>
+    <button onclick="clickMe()">You Found Me!</button>
+
+    <script>
+      const clickMe = () => {
+        console.log('Good job mate!');
+      };
+    </script>
+  </body>
+</html>
