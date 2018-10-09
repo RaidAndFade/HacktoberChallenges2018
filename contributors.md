@@ -14,6 +14,7 @@
 # Challenge Participants 
 *(People who have participated in the challenges!)*
 - [edpen](https://github.com/edpen)
+- [leahmpersand](https://github.com/leahmpersand)
 
 
 # Contributors 
