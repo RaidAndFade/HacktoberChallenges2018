@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Remigio Arenas</title>
+</head>
+<link href="https://fonts.googleapis.com/css?family=Lobster+Two" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet"> 
+<style type="text/css">
+	:root {
+      --color1: #008080;
+      --color2: #9acd32;
+      --color3: #ffbb33;
+      --color4: #ff6347;
+      --color5: #714185;
+    }
+
+    * {
+      -webkit-box-sizing: border-box;
+              box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    body {
+      margin: 0;
+      border: 20px solid;
+      padding: 20px;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      -webkit-animation: colorize 5s infinite;
+              animation: colorize 5s infinite;
+      -webkit-animation-timing-function: linear;
+              animation-timing-function: linear;
+    }
+
+	.fullbody{
+		width: 100vw;
+		height: 100vh;
+        -webkit-animation: colorize 5s infinite;
+              animation: colorize 5s infinite;
+      -webkit-animation-timing-function: linear;
+              animation-timing-function: linear;
+	}
+    .box{
+        position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		font-size: 42px;
+		padding: 30px 42px 30px 42px;
+		border: 2px solid #fff;
+		cursor: pointer;
+		color: #fff;
+		font-family: 'Lobster Two', cursive;
+        text-align: center;
+    }
+
+	.colors{
+        -webkit-animation: colorize 5s infinite;
+            animation: colorize 5s infinite;
+        -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+	}
+
+    h1{
+        font-size: 2em;
+        font-family: 'Pacifico', cursive;
+    }
+    @-webkit-keyframes colorize {
+      0%, 100% {
+        color: var(--color1);
+        border-color: var(--color1);
+      }
+      20% {
+        color: var(--color2);
+        border-color: var(--color2);
+      }
+
+      40% {
+        color: var(--color3);
+        border-color: var(--color3);
+      }
+
+      60% {
+        color: var(--color4);
+        border-color: var(--color4);
+      }
+
+      80% {
+        color: var(--color5);
+        border-color: var(--color5);
+      }
+    }
+
+    @keyframes colorize {
+      0%, 100% {
+        color: var(--color1);
+        border-color: var(--color1);
+      }
+      20% {
+        color: var(--color2);
+        border-color: var(--color2);
+      }
+
+      40% {
+        color: var(--color3);
+        border-color: var(--color3);
+      }
+
+      60% {
+        color: var(--color4);
+        border-color: var(--color4);
+      }
+
+      80% {
+        color: var(--color5);
+        border-color: var(--color5);
+      }
+    }
+
+</style>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+	
+	$(function(){
+		$('#btn').click(function(){
+			window.open("https://github.com/remigioamc")
+		})
+	})
+
+</script>
+<body>
+    
+<div id="btn"  class="box colors">
+    <h1>Remigio&nbsp;Arenas</h1>
+	<div>Connect With Me</div>
+</div>
+</body>
+</html>
