@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Search Box</title>
+    <link rel="stylesheet" href="search.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <style>
+        input::placeholder {
+        color: white;
+        font-size: 1.2em;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="search-box">
+        <input id="search" class="search-txt" type="text" name="" placeholder="Type to search">
+        <a id="myLink" class="search-btn">
+            <i class="fa fa-search"></i>
+        </a>
+    </div>
+    <script type="text/javascript">
+        document.getElementById("myLink").onclick = function() {
+            var search = document.getElementById("search").value;
+          document.getElementById("myLink").href="http://www.google.com/search?q="+search; 
+         
+        };
+      </script>
+</body>
+</html>
