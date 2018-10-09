@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="main.css">
+    <script src="main.js"></script>
+  </head>
+  <body onLoad='startGame()'>
+    <h1>Space Flyer</h1>
+    <p>Use the LIFT OFF button to fly your ship through the gaps in the bariers.</p>
+    <p>How far can you travel?</p>
+    <p class="vspace"></p>
+    <button onmousedown="accelerate(-0.4)" onmouseup="accelerate(0.05)">LIFT OFF</button>
+    <button type="reset" value="RESTART" onClick='startGame()'>RESTART</button>
+  </body>
+</html>
