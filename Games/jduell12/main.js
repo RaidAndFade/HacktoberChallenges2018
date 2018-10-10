@@ -10,5 +10,11 @@ $(document.ready, function () {
     let player1 = "X";
     let player2 = "O";
 
+    function checkWin(){
+        
+    }
+
+
+
     
 })
