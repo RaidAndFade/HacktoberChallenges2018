@@ -1,0 +1,51 @@
+.board {
+    padding-top: 3em;
+    text-align: center;
+}
+
+.row {
+    clear: both;
+    margin: 0 auto;
+    width: 302px;
+}
+
+.top{
+    border-bottom: 1px black solid;
+    width: 100px;
+    height: 100px;
+    float: left;
+    cursor: pointer;
+}
+
+.bottom{
+    border-top: 1px black solid;
+    width: 100px;
+    height: 100px;
+    float: left;
+    cursor: pointer;
+}
+
+.left{
+    border-right: 1px black solid;
+    width: 100px;
+    height: 100px;
+    float: left;
+    cursor: pointer;
+}
+
+.right{
+    border-left: 1px black solid;
+    width: 100px;
+    height: 100px;
+    float: left;
+    cursor: pointer;
+}
+
+.center {
+    float: left;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+}
+
+
