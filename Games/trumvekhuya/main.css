@@ -1,0 +1,16 @@
+article, aside, details, figcaption, figure, footer, header,
+hgroup, menu, nav, section {
+    display: block;
+}
+
+h1 {
+    text-align: center;
+}
+p {
+    text-align: center;
+}
+canvas {
+    display: block;
+    margin: 0 auto;
+    background-color: #666;
+}
