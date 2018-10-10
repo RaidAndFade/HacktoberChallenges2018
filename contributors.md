@@ -19,6 +19,7 @@
 - [ryanc16](https://github.com/ryanc16)
 - [darrenrector91](https://github.com/darrenrector91)
 - [JanuriDP](https://github.com/JanuriDP)
+- [Rahul-Vijay](https://github.com/Rahul-Vijay)
 
 
 # Contributors 
