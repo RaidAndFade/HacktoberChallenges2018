@@ -1,25 +1,29 @@
 var States = Object.freeze({ GAME: 0, LOSE: 1 });
 var D2D = Object.freeze({ NONE: 0, UP: 1, DOWN: 2, LEFT: 3, RIGHT: 4 });
 
+Number.prototype.clamp = function (min, max) {
+    return Math.min(Math.max(this, min), max);
+};
+
 function Player(x, y) {
     this.createHead = function () {
         let hx = x;
         let hy = y;
 
-        if(this.head.length > 0){
+        if (this.head.length > 0) {
             hx = this.head[this.head.length - 1].x;
             hy = this.head[this.head.length - 1].y;
         }
 
         this.head.push(new Head(hx, hy));
     }
-    
+
     this.head = [];
 
     this.dir = D2D.NONE;
     this.dirBuffer = [];
 
-    for(var i = 0; i < 5; i++)
+    for (var i = 0; i < 5; i++)
         this.createHead();
 }
 
@@ -107,7 +111,7 @@ function setupGame() {
     });
 
     game.minSpeed = 500;
-	game.speedOffset = 20;
+    game.speedOffsetHC = 20;
 
     game.canvas = gameCanvas;
     game.canvas.width = 960;
@@ -123,12 +127,19 @@ function setupGame() {
 
     game.scoreDisplay = $("#score");
     game.speedDisplay = $("#gameSpeed");
+    game.speedOffsetDisplay = $("#speedOffset");
     game.speedMultDisplay = $("#speedMult");
 
-    game.speedIncrease = speedSlider.value;
+    game.speedIncrease = parseInt(speedSlider.value);
 
-    speedSlider.oninput = function(){
-        game.speedIncrease = this.value;
+    speedSlider.oninput = function () {
+        game.speedIncrease = parseInt(this.value);
+    };
+
+    game.speedOffset = parseInt(offsetSlider.value);
+
+    offsetSlider.oninput = function () {
+        game.speedOffset = parseInt(this.value);
     };
 
     resetGame();
@@ -175,7 +186,7 @@ function draw(g) {
         g.fillText(title, game.width / 2 - g.measureText(title).width / 2, game.height / 2 - 2);
         g.font = '2px sans-serif';
         g.fillText(subtitle, game.width / 2 - g.measureText(subtitle).width / 2, game.height / 2 + 2);
-    } else if (game.player.dir == D2D.NONE){
+    } else if (game.player.dir == D2D.NONE) {
         g.fillStyle = 'rgba(0, 0, 0, 0.6)'
         g.fillRect(0, 0, game.width, game.height);
 
@@ -191,16 +202,18 @@ function draw(g) {
 }
 
 // Called once per draw frame
-function updateDisplay(){
+function updateDisplay() {
     game.scoreDisplay.text(game.score);
-    game.speedDisplay.text(game.minSpeed - (game.speed - game.speedOffset) + " / " + game.minSpeed);
+    game.speedDisplay.text((game.minSpeed - (game.speed - game.speedOffsetHC)).clamp(0, game.minSpeed) + " / " + game.minSpeed);
     game.speedMultDisplay.text(game.speedIncrease);
+    game.speedOffsetDisplay.text(game.speedOffset);
 }
 
 // Called once per update frame, which is equal to game speed
 // Called only when in GAME state
 function update() {
-    game.speed = Math.round(Math.max(0, game.minSpeed - game.score * game.speedIncrease)) + game.speedOffset;
+    game.speed = game.minSpeed - game.score * game.speedIncrease - game.speedOffset + game.speedOffsetHC;
+    game.speed = Math.round(game.speed.clamp(game.speedOffsetHC, game.minSpeed + game.speedOffsetHC));
 
     if (game.player.dirBuffer.length != 0) {
         game.player.dir = game.player.dirBuffer.shift();
