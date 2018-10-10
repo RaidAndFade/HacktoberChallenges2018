@@ -21,6 +21,8 @@ body {
 .screen {
     position: absolute;
     top: 0px;
+	
+	border-radius: 10px;
 }
 
 .canvasOverlay {
@@ -28,6 +30,8 @@ body {
     top: 0px;
     width: 100%;
     height: 100%;
+	
+	border-radius: 10px;
 }
 
 .gameStats {

@@ -107,6 +107,7 @@ function setupGame() {
     });
 
     game.minSpeed = 500;
+	game.speedOffset = 20;
 
     game.canvas = gameCanvas;
     game.canvas.width = 960;
@@ -192,14 +193,14 @@ function draw(g) {
 // Called once per draw frame
 function updateDisplay(){
     game.scoreDisplay.text(game.score);
-    game.speedDisplay.text(game.minSpeed - game.speed + " / " + game.minSpeed);
+    game.speedDisplay.text(game.minSpeed - (game.speed - game.speedOffset) + " / " + game.minSpeed);
     game.speedMultDisplay.text(game.speedIncrease);
 }
 
 // Called once per update frame, which is equal to game speed
 // Called only when in GAME state
 function update() {
-    game.speed = Math.round(Math.max(0, game.minSpeed - game.score * game.speedIncrease));
+    game.speed = Math.round(Math.max(0, game.minSpeed - game.score * game.speedIncrease)) + game.speedOffset;
 
     if (game.player.dirBuffer.length != 0) {
         game.player.dir = game.player.dirBuffer.shift();
