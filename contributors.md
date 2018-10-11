@@ -35,3 +35,4 @@
 - [capturethemoon](https://github.com/capturethemoon)
 - [Ashley](https://github.com/agerwitz)
 - [andrescalco](https://github.com/andrescalco)
+- [BucSy](https://github.com/BucSy)
