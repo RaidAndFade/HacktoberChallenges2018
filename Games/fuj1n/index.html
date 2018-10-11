@@ -1,0 +1,45 @@
+<html>
+
+<head>
+    <title>Fuj1n's Game</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="screenArea">
+        <div class="gameStats">
+            Score:
+            <span id="score">0</span>
+            <span style="float: right;">Game Speed+ :
+                <span id="gameSpeed">750</span>
+            </span>
+        </div>
+        <canvas id="gameCanvas" class="screen"></canvas>
+        <svg class="canvasOverlay" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
+                    <path d="M 24 0 L 0 0 0 24" fill="none" stroke="#111" stroke-width="1" />
+                </pattern>
+            </defs>
+
+            <rect width="100%" height="100%" fill="url(#grid)" />
+        </svg>
+    </div>
+
+    <div class="sliderContainer">
+        <center>Speed Offset:
+            <span id="speedOffset">4</span>
+        </center>
+        <input type="range" min="0" max="500" value="0" class="slider" id="offsetSlider">
+
+        <center>Speed Increase: Score *
+            <span id="speedMult">4</span>
+        </center>
+        <input type="range" min="0" max="500" value="4" class="slider" id="speedSlider">
+    </div>
+
+    <script type="text/javascript" src="main.js"></script>
+</body>
+
+</html>
