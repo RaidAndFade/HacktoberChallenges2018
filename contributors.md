@@ -29,6 +29,7 @@
 *(People who have not participated in challenges but want to be a part of the project!)*
 - [KojiAdrianoJr.](https://github.com/kojiadrianojr)
 - [mahis929](https://github.com/mahis929)
+- [mohitsharma29](https://github.com/mohitsharma29)
 - [capturethemoon](https://github.com/capturethemoon)
-- [Ashley] (https://github.com/agerwitz)
+- [Ashley](https://github.com/agerwitz)
 - [andrescalco](https://github.com/andrescalco)
