@@ -37,4 +37,5 @@
 - [capturethemoon](https://github.com/capturethemoon)
 - [Ashley](https://github.com/agerwitz)
 - [andrescalco](https://github.com/andrescalco)
+- [BucSy](https://github.com/BucSy)
 - [sohail764245](https://github.com/sohail764245)
