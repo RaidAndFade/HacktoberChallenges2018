@@ -25,6 +25,7 @@
 - [shannonmcook](https://github.com/shannonmcook)
 - [11A11](https://github.com/11A11)
 - [matmen](https://github.com/matmen)
+- [andy-kohne](https://github.com/andy-kohne)
 
 
 # Contributors
