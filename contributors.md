@@ -23,7 +23,9 @@
 - [Rahul-Vijay](https://github.com/Rahul-Vijay)
 - [ConnyHeb](https://github.com/ConnyHeb)
 - [shannonmcook](https://github.com/shannonmcook)
+- [11A11](https://github.com/11A11)
 - [matmen](https://github.com/matmen)
+- [andy-kohne](https://github.com/andy-kohne)
 
 
 # Contributors
@@ -36,3 +38,4 @@
 - [Ashley](https://github.com/agerwitz)
 - [andrescalco](https://github.com/andrescalco)
 - [BucSy](https://github.com/BucSy)
+- [sohail764245](https://github.com/sohail764245)
