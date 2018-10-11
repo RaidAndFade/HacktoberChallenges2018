@@ -1,0 +1,26 @@
+<html>
+
+<head>
+    <title>Kai's Dumb Guessing Game</title>
+</head>
+
+<body>
+    <h1>Dumb Guessing game</h1>
+    <script type="text/javascript">
+
+        var shouldContinue = true;
+
+        while (shouldContinue) {
+            var guess = prompt("Guess a number between 1 and 10");
+            var answer = Math.floor(Math.random() * 10) + 1;
+            if (parseInt(guess) === answer) {
+                shouldContinue = confirm("You guessed correctly! It was " + answer + ". Try again?");
+            } else {
+                shouldContinue = confirm("Sorry, it was " + answer + ". Try again?");
+            }
+        }
+
+    </script>
+</body>
+
+</html>
