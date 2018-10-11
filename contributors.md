@@ -14,15 +14,18 @@
 # Challenge Participants
 *(People who have participated in the challenges!)*
 - [edpen](https://github.com/edpen)
+- [fuj1n](https://github.com/fuj1n)
 - [leahmpersand](https://github.com/leahmpersand)
 - [nik1082](https://github.com/nik1082)
 - [ryanc16](https://github.com/ryanc16)
 - [darrenrector91](https://github.com/darrenrector91)
 - [JanuriDP](https://github.com/JanuriDP)
 - [ConnyHeb](https://github.com/ConnyHeb)
+- [shannonmcook](https://github.com/shannonmcook)
 
 
 # Contributors
 *(People who have not participated in challenges but want to be a part of the project!)*
 - [KojiAdrianoJr.](https://github.com/kojiadrianojr)
 - [mahis929](https://github.com/mahis929)
+- [andrescalco](https://github.com/andrescalco)

@@ -1,0 +1,63 @@
+body {
+  background: #20262E;
+  padding: 20px;
+  font-family: Helvetica;
+}
+
+button {
+  background: #0084ff;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 14px;
+  font-size: 15px;
+  color: #fff;
+}
+
+.board > div {
+  display:table-row;
+}
+.board >div >div{
+  display:table-cell;
+}
+
+.square {
+  width: 50px;
+  height: 50px;
+  color:green;
+      text-align: center;
+    vertical-align: middle;
+    font-size: 36px;
+    cursor: pointer;
+}
+.middle > div {
+  border-bottom: solid 1px green;
+  border-top: solid 1px green;  
+}
+.center {
+  border-left: solid 1px green;
+  border-right: solid 1px green;  
+  
+}
+.hidden {
+  display:none;
+}
+
+.X, .O
+{
+  cursor: default;
+  
+}
+.X::after {
+  content: 'X';
+}
+.O::after {
+  content: 'O';
+}
+
+#buttons{
+  padding:10px;
+}
+#status{
+  padding:10px;
+  color:white;
+}
