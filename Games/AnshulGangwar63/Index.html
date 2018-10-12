@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title>Pig Game</title>
+       <link href="https://fonts.googleapis.com/css?family=Lato:100,300,600" rel="stylesheet" type="text/css">
+        <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="main.css">
+    </head>
+    <body>
+        <div class="wrapper clearfix">
+          
+           <!-- Player -1 -->
+           
+            <div class="player-0-panel active">
+                <div class="player-name" id="name-0">Player 1</div>
+                <div class="player-score" id="score-0">0</div>
+                <div class="current-box">
+                    <div class="current-label">Current</div>
+                    <div class="current-score" id="current-0">0</div>
+                </div>
+            </div>
+            
+           <!-- Player - 2 -->
+           
+           <div class="player-1-panel">
+                <div class="player-name" id="name-1">Player 2</div>
+                <div class="player-score" id="score-1">0</div>
+                <div class="current-box">
+                    <div class="current-label">Current</div>
+                    <div class="current-score" id="current-1">0</div>
+                </div>
+            </div>
+            <button id="new-game"><i class="ion-ios-plus-outline"></i>New Game</button>
+            
+           <button id="roll-dice"><i class="ion-ios-loop"></i>Roll Dice</button>
+           
+            <button id="hold"><i class="ion-ios-download-outline"></i>Hold</button>
+            <img id="dice-image" src="img/dice-1.png" alt="dice">
+            <img id="dice-image1" src="img/dice-1.png" alt="dice">
+        </div>
+        <script src="main.js"></script>
+    </body>
+</html>
