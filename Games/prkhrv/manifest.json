@@ -1,0 +1,20 @@
+{
+  "name": "Flappy Bird",
+  "short_name": "Flappy Bird",
+  "theme_color": "#2196f3",
+  "background_color": "#2196f3",
+  "start_url": "https://prkhrv.github.io",
+  "display": "standalone",
+  "orientation": "portrait",
+  "description": "Pithy description (132 characters or less, no HTML)",
+  "version": "0.0.0.1",
+  "manifest_version": 2,
+  "icons": [
+    {
+   "src": "./image/fp.png",
+   "sizes": "144x144",
+   "type": "image/png",
+   "density": "4.0"
+  }
+ ]
+}
