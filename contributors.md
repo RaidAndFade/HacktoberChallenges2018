@@ -40,3 +40,4 @@
 - [andrescalco](https://github.com/andrescalco)
 - [BucSy](https://github.com/BucSy)
 - [sohail764245](https://github.com/sohail764245)
+- [EricMunoz](https://github.com/EricMunoz)
