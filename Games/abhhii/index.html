@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta charset="utf-8">
+		<meta name="author" content="Abhishek Singhal">
+		<script src= "scripts/script.js"></script>
+		<link href = 'styles/style.css' rel = 'stylesheet' type = 'text/css'>
+		<title>Mentee Menace</title>
+	</head>
+	<body onload='playmusic();'>
+		<div  id='welcome'>
+			<p>MENTEE MENACE!</p> 
+			<button id ='play' type='button' onclick="document.getElementById('welcome').style.display = 'none';startGame();">Play!</button>
+		</div>
+		<div  id='overlay'>
+			<p>GAME OVER!</p> 
+			<button id ='restart' type='button' onclick=' document.location.reload();'>Restart</button>
+		</div>
+	</body>
+</html>
