@@ -1,0 +1,27 @@
+.circle{
+width:80px;
+height:80px;
+border-radius:50%;
+float:left;
+margin-right:150px;
+}
+
+#red{
+background-color:red;
+}
+
+#blue{
+background-color:blue;
+}
+
+#check{
+	margin-left:10px;
+}
+
+.circle{
+	
+    padding-top: 50px;
+    padding-right: 30px;
+    padding-bottom: 50px;
+    padding-left: 80px;
+}
