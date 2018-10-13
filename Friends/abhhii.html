@@ -1,0 +1,196 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://fonts.googleapis.com/css?family=Cedarville+Cursive|Ruthie" rel="stylesheet"> 
+	<link href="https://fonts.googleapis.com/css?family=Mali" rel="stylesheet"> 
+	<title>
+	CALM DOWN
+	</title>
+	<style>
+
+	@keyframes colorchanger {
+			0% { color: #81D4FA; }
+			13% { color: #01579B; }
+			31% { color: #4DB6AC; }
+			46% { color: #40C4FF; }
+			59% { color: #00E5FF; }
+			81% { color: #84FFFF; }
+			100% { color: #00E676; }
+		}
+
+	@keyframes colorchanger2 {
+			0% { color: #E57373; }
+			3% { color: #F06292; }
+			6% { color: #BA68C8; }
+			9% { color: #D500F9; }
+			12% { color: #F50057; }
+			15% { color: #FF1744; }
+			18% { color: #9575CD; }
+			21% { color: #7986CB; }
+			24% { color: #64B5F6; }
+			27% { color: #2979FF; }
+			30% { color: #3D5AFE; }
+			33% { color: #651FFF; }
+			36% { color: #4FC3F7; }
+			39% { color: #4DD0E1; }
+			42% { color: #4DB6AC; }
+			45% { color: #1DE9B6; }
+			48% { color: #00B0FF; }
+			51% { color: #81C784; }
+			54% { color: #AED581; }
+			57% { color: #DCE775; }
+			60% { color: #C6FF00; }
+			63% { color: #76FF03; }
+			66% { color: #00E676; }
+			69% { color: #FFF176; }
+			72% { color: #FFD54F; }
+			75% { color: #FFB74D; }
+			78% { color: #FF9100; }
+			81% { color: #FFC400; }
+			84% { color: #FFEA00; }
+			87% { color: #FF7043; }
+			90% { color: #BCAAA4; }
+			93% { color: #EEEEEE; }
+			96% { color: #FF3D00; }
+			1000% { color: #AA00FF; }
+		}			
+	html {
+			background: #322; color: #ddd;
+		}
+	html,body, body > div.wrapper{
+		width: 100%;
+		height: 100%;
+		border: none;
+		margin: 0;
+	}	
+	body > div.wrapper{
+		text-align: center;
+	}	
+	.tooltip {
+	    position: relative;
+	    display: inline-block;
+	}
+	.tooltip .tooltiptext {
+    	visibility: hidden;
+	    width: 120px;
+	    background-color: black;
+	    color: #fff;
+	    text-align: center;
+	    padding: 5px 0;
+	    border-radius: 6px; 
+	    position: absolute;
+	    z-index: 1;
+	}		
+	.tooltip:hover .tooltiptext {
+    	visibility: visible;
+	}
+	#github{
+		font-family: 'Mali', cursive;
+		font-size: 30px;
+		animation-name: colorchanger;
+		animation-duration: 3s;
+		animation-iteration-count: infinite;
+		/*color: #FF0000;*/
+	}
+	#greeting{
+		animation-name: colorchanger;
+		animation-duration: 20s;
+		animation-iteration-count: infinite;
+		font-family: 'Ruthie', cursive;
+		font-size: 55px;
+	}
+	#name{
+		font-family: 'Cedarville Cursive', cursive;
+		font-size: 50px;
+	}
+	#malware{
+		padding: 10px;
+		color: #FF0000;
+		font-size: 60px;
+	}
+	#warning{
+		color: #42A5F5;
+		font-size: 25px;
+		margin: auto;
+	}
+	.b1 {
+	  animation-name: shake;
+	  animation-duration: 1s;	
+	  display: inline-block;
+	  padding: 15px 25px;
+	  font-size: 24px;
+	  cursor: pointer;
+	  text-align: center;
+	  text-decoration: none;
+	  outline: none;
+	  color: #fff;
+	  background-color: #4CAF50;
+	  border: none;
+	  border-radius: 15px;
+	  box-shadow: 0 9px #999;
+	  margin-right: 25px;
+	}
+	.b1:hover {background-color: #3e8e41;}
+	.b1:active {
+	  background-color: #3e8e41;
+	  box-shadow: 0 5px #666;
+	  transform: translateY(4px);
+	}
+	.tooltip{
+	  display: inline-block;
+	  padding: 15px 25px;
+	  font-size: 24px;
+	  cursor: pointer;
+	  text-align: center;
+	  text-decoration: none;
+	  outline: none;
+	  color: #fff;
+	  background-color: #E53935;
+	  border: none;
+	  border-radius: 15px;
+	  box-shadow: 0 9px #999;
+	  margin-right: 25px;
+	}
+	.tooltip:hover {background-color: #C62828;}
+	.tooltip:active {
+	  background-color: #C62828;
+	  box-shadow: 0 5px #666;
+	  transform: translateY(2px);
+	}
+	.trust{
+		display: none;
+	}
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+		<span id="malware">Malware Detected!</span><br />
+		<span id="warning">[This page contains <i>malicious</i> code which is extremely harmless ;) ]<br/></span><br />	
+		<div id="buttons">
+			<button type="button" class= 'b1' id = 'itrust'>Trust it</button>
+			<button type="button" class="tooltip" id= 'safety'>Back to safety<span class = "tooltiptext">Believe me trust is better!</span></button>
+		</div>
+		<br/><br/>
+		<div class="trust" id="trustblock">
+			<span id="greeting"><h1>Happy Hacktober</h1></span>
+			<span id="name"><h2>Hi, I am Abhishek.</h2></span>
+			<a href="https://github.com/abhhii" target="_blank"><span id="github">Let's go to a better web page	</span></a>
+		</div>
+	</div>
+	<script type="text/javascript">
+		var trust =false;
+		document.getElementById('itrust',).addEventListener('click', function(p){
+			document.getElementById('trustblock').style.display = "block";
+			document.getElementById('safety').style.display = 'none';
+			document.getElementById('buttons').style.display = 'none';
+			document.getElementById('malware').style.display = "none";
+			document.getElementById('warning').style.display = "none";
+			console.log("Hello there");
+		});
+		document.getElementById('safety').addEventListener('click', function(p){
+			window.location.assign("https://github.com/abhhii");
+		});
+	</script>
+</body>
+</html>
