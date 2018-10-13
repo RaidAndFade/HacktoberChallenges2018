@@ -1,0 +1,18 @@
+.game {
+    margin: 0 auto;
+    width: 300px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.gameBtn {
+    width: 100px;
+    height: 100px
+}
+
+.wins {
+    background: green;
+    color: #fff
+}
