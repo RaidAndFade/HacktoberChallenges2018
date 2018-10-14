@@ -36,3 +36,4 @@ Embedables (svg, base64 images) can simply be embedded in your file somewhere
 
 # Final Note
 Make your games fun, unique, and intuitive. There should not be some 50 page manual on how to play your game, and if there is, it should be embedded into the game.
+Happy Game day for you!
