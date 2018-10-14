@@ -27,8 +27,11 @@ You can use ANY html, ANY js, and ANY css you want, as long as you don't create 
 
 # External Resources!???
 I know some of you may want to use external resources such as images, json files, anything like that...
+
 Images (gifs,jpg,png) can go on IMGUR with no issues
+
 Files (json,txt,csv) should go on either PASTEBIN or somewhere similar
+
 Embedables (svg, base64 images) can simply be embedded in your file somewhere
 
 # Final Note
