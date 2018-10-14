@@ -42,6 +42,7 @@
 - [capturethemoon](https://github.com/capturethemoon)
 - [Ashley](https://github.com/agerwitz)
 - [andrescalco](https://github.com/andrescalco)
+- [Melissa](https://github.com/mbain108)
 - [BucSy](https://github.com/BucSy)
 - [sohail764245](https://github.com/sohail764245)
 - [AbhishekJindal](https://github.com/jindalabhishek1)
