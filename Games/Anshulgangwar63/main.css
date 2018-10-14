@@ -1,0 +1,189 @@
+*
+{
+    padding: 0;
+    margin: 0;
+    box-sizing:border-box;
+}
+body
+{
+    background-image:linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)),url(back.jpg);
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    font-family: Lato;
+    font-weight: 100;
+    color: #555;
+}
+
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.wrapper
+{
+     width: 1000px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.3);
+    overflow: hidden
+}
+/*  -- Player 1 panel ---*/
+
+.player-0-panel
+{
+    width: 50%;
+    height: 600px;
+    float:left;
+    padding: 100px;
+}
+
+.player-name
+{
+    font-size: 60px;
+    text-align: center;
+    position: relative;
+}
+
+.player-score
+{
+    font-size: 100px;
+    color: #EB4D4D;
+    font-weight: 100;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 130px;
+}
+
+.current-box
+{
+    
+    background-color:#EB4D4D;
+    width: 40%;
+    height: 80px;
+    text-align: center;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.current-label
+{
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    font-size: 12px;
+    color: #222;
+    font-weight: 600;
+}
+.current-score
+{
+    font-size: 30px;
+    color: white;
+}
+
+.active
+{
+    background-color: #f7f7f7;
+}
+/* -- Player 2 panel --*/
+.player-1-panel
+{
+    width: 500px;
+    height: 600px;
+    float: left;
+    padding: 100px;
+}
+
+
+#dice-image
+{
+    position: absolute;
+    left: 50%;
+    top: 178px;
+    transform: translateX(-50%);
+    height: 100px;
+    box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.10);
+}
+#dice-image1
+{
+    position: absolute;
+    left: 50%;
+    top: 300px;
+    transform: translateX(-50%);
+    height: 100px;
+    box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.10);
+}
+
+#roll-dice {
+    top: 480px;
+}
+
+#hold
+{
+    top:530px;
+}
+
+#new-game {
+    top: 45px;
+}
+button {
+    position: absolute;
+    width: 200px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #555;
+    background: none;
+    border: none;
+    font-family: Lato;
+    font-size: 20px;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: 300;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.active .player-name
+{
+        font-weight: 300;
+}
+
+.active .player-name::after
+{
+    content: "\2022";
+    font-size: 47px;
+    position: absolute;
+    color: #EB4D4D;
+    top: 1px;
+    right: 10px;
+}
+
+i
+{
+    margin-right: 10px;
+    color: #EB4D4D;
+    font-size: 30px;
+    font-weight: 300;
+    display: inline-block;
+      vertical-align: text-top;
+    margin-top: -4px;
+    transition: margin 0.3s;
+}
+
+button:hover
+{
+    font-weight: 600;
+}
+
+
+.winner
+{
+    color: #EB4D4D;
+    background-color: #f7f7f7;
+    font-weight: 600;
+    
+}
