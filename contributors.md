@@ -27,6 +27,7 @@
 - [matmen](https://github.com/matmen)
 - [andy-kohne](https://github.com/andy-kohne)
 - [cafeshoes](https://github.com/cafeshoes)
+- [Swan](https://github.com/swans01)
 
 
 # Contributors
