@@ -30,6 +30,7 @@
 - [willianba](https://github.com/willianba)
 - [Swan](https://github.com/swans01)
 - [nawwx3](https://github.com/nawwx3)
+- [RhythmGilhotra](https://github.com/RhythmGilhotra)
 
 # Contributors
 *(People who have not participated in challenges but want to be a part of the project!)*
