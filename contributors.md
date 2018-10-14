@@ -41,3 +41,5 @@
 - [BucSy](https://github.com/BucSy)
 - [sohail764245](https://github.com/sohail764245)
 - [EricMunoz](https://github.com/EricMunoz)
+- [Uzma Faiz](https://github.com/uzmafaiz)
+- [Fires](https://github.com/Fires1)
