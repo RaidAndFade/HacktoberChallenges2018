@@ -1,5 +1,5 @@
-# Hacktoberfest2018 ~ Week 2 Challenge
-For previous challenges, please look at [readmes](https://github.com/RaidAndFade/Hacktoberfest2018/tree/master/READMES).
+# Hacktoberfest2018 ~ Week 2 Challeng
+ please look at [readmes](https://github.com/RaidAndFade/Hacktoberfest2018/tree/master/READMES) link for previous challenges......
 
 *This is part of a series of weekly projects that will be in this repository over the span of hacktoberfest.*
 *this is satire, it's meant to be cute and to see what potential PRs have (both during hacktoberfest and otherwise)*
