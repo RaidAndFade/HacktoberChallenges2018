@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="theme-color" content="#2196f3">
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'self' 'unsafe-inline' 'unsafe-eval' data: gap:">
+    <title>Community Portal</title>
+    <link rel="stylesheet" href="../dist/css/framework7.min.css">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="apple-touch-icon" href="img/f7-icon-square.png">
+    <link rel="icon" href="img/f7-icon.png">
+    <style>
+
+        .cardMain {
+          height: 17vh;         
+          width : 43vw;
+         }       
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="statusbar"></div>
+
+        <!----  left pannel start---------->
+        <div class="panel panel-left panel-cover">
+            <div class="page">
+                <div class="page-content">
+                    <div class="card">
+                        <img src="img/logo.png" alt="View" style="width:100%;height:100%;">
+                    </div>
+
+
+
+
+
+                    <div class="block-title">Logged User Details</div>
+                    <div class="block-title">XXX</div>
+                    <div class="list links-list">
+                        <ul>
+                            
+                                
+                            
+                            <li>
+                                <a class="panel-close">App Settings</a>
+                            </li> 
+                            <li>
+                                <a href="#" class="panel-close" id="logOut">Log out</a>
+                            </li> 
+                        </ul>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+   
+
+        <div class="view view-main view-init ios-edges" data-url="/" data-dom-cache="true">
+            <div class="page">
+
+
+
+                
+                <div class="navbar">
+                    <div class="navbar-inner">
+                        <a class="link icon-only panel-open" data-panel="left" id="bars"><i class="icon f7-icons md-only">bars</i></a>                        
+                        <div class="title sliding">Owners Corporation PS 309349K</div>
+                       
+                        
+                    </div>
+                </div>
+                <div class="page-content login-screen-content">
+
+                    <div id="loginForm">
+                        <div class="login-screen-title">Community Portal</div>
+                        <form>
+                            <div class="list">
+                                <ul>
+                                    <li class="item-content item-input">
+                                        <div class="item-inner">
+                                            <div class="item-title item-label">Username</div>
+                                            <div class="item-input-wrap">
+                                                <input type="text" name="username" placeholder="Your username" id="name">
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="item-content item-input">
+                                        <div class="item-inner">
+                                            <div class="item-title item-label">Password</div>
+                                            <div class="item-input-wrap">
+                                                <input type="password" name="password" placeholder="Your password" id="password">
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="list">
+                                <ul>
+                                    <li><a class="item-link list-button" href="#" id="logIn">Sign In</a></li>
+                                </ul>
+                                <div class="block-footer">
+                                    <p>An exclusive on-line service designed to assist strata communities with their lifestyle needs</p>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+
+                    <div class="block" id="mainView">
+                        <div class="row">
+
+                            <div class="col-50">
+                                <a href="/home/">
+                                    <div class="card cardMain">
+                                        <img src="img/icons8-home-80.png" alt="View" style="width:100%;height:70%;">
+                                        <div class="card-content" style="text-align:center;font-weight: 900;">
+                                            Home
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-50">
+                                <a href="/PropertyDetails/">
+                                    <div class="card cardMain">
+                                        <img src="img/icons8-top-menu-80.png" alt="View" style="width:100%;height:70%;">
+                                        <div class="card-content" style="text-align:center;font-weight: 900;">
+                                            Property Details
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-50">
+                                <a href="/dashboard/">
+                                    <div class="card cardMain">
+                                        <img src="img/icons8-course-80.png" alt="View" style="width:100%;height:70%;">
+                                        <div class="card-content" style="text-align:center;font-weight: 900;">
+                                            Dashboard
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-50">
+                                <a href="/accountdetails/">
+                                    <div class="card cardMain">
+                                        <img src="img/icons8-statistics-80.png" alt="View" style="width:100%;height:70%;">
+                                        <div class="card-content" style="text-align:center;font-weight: 900;">
+                                            Account Summaries
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row">
+
+                            <div class="col-50">
+                                <a href="/incident/">
+                                    <div class="card cardMain">
+                                        <img src="img/icons8-edit-property-80.png" alt="View" style="width:100%;height:70%;">
+                                        <div class="card-content" style="text-align:center;font-weight: 900;">
+                                            Incidents
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-50">
+                                <a href="/mylevy/">
+                                    <div class="card cardMain">
+                                        <img src="img/icons8-new-document-80.png" alt="View" style="width:100%;height:70%;">
+                                        <div class="card-content" style="text-align:center;font-weight: 900;">
+                                            My Levy
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row">
+
+                            <div class="col-50">
+                                <a href="/mydocuments/">
+                                    <div class="card cardMain">
+                                        <img src="img/icons8-documents-80.png" alt="View" style="width:100%;height:70%;">
+                                        <div class="card-content" style="text-align:center;font-weight: 900;">
+                                            My Documents
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-50">
+                                <a href="/committeearea/">
+                                    <div class="card cardMain">
+                                        <img src="img/icons8-user-account-80.png" alt="View" style="width:100%;height:70%;">
+                                        <div class="card-content" style="text-align:center;font-weight: 900;">
+                                            Committee Area
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <!--<div class="card">
+            <div class="card-header"><b> 10 Hamilton Road BAYSWATER NORTH VIC 3153</b></div>
+            <div class="card-content card-content-padding"><center><img src="img/melbourne_01.png" alt="View" width="340" height="200"></center></div>
+        </div>
+        <div class="card">
+            <div class="card-header"><b> Contact Information</b></div>
+            <div class="card-content card-content-padding">
+                <div class="list accordion-list">
+                    <ul>
+                        <li class="accordion-item">
+                            <a href="#" class="item-content item-link">
+                                <div class="item-inner">
+                                    <div class="item-title">Managing Company</div>
+                                </div>
+                            </a>
+                            <div class="accordion-item-content">
+                                <div class="block">
+                                    <p>Ace Body Corporate Management</p>
+                                    <p><i class=" f7-icons color-green">navigation_fill</i>Suite 9/334 Highbury Road, Mount Waverley, VIC 3149<br /><i class=" f7-icons color-green">phone_round_fill</i>03 9239 3100<br /><i class=" f7-icons color-green">email_fill</i>aceconsulting@acebodycorp.com.au</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="accordion-item">
+                            <a href="#" class="item-content item-link">
+                                <div class="item-inner">
+                                    <div class="item-title">Building Manager</div>
+                                </div>
+                            </a>
+                            <div class="accordion-item-content">
+                                <div class="block">
+                                    <p>Not Available</p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+
+
+
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header"><b>Property Notices</b></div>
+            <div class="card-content card-content-padding">Currently, there are no notices for this property.</div>
+        </div>
+        <div class="card">
+            <div class="card-header"><b> Property News & Information</b></div>
+            <div class="card-content card-content-padding">Currently, there are no news items available for this property.</div>
+
+        </div>
+        <div class="card">
+            <div class="card-header"><b>Property Location</b></div>
+            <div class="card-content card-content-padding">Location image</div>
+        </div>-->
+
+
+                    </div>
+                </div>
+            </div>
+            <!-- home page content end----------------------------------------------------------------------------- -->
+
+
+
+
+        </div>
+    </div>
+
+    <script src="../dist/js/framework7.min.js"></script>
+    <script src="js/routes.js"></script>
+    <script src="js/app.js"></script>
+    <script type="text/javascript">
+
+        $("#mainView").hide();
+        $(".navbar").hide();
+
+        
+
+
+        $(document).on('click', '#logIn', function () {
+            if ($("#password").val().length == 0 || $("#name").val().length == 0) {
+                app.dialog.alert('Please fill all fields!', 'Community Portal');
+            } else {
+                $$("#password").val("");
+                $$("#name").val("");
+                $$("#loginForm").hide();                
+                $("#pageContent").removeClass("login-screen-content");
+                $$("#mainView").show();
+                $(".navbar").show();                
+                $$("#logOut").show();
+                
+            }
+
+        });
+
+        $(document).on('click', '#logOut', function () {           
+
+            $$("#logOut").hide();
+            $(".navbar").hide();
+            $("#pageContent").addClass("login-screen-content");            
+            $("#loginForm").show();
+            $("#mainView").hide();
+        });
+
+
+    </script>
+
+
+</body>
+</html>
