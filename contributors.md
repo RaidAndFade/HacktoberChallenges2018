@@ -46,6 +46,7 @@
 - [BucSy](https://github.com/BucSy)
 - [sohail764245](https://github.com/sohail764245)
 - [AbhishekJindal](https://github.com/jindalabhishek1)
+- [ftsell](https://github.com/ftsell)
 - [EricMunoz](https://github.com/EricMunoz)
 - [Uzma Faiz](https://github.com/uzmafaiz)
 - [Fires](https://github.com/Fires1)
