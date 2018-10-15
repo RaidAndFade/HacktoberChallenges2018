@@ -56,4 +56,5 @@
 - [Uzma Faiz](https://github.com/uzmafaiz)
 - [Fires](https://github.com/Fires1)
 - [Yash](https://github.com/yash25806)
+- [msafaric](https://github.com/msafaric)
 - [AbdQaadir](https://github.com/AbdQaadir)
