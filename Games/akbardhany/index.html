@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" oncontextmenu="return false">
+  <head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, user-scalable=no">
+    <link href="zou.png" rel="shortcut icon">
+</head>
+<title>MAINTENANCE.</title>
+<body onload="startGame()">
+  <center /><tt /><cite /><br />
+    SORRY, THIS PAGE IS UNDER MAINTENANCE.
+<script>
+
+var myGamePiece6,myGamePiece5,myGamePiece4,myGamePiece3,myGamePiece2,myGamePiece1;
+
+function startGame() {
+    myGamePiece6 = new component(70, 70, "purple", 120, 75);
+    myGamePiece5 = new component(20, 20, "cyan", 120, 75);
+    myGamePiece4 = new component(60, 60, "lightgreen", 70, 75);
+    myGamePiece3 = new component(50, 50, "yellow", 100, 75);
+    myGamePiece2 = new component(40, 40, "orange", 90, 75);
+    myGamePiece1 = new component(30, 30, "red", 80, 75);
+    myGameArea.start();
+}
+
+var myGameArea = {
+    canvas : document.createElement("canvas"),
+    start : function() {
+        this.canvas.height = 200;
+        this.context = this.canvas.getContext("2d");
+        document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+        this.interval = setInterval(updateGameArea, 20);
+    },
+    stop : function() {
+        clearInterval(this.interval);
+    },
+    clear : function() {
+        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    }
+}
+
+function component(width, height, color, x, y, type) {
+    this.type = type;
+    this.width = width;
+    this.height = height;
+    this.x = x;
+    this.y = y;
+    this.speedX = 0;
+    this.speedY = 0;
+    this.gravity = 0.1;
+    this.gravitySpeed = 0;
+    this.bounce = 1;
+    this.update = function() {
+        ctx = myGameArea.context;
+        ctx.fillStyle = color;
+        ctx.fillRect(this.x, this.y, this.width, this.height);
+    }
+    this.newPos = function() {
+        this.gravitySpeed += this.gravity;
+        this.x += this.speedX;
+        this.y += this.speedY + this.gravitySpeed;
+        this.hitBottom();
+    }
+    this.hitBottom = function() {
+        var rockbottom = myGameArea.canvas.height - this.height;
+        if (this.y > rockbottom) {
+            this.y = rockbottom;
+            this.gravitySpeed = -(this.gravitySpeed * this.bounce);
+        }
+    }
+}
+
+function updateGameArea() {
+    myGameArea.clear();
+    myGamePiece6.newPos();
+    myGamePiece6.update();
+    myGamePiece5.newPos();
+    myGamePiece5.update();
+    myGamePiece4.newPos();
+    myGamePiece4.update();
+    myGamePiece3.newPos();
+    myGamePiece3.update();
+    myGamePiece2.newPos();
+    myGamePiece2.update();
+    myGamePiece1.newPos();
+    myGamePiece1.update();
+}
+
+</script>
+<br />&nbsp;
+AkbarDhany (c) 2018 Copyright Holder All Rights Reserved.
+</body>
+</html>
