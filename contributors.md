@@ -34,6 +34,7 @@
 - [kaaquist](https://github.com/kaaquist)
 - [ivalexig](https://github.com/ivalexig)
 - [RPangotra](https://github.com/rpangotra)
+- [UltraL0rd](https://github.com/UltraL0rd)
 - [Waizjuzar](https://github.com/waizjuzar)
 - [Kunwad](https://github.com/kunwad)
 - [harishr1308](https://github.com/harishr1308)
