@@ -35,6 +35,9 @@
 - [ivalexig](https://github.com/ivalexig)
 - [RPangotra](https://github.com/rpangotra)
 - [Kunwad](https://github.com/kunwad)
+- [harishr1308](https://github.com/harishr1308)
+- [arch888](https://github.com/arch888)
+- [rg3456](https://github.com/rg3456)
 
 # Contributors
 *(People who have not participated in challenges but want to be a part of the project!)*
@@ -54,3 +57,5 @@
 - [Uzma Faiz](https://github.com/uzmafaiz)
 - [Fires](https://github.com/Fires1)
 - [Yash](https://github.com/yash25806)
+- [msafaric](https://github.com/msafaric)
+- [AbdQaadir](https://github.com/AbdQaadir)
