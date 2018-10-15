@@ -121,6 +121,10 @@ function getperpage(){
   return document.getElementById("c").value-(-0);
 }
 
+function setperpage(i){
+  document.getElementById("c").value = -(-i)
+}
+
 // the url of the folder, and the local storage element name
 function changelist(URL,LSName){
   curlist = LSName;
@@ -154,13 +158,40 @@ var curpage = 0;
 function page(i){
   l = JSON.parse(localStorage.getItem(curlist))
   numpages = Math.ceil(l.length/getperpage())
-  curpage+=i
+  curpage += i
+  if(curpage < 0)
+    curpage = 0
   if(curpage > numpages)
     curpage = numpages-1
   document.getElementById("pgbtnprv").disabled = curpage == 0
   document.getElementById("pgbtnnxt").disabled = curpage == (numpages-1)
   curcount = curpage*getperpage()
+  window.location.hash = "#"+curlist+"_"+getperpage()+"_"+curpage
   setList(l,curURL,curpage*getperpage(),getperpage())
 }
-changelist("Friends","flist")
+
+var h = window.location.hash
+if(h.split("_",1)[0]=="#glist"){
+  curlist = "glist"
+  curURL = "Games"
+}else{
+  curlist = "flist"
+  curURL = "Friends"
+}
+validhash = false
+if(h!=""){
+  hl = h.split("_",3)
+  if(hl.length==3){
+    pc = hl[1]
+    pn = hl[2]
+    if(!isNaN(pn) && !isNaN(pc)){
+      setperpage(-(-pc))
+      page(-(-pn))
+      validhash = true
+    }
+  }
+}
+if(!validhash){
+  page(0)
+}
 </script>
