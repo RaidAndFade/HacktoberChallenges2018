@@ -34,6 +34,7 @@
 - [kaaquist](https://github.com/kaaquist)
 - [ivalexig](https://github.com/ivalexig)
 - [RPangotra](https://github.com/rpangotra)
+- [Kunwad](https://github.com/kunwad)
 
 # Contributors
 *(People who have not participated in challenges but want to be a part of the project!)*
