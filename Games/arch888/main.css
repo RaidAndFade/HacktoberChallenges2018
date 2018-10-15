@@ -1,0 +1,164 @@
+@media (min-width:416px) {
+  #alphabet {
+    width:405px;
+    margin:0 auto;
+    padding-top:1rem;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+  }
+}
+@media (max-width:415px) {
+  .small-wrap {
+    transform:scale(0.6);
+  }
+  #alphabet {
+    width:405px;
+    margin:0 auto;
+    padding-top:1rem;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    margin-left:-3rem;
+  }
+}
+@media (max-width:300px) {
+  #alphabet {
+    width:405px;
+    margin:0 auto;
+    padding-top:1rem;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    margin-left:-5rem;
+  }
+}
+@media (max-width:250px) {
+  #alphabet {
+    width:405px;
+    margin:0 auto;
+    padding-top:1rem;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    margin-left:-6.25rem;
+  }
+}
+
+body {
+  background-color:#FFF;
+  font-size:1rem;
+}
+
+#hangman-figure {
+  padding-top:3rem;
+  padding-bottom:1rem;
+  display:flex;
+  justify-content:center;
+}
+
+#pole {
+  height:10rem;
+  width:6rem;
+  border-left:3px solid black;
+  border-top:3px solid black;
+}
+
+#noose {
+  border-right:3px solid black;
+  height:1.5rem;
+}
+
+#diagonal {
+  height:3rem;
+  border-left:3px solid black;
+  transform:rotate(45deg);
+}
+
+#base {
+  width:6rem;
+  border-top:3px solid black;
+  padding-bottom:3rem;
+  position:absolute;
+  margin-top:5.25rem;
+  margin-left:-1.55rem;
+}
+
+#stick-figure {
+  position:absolute;
+  margin-left:6.0999rem;
+  margin-top:0.9rem;
+  animation:swing 2s ease-in-out infinite alternate;
+}
+
+.char-space {
+  border-bottom:2px solid black;
+  max-width:2.5rem;
+  font-size:1rem;
+  margin:0 0.5rem;
+}
+
+.hide-char {
+  color:transparent;
+}
+
+.letter {
+  height:3rem;
+  width:3rem;
+}
+
+#hint {
+  height:3rem;
+  width:6.35rem;
+}
+
+#word-letters {
+  margin-left:-1rem;
+  height:75px;
+  padding-top:3rem;
+  margin-top:-2rem;
+}
+
+.no-click {pointer-events:none;}
+
+.showing {
+  opacity:1;
+  stroke:black;
+  stroke-width:3;
+}
+
+.hidden {opacity:0;}
+
+#stick-figure > svg {
+  fill:transparent;stroke:black;stroke-width:3;
+}
+
+#category {
+  text-align:center;
+  padding-top:1.5rem;
+}
+
+#result {
+  text-align:center;
+  padding-top:1.5rem;
+  font-size:1rem;
+}
+
+#cat-lbl {
+  text-align:center;
+  font-size:1rem;
+}
+
+.row {flex-wrap:nowrap;}
+
+#hint-div {
+  padding-top:2rem;
+  display:flex;
+  justify-content:center;
+}
+
+@keyframes swing {
+  0%   {}
+  50%  {transform:translate3d(4px,0px,0px) skew(5deg);}
+  100% {transform:translate3d(-4px,0px,0px) skew(-5deg);}
+}
