@@ -32,6 +32,7 @@
 - [nawwx3](https://github.com/nawwx3)
 - [RhythmGilhotra](https://github.com/RhythmGilhotra)
 - [kaaquist](https://github.com/kaaquist)
+- [powni](https/github.com/powni)
 
 # Contributors
 *(People who have not participated in challenges but want to be a part of the project!)*
