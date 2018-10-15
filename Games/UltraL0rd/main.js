@@ -1,3 +1,4 @@
+//Should probably turn these into objects and turn this into a decent game :D
 let mainStage = document.getElementById("now-what");
 let player1 = document.getElementById("player1");
 let player2 = document.getElementById("player2");
