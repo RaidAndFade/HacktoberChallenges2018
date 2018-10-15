@@ -32,6 +32,20 @@ So basically, when your computer has some giant fatal error and can't bother any
 The point of this challenge is to replicate an image template into HTML, You might not think it's that important or that difficult, but in the workplace most (if not all) instances of web development require you to work based on a design.
 ***THE LAST THING I WANT TO SEE FROM THIS CHALLENGE IS A BUNCH OF IMAGES EMBEDDED INTO HTML FILES, THE IMAGES ARE A TEMPLATE***
 
+<<<<<<< HEAD
 ## Final note
 
 Remember to make your BSoD screens as realistic as possible! Try to make it so that if someone went fullscreen on your page, it would trick an average user!
+=======
+# External Resources!???
+I know some of you may want to use external resources such as images, json files, anything like that...
+
+Images (gifs,jpg,png) can go on IMGUR with no issues
+
+Files (json,txt,csv) should go on either PASTEBIN or somewhere similar
+
+Embedables (svg, base64 images) can simply be embedded in your file somewhere
+
+# Final Note
+Make your games fun, unique, and intuitive. There should not be some 50 page manual on how to play your game, and if there is, it should be embedded into the game.
+>>>>>>> 9fae519a3deaa9fcfe1601bf238822947fffc9d9

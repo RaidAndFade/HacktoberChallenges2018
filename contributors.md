@@ -27,7 +27,13 @@
 - [matmen](https://github.com/matmen)
 - [andy-kohne](https://github.com/andy-kohne)
 - [cafeshoes](https://github.com/cafeshoes)
-
+- [willianba](https://github.com/willianba)
+- [Swan](https://github.com/swans01)
+- [nawwx3](https://github.com/nawwx3)
+- [RhythmGilhotra](https://github.com/RhythmGilhotra)
+- [kaaquist](https://github.com/kaaquist)
+- [ivalexig](https://github.com/ivalexig)
+- [RPangotra](https://github.com/rpangotra)
 
 # Contributors
 *(People who have not participated in challenges but want to be a part of the project!)*
@@ -38,6 +44,12 @@
 - [capturethemoon](https://github.com/capturethemoon)
 - [Ashley](https://github.com/agerwitz)
 - [andrescalco](https://github.com/andrescalco)
+- [Melissa](https://github.com/mbain108)
 - [BucSy](https://github.com/BucSy)
 - [sohail764245](https://github.com/sohail764245)
+- [AbhishekJindal](https://github.com/jindalabhishek1)
+- [ftsell](https://github.com/ftsell)
+- [EricMunoz](https://github.com/EricMunoz)
 - [Uzma Faiz](https://github.com/uzmafaiz)
+- [Fires](https://github.com/Fires1)
+- [Yash](https://github.com/yash25806)
