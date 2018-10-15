@@ -34,6 +34,7 @@
 - [kaaquist](https://github.com/kaaquist)
 - [ivalexig](https://github.com/ivalexig)
 - [RPangotra](https://github.com/rpangotra)
+- [harishr1308](https://github.com/harishr1308)
 - [arch888](https://github.com/arch888)
 - [rg3456](https://github.com/rg3456)
 
