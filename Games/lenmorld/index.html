@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+
+    <!-- <title>Speech synthesiser</title> -->
+    
+
+    <link rel="stylesheet" href="main.css">
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <h1>DAILY MOTIVATION using Speech synthesiser</h1>
+    <h2>Please use latest Google Chrome as this is experimental tech</h2>
+    <h3>based off example from <a href="https://github.com/mdn/web-speech-api">Web Speech Api</a></h3>
+    <h3>using <a href="https://talaikis.com/random_quotes_api/">Talaikis Random Quote Generator</a></h3>
+    <h4>warning: some quotes are not too motivational ;p</h4>
+
+    <!-- <p>Enter some text in the input below and press return  or the "play" button to hear it. change voices using the dropdown menu.</p> -->
+    
+    <form>
+    <!-- <input type="text" class="txt"> -->
+    <!-- <button class="txt">Motivate me!</button> -->
+    <div>
+      <label for="rate">Rate</label><input type="range" min="0.5" max="2" value="1" step="0.1" id="rate">
+      <div class="rate-value">1</div>
+      <div class="clearfix"></div>
+    </div>
+    <div>
+      <label for="pitch">Pitch</label><input type="range" min="0" max="2" value="1" step="0.1" id="pitch">
+      <div class="pitch-value">1</div>
+      <div class="clearfix"></div>
+    </div>
+    <select>
+
+    </select>
+    <div class="controls">
+      <h1></h1><button id="play" type="submit">MOTIVATE ME</button></h1>
+    </div>
+    </form>
+
+    <script src="main.js"></script>
+  </body>
+</html>
