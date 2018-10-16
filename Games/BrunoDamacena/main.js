@@ -11,21 +11,60 @@ var winCondition = [
     [2, 4, 6]
 ];
 
-function process(pos) {
-    clicks++;
-    if(clicks == 9) tied();
-    var type = (clicks % 2 === 0) ? "X" : "O";
-    document.game.opt[pos].value = type;    
-    check(type);
+function create_list(){
+    const n1 = 9;
+    const n2 = 9;
+    let pool = [...Array(n1).keys()];
+    var array = [];
+    while (array.length < n2) {
+    let index = Math.floor(Math.random() * pool.length);
+    array = array.concat(pool.splice(index, 1));       
+    }
+    return array;
 }
 
-function check(type) {
+function computer(){
+    index = array[1];
+    remove_item(index);
+    var type = (Math.floor(Math.random()*(100-0)) % 2 === 0) ? "X" : "O";
+    document.game.opt[index].value = type;
+    check(type, "Computer");
+}
+
+function remove_item(item){
+    var index = array.indexOf(item);
+    if (index > -1) {
+        array.splice(index, 1);
+    }
+}
+
+function process(pos, event) {
+    if (clicks == 0){
+        array = create_list();
+    }
+    clicks++;
+    if(clicks == 9) tied();
+    if (event.button == 0) {
+        document.game.opt[pos].value = "X";
+    }
+    if (event.button == 2) {
+        document.game.opt[pos].value = "O";
+    }
+    remove_item(pos);
+    check(document.game.opt[pos].value, "User");
+    clicks++;
+    computer();
+    }
+
+
+function check(type, player) {
     winCondition.forEach(function(value) {
         var count = 0;
         value.forEach(function(y) {
             if (document.game.opt[y] && document.game.opt[y].value === type) count++;
         });
         if (count == 3) {
+            document.getElementById("result").innerHTML = "Winner: " + player;
             wins(value);
         }
     });
@@ -47,6 +86,7 @@ function reboot() {
     for (x = 0; x <= 8; x++) {
         document.game.opt[x].value = '';
         document.game.opt[x].className = 'gameBtn';
+        document.getElementById("result").innerHTML = '';
     }
     clicks = 0;
 }
