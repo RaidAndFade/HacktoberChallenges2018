@@ -1,0 +1,145 @@
+<html>
+	<head>
+		<title>Login</title>
+			<script type="text/javascript" src="js/Javascript.js"></script>
+			<style>
+				body {
+	
+	background-color:  #fff;
+	font-family: "Lato", sans-serif;
+	font-size: 16px;
+	color: black ;
+}
+h1,h2 {
+	font-family: "Poppins";
+}
+h1 {
+	font-size: 30px;
+	line-height: 54px;
+	font-weight: 500;
+}
+h2 {
+	font-size: 25px;
+	line-height: 70px;
+	font-weight: 700;
+}
+
+
+.Header{
+		padding: 8px;
+		background-color:#9b2731 ;
+		border-bottom-style:solid;
+		border-bottom-color: #9b2731 ;
+		font-size: 30px;
+		text-align: center;
+		font-family: armenian;
+		
+}
+.Footer{
+		padding:  5px;
+		background-color:#9b2731;
+		border-bottom-style:solid;
+		border-bottom-color: #9b2731 ;
+		font-size: 10px;
+		text-align: center;
+		font-family: armenian;
+		
+}
+
+.column {
+    float: left;
+    width: 30%;
+    padding: 10px;
+    height: 300px;
+	
+}
+.row {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.bg-img {
+    
+    background-image: url("image8.png");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-size: all;
+}
+
+.container {
+    position: absolute;
+    right: 0;
+    margin: 20px;
+    max-width: 300px;
+    padding: 16px;
+    background-color: white;
+}
+
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 12px 0;
+    border: none;
+    background: #a79ba8;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+
+.btn1 {
+    background-color: #9b2731;
+    color: white;
+    padding: 10px 10px;
+    border:5px;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+}
+.btn2{
+    background-color: #9b2731;
+    color: white;
+    padding: 10px 10px;
+    border: 5px;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.5;
+}
+.btn1:hover {
+    opacity: 1;
+}
+.btn2:hover {
+    opacity: 2;
+}
+
+
+			</style>
+	</head>
+	<body>
+		<div class="Header">Welcome to the Party arrangement system</div>
+			<div class="bg-img">
+				<form name="login">
+					<div class="container">
+						<b>Email :</b>
+						<input type="text" name="email" >
+						<br><br><br>
+						<b>Password :</b>
+						<input type="text" name="password">
+						<br><br><br>
+					
+					
+					<button type="button" name="submit" class="btn1" >Submit</button>
+					<button type="button" name="reset" class="btn2">Reset</button>
+					<p>Not registered? <a href = "Register.php">SignUp </a></p>
+					</div>
+				</form>	
+			</div>
+				<div class="Footer">Thank you</div>
+			
+	</body>
+</html>
