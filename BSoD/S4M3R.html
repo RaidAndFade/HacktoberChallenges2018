@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>ERROR</title>
+    <style media="screen">
+      body{
+        background: #000000;
+      }
+      .blue{
+        background-color: #000077;
+      }
+      .letras{
+        color:green;
+      }
+      .danger{
+        color:WHITE;
+      }
+    </style>
+  </head>
+  <body id="body">
+    <p id="letras" class="letras"></p>
+  </body>
+  <script type="text/javascript">
+    var letras = document.getElementById('letras');
+    letras.innerHTML = "";
+    var pos = {linea:0,letra:0}
+    var lineas = [
+      "> Hola soy la primera computadora Uruguaya",
+      "> Voy a intentar calcular el mejor equipo uruguayo",
+      "> Calculando...",
+      "> Calculando...",
+      "> ERRORRRRRR"
+    ];
+    var auxi = 0;
+    var aux = 0;
+    var speed = 20;
+    var error = false;
+    setInterval(() => {
+      if(lineas.length > pos.linea){
+      letras.innerHTML += lineas[pos.linea].charAt(pos.letra);
+      pos.letra++;
+      if(pos.letra >= lineas[pos.linea].length){
+        pos.letra = 0;
+        pos.linea++;
+        letras.innerHTML += "<br>"
+      }
+    }else if(!error){
+      letras.innerHTML = "ERROR #1891 NO SE PUDO ENCONTRAR FECHA <br> apagando en ";
+      document.getElementById("body").classList.add('Blue');
+      letras.classList.add('danger');
+      letras.classList.remove('lineas');
+      error = true;
+    }else if(auxi < 10){
+      if(aux*speed >= auxi*1000){
+        auxi++;
+      letras.innerHTML += "</br> "+(10-auxi);
+    }
+    aux++;
+  }else if(auxi <= 11){
+    if(aux*speed >= auxi*1000){
+      auxi++;
+      letras.innerHTML += "</br> APAGANDO...";
+    }
+    aux++;
+  }else{
+      document.getElementById("body").classList.remove('Blue');
+      letras.innerHTML = "";
+  }
+  },speed)
+  </script>
+</html>
