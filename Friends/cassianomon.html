@@ -251,21 +251,10 @@
 </div>
 </body>
 
-<script>/*
-Inspired by: "Credit card design"
-By: Brice Corbin
-Link: https://dribbble.com/shots/4268384-Credit-card-design
-	
-And "Credit Card Pure CSS"
-By: Filip Vitas
-Link: https://codepen.io/FilipVitas/pen/ddLVZx
-*/
-
+<script>
 	disintegrate.init();
 
 	const cardCopy = document.querySelector(".card-container").cloneNode(true);
-
-	// Because html2canvas doesn't support CSS filters yet, manually calculate a hue-rotate for newly created cards
 	const origColor1 = "#ff6767",
 		origColor2 = "#ff4545";
 	document.querySelector(".add-new").onclick = (e) => {
