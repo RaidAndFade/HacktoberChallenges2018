@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <title>Win some BTC</title>
+
+  <style>
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    background-color: #cccccc;
+  }
+
+  body.stage1 #victory, body.stage1 #bsod, body.stage1 #restart{
+    display:none;
+  }
+
+  body.stage2 #claim-prize, body.stage2 #bsod, body.stage2 #restart{
+    display:none;
+  }
+
+  body.stage3 #victory, body.stage3 #claim-prize, body.stage3 #restart{
+    display:none;
+  }
+
+  body.stage4 #victory, body.stage4 #claim-prize, body.stage4 #bsod{
+    display:none;
+  }
+
+  #restart{
+    background-color: #111111;
+    width:100%;
+    height:100%;
+    color: grey;
+    font-family:courier;
+    font-size:12pt;
+    padding:5px;
+  }
+
+  #restart .white{
+    color:white;
+  }
+
+  #restart .bottom{
+    position: absolute;
+    bottom:0;
+  }
+
+  #bsod{
+    background-color: #0000aa;
+    text-align: center;
+    width:100%;
+    height:100%;
+    color: white;
+    font-family:courier;
+    font-size:12pt;
+    text-align:center;
+    padding:100px;
+  }
+
+  #bsod .neg {
+      background:#fff;
+      color:#0000aa;
+      padding:2px 8px;
+      font-weight:bold;
+      bottom-margin:10px;
+  }
+
+  #bsod p{
+    line-height: 1.2 !important;
+    margin: 24px;
+    line-height: 1.2;
+  }
+
+  #victory{
+    text-align: center;
+    position: absolute;
+    left: 50vh;
+    top:40%;
+  }
+
+  #collect{
+    text-align: center;
+    left: 50vh;
+    top:40%;
+  }
+
+
+  #claim-prize{
+    text-align: center;
+    position: absolute;
+    left: 45%;
+    top:40%;
+    margin: 1.5em 0em;
+    margin: 0;
+    padding: 20px;
+    background: #ffffff;
+    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  #claim-prize h2{
+    margin-bottom: 1em;
+  }
+
+  #claim-prize input{
+      box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+      background-color: #ff9a0e;
+      color: #ffffff;
+      text-shadow: none;
+      background-image: none;
+      font-size: 1rem;
+      cursor: pointer;
+      display: inline-block;
+      min-height: 1em;
+      outline: none;
+      border: none;
+      vertical-align: baseline;
+      color: #ffffff;
+      font-family: "Gotham A", "Gotham B", 'arial';
+      margin: 0em 0.25em 0.5em 0em;
+      padding: 0.57142857em 1.5em 0.57142857em;
+      text-transform: none;
+      text-shadow: none;
+      font-weight: normal;
+      line-height: 1em;
+      font-style: normal;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 0.25em;
+      box-shadow: none;
+      user-select: none;
+      transition: opacity 0.1s ease, background-color 0.1s ease, color 0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
+  }
+
+  </style>
+
+</head>
+<body class="stage4">
+  <section id="collect">
+    <div id="claim-prize">
+        <h2>Get your 1 BTC <strong>NOW!</strong></h2>
+        <input type="button" id="claim-prize-button" value="Claim prize">
+    </div>
+  </section>
+  <section id="victory">
+    <h1>YOU HAVE WON! WALLET ADDRESS "bc1qar0srrr7xfkvy5l643lydnw9re59gtzzwf5mdq"</h1>
+  </section>
+  <section id="bsod">
+      <span class="neg">ERROR MEMORY LEAK</span>
+      <p>
+        It seems your memory is leaking. Buy some earplugs!<br />
+        Unfortunately it seems your BTC's are in another castle.
+      </p>
+      <p>
+        Please do not panic, the next bit of text is me just being lazy <br/>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt <br/>
+        ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco <br/>
+        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate <br/>
+        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,<br/>
+        sunt in culpa qui officia deserunt mollit anim id est laborum
+      </p>
+      <p>
+
+       * Your computer will restart in the next 5 secs<br />
+       * Pressing CTRT-ALT-DEL could have been fun, but time.
+      </p>
+      </div>
+  </section>
+  <section id="restart">
+    AWARD WINNING BIOS 2018 v0.6. AN ENERGY STAR ALLY<br/>
+    Copyright (C) 1984-2018. Award Solutions Inc.<br/>
+    <br/>
+    Main Processor      : Pentium II 233Mhz<br/>
+    Memory Availability : <span id="mem-count" class="white">0</span>kb - OK - 1024K SHARED MEMORY
+
+    <div class="bottom">
+      Press <span class="white">ESC</span> to enter <span class="white">SETUP</span>
+    </div>
+  </section>
+  <script  type="text/javascript">
+  //Bit lazy with JS today
+  let memObject = document.getElementById("mem-count");
+  let claimPrize = document.getElementById("claim-prize-button");
+  var memcountInterval = null;
+  var memory = 0;
+  claimPrize.onclick = function(e){
+    document.body.classList.remove("stage1");
+    document.body.classList.add("stage2");
+  }
+
+  document.body.onkeyup = function(e){
+    if(document.body.classList.contains("stage4") && e.keyCode == 27){
+        clearInterval(memcountInterval);
+        document.body.classList.remove("stage4");
+        start();
+    }
+  }
+
+  function startMemCount(){
+        document.body.classList = "stage4";
+        memcountInterval = setInterval(function(){
+        memory+=1024;
+        beep();
+        if (memory >= 64000){
+            clearInterval(memcountInterval);
+        }
+        memObject.innerHTML = memory;
+
+      }, 10)
+  }
+
+  function start(){
+      document.body.classList = "stage1";
+      var bsodRandomised = Math.floor((Math.random() * 5) + 1);
+      setTimeout(function(){
+          bsod();
+      },bsodRandomised*1000);
+  }
+
+  function bsod(){
+    document.body.classList = "stage3";
+    setTimeout(function(){
+        memory = 0;
+        startMemCount();
+    },5000);
+  }
+  start();
+
+  function beep() {
+      var snd = new Audio("data:audio/wav;base64,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qJrx4KOQjahZxWbcZgztj2c49nKmkId44S71j0c8eV9yDK6uPRzx5X18eDvjvQ6yKo9ZSS6l//8elePK/Lf//IInrOF/FvDoADYAGBMGb7FtErm5MXMlmPAJQVgWta7Zx2go+8xJ0UiCb8LHHdftWyLJE0QIAIsI+UbXu67dZMjmgDGCGl1H+vpF4NSDckSIkk7Vd+sxEhBQMRU8j/12UIRhzSaUdQ+rQU5kGeFxm+hb1oh6pWWmv3uvmReDl0UnvtapVaIzo1jZbf/pD6ElLqSX+rUmOQNpJFa/r+sa4e/pBlAABoAAAAA3CUgShLdGIxsY7AUABPRrgCABdDuQ5GC7DqPQCgbbJUAoRSUj+NIEig0YfyWUho1VBBBA//uQZB4ABZx5zfMakeAAAAmwAAAAF5F3P0w9GtAAACfAAAAAwLhMDmAYWMgVEG1U0FIGCBgXBXAtfMH10000EEEEEECUBYln03TTTdNBDZopopYvrTTdNa325mImNg3TTPV9q3pmY0xoO6bv3r00y+IDGid/9aaaZTGMuj9mpu9Mpio1dXrr5HERTZSmqU36A3CumzN/9Robv/Xx4v9ijkSRSNLQhAWumap82WRSBUqXStV/YcS+XVLnSS+WLDroqArFkMEsAS+eWmrUzrO0oEmE40RlMZ5+ODIkAyKAGUwZ3mVKmcamcJnMW26MRPgUw6j+LkhyHGVGYjSUUKNpuJUQoOIAyDvEyG8S5yfK6dhZc0Tx1KI/gviKL6qvvFs1+bWtaz58uUNnryq6kt5RzOCkPWlVqVX2a/EEBUdU1KrXLf40GoiiFXK///qpoiDXrOgqDR38JB0bw7SoL+ZB9o1RCkQjQ2CBYZKd/+VJxZRRZlqSkKiws0WFxUyCwsKiMy7hUVFhIaCrNQsKkTIsLivwKKigsj8XYlwt/WKi2N4d//uQRCSAAjURNIHpMZBGYiaQPSYyAAABLAAAAAAAACWAAAAApUF/Mg+0aohSIRobBAsMlO//Kk4soosy1JSFRYWaLC4qZBYWFRGZdwqKiwkNBVmoWFSJkWFxX4FFRQWR+LsS4W/rFRb/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////VEFHAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAU291bmRib3kuZGUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMjAwNGh0dHA6Ly93d3cuc291bmRib3kuZGUAAAAAAAAAACU=");
+      snd.play();
+  }
+
+  </script>
+</body>
+</html>
