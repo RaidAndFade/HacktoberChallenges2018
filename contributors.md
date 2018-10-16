@@ -47,6 +47,7 @@
 # Contributors
 *(People who have not participated in challenges but want to be a part of the project!)*
 - [KojiAdrianoJr.](https://github.com/kojiadrianojr)
+- [Pankaj](https://github.com/erpankaj182)
 - [mahis929](https://github.com/mahis929)
 - [Tushar](https://github.com/tusharkavya)
 - [mohitsharma29](https://github.com/mohitsharma29)
