@@ -1,0 +1,137 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  background-color: #cccccc;
+}
+
+body.stage1 #victory, body.stage1 #bsod, body.stage1 #restart{
+  display:none;
+}
+
+body.stage2 #claim-prize, body.stage2 #bsod, body.stage2 #restart{
+  display:none;
+}
+
+body.stage3 #victory, body.stage3 #claim-prize, body.stage3 #restart{
+  display:none;
+}
+
+body.stage4 #victory, body.stage4 #claim-prize, body.stage4 #bsod{
+  display:none;
+}
+
+#restart{
+  background-color: #111111;
+  width:100%;
+  height:100%;
+  color: grey;
+  font-family:courier;
+  font-size:12pt;
+  padding:5px;
+}
+
+#restart .white{
+  color:white;
+}
+
+#restart .bottom{
+  position: absolute;
+  bottom:0;
+}
+
+#bsod{
+  background-color: #0000aa;
+  text-align: center;
+  width:100%;
+  height:100%;
+  color: white;
+  font-family:courier;
+  font-size:12pt;
+  text-align:center;
+  padding:100px;
+}
+
+#bsod .neg {
+    background:#fff;
+    color:#0000aa;
+    padding:2px 8px;
+    font-weight:bold;
+    bottom-margin:10px;
+}
+
+#bsod p{
+  line-height: 1.2 !important;
+  margin: 24px;
+  line-height: 1.2;
+}
+
+#victory{
+  text-align: center;
+  position: absolute;
+  left: 50vh;
+  top:40%;
+}
+
+#collect{
+  text-align: center;
+  left: 50vh;
+  top:40%;
+}
+
+
+#claim-prize{
+  text-align: center;
+  position: absolute;
+  left: 45%;
+  top:40%;
+  margin: 1.5em 0em;
+  margin: 0;
+  padding: 20px;
+  background: #ffffff;
+  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+#claim-prize h2{
+  margin-bottom: 1em;
+}
+
+#claim-prize input{
+    box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+    background-color: #ff9a0e;
+    color: #ffffff;
+    text-shadow: none;
+    background-image: none;
+    font-size: 1rem;
+    cursor: pointer;
+    display: inline-block;
+    min-height: 1em;
+    outline: none;
+    border: none;
+    vertical-align: baseline;
+    color: #ffffff;
+    font-family: "Gotham A", "Gotham B", 'arial';
+    margin: 0em 0.25em 0.5em 0em;
+    padding: 0.57142857em 1.5em 0.57142857em;
+    text-transform: none;
+    text-shadow: none;
+    font-weight: normal;
+    line-height: 1em;
+    font-style: normal;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 0.25em;
+    box-shadow: none;
+    user-select: none;
+    transition: opacity 0.1s ease, background-color 0.1s ease, color 0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
+}
