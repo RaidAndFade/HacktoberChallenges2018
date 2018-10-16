@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Oh No!</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      color: #fff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-weight: 300;
+    }
+
+    body {
+      height: 100vh;
+      padding: 0 10%;
+      background-color: #2067b2;
+      display: flex;
+      flex-direction: column;
+    }
+    h1 {
+      font-size: 15em;
+    }
+    h2 {
+      font-size: 3.4em;
+      margin-bottom: 100px;
+    }
+
+  </style>
+</head>
+<body>
+  <h1>:(</h1>
+  <h2>Your PC ran into a problem and needs to restart. We're just collecting some error info, and then we'll restart for you. <span>(0% complete)</span></h2>
+  <h3>If you'd like to know more, you can search online later for this error: HACKTOBERFEST_2018_BSOD</h3>
+  
+  <script>
+    const complete = document.querySelector('span');
+    let i = 0;
+    setInterval(() => {
+      complete.innerText = `(${i}% complete)`;
+      i += Math.floor(Math.random()*8);
+      if (i >= 100) window.location.reload();
+    }, 1500);
+  </script>
+</body>
+</html>
