@@ -42,7 +42,9 @@
 - [rg3456](https://github.com/rg3456)
 - [LatGeek](https://github.com/latgeek)
 - [rik-96](https://github.com/rik-96)
+- [yulioaj290](https://github.com/yulioaj290)
 - [Timmy](https://github.com/Timmy)
+- [Archaeologist03](https://github.com/Archaeologist03)
 
 
 # Contributors
@@ -67,3 +69,4 @@
 - [M4DaRa](https://github.com/M4DaRa)
 - [msafaric](https://github.com/msafaric)
 - [AbdQaadir](https://github.com/AbdQaadir)
+- [vikrant123007](https://github.com/vikrant-123007)
