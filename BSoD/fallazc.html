@@ -1,0 +1,118 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="UTF-8"> 
+		<title>No Internet Access</title>
+		<style>
+
+			body {
+				color: white;
+				position:absolute; top:0; bottom:0; right:0; left:0;
+				background-color:#0081FF;
+			}
+			.container {
+				margin: 0 0 0 0;
+				padding: 20% 5% 0 15%;
+				font-family: Helvetica, sans-serif;
+			}
+			
+			.nospacing {
+				padding: 0;
+				margin: 0;
+			}
+			
+			.message {
+				font-size: 14px;
+			}
+			
+			.info{
+				font-size: 20px;
+			}
+			
+			h1 {
+				font-size: 56px;
+				font-weight: normal;
+				margin-bottom: 35px;
+			}
+			
+			p {
+				letter-spacing: 2px;
+				padding-left: 10px !important;
+			}
+			
+			.hint {
+				font-size: 12px;
+				margin: 35px 0;
+			}
+			
+			/* Small devices (portrait tablets and large phones, 600px and up) */
+			@media only screen and (min-width: 992px) {
+				.message {
+					font-size: 24px;
+				}
+				
+				.info{
+					font-size: 32px;
+				}
+				
+				h1 {
+					font-size: 80px;
+				}
+				
+				.hint {
+					font-size: 18px;
+					margin: 35px 0;
+				}
+				
+				.container {
+					padding-top: 15%;
+				}
+			}
+
+			/* Extra large devices */
+			@media only screen and (min-width: 1620px) {
+				.message {
+					font-size: 42px;
+				}
+				
+				.info{
+					font-size: 60px;
+				}
+				
+				h1 {
+					font-size: 156px;
+				}
+				
+				.hint {
+					font-size: 27px;
+					margin: 70px 0;
+				}
+				
+				.container {
+					padding-top: 5%;
+				}
+			}
+			
+		</style>
+		<script>
+			const times = ['∞', '1 . . ', '5 . . ', '6 . . ', '10 . . ']
+			let updater = function() {
+				var x = document.getElementById("counter");
+				x.innerHTML += times.pop();
+				if (times.length > 0)
+					setTimeout(updater, Math.floor(Math.random() * 2001) + 1000);
+			};
+			
+			onload = updater;
+		</script>
+	</head>
+	<body>
+		<div class="container">
+			<h1>(ノಠ益ಠ)ノ彡┻┻</h1>
+			<p class="message nospacing">Your PC ran into a problem that it couldn't</p>
+			<p class="message nospacing">handle, and now it needs to restart.</p>
+			<p class="hint">You can search for the error online: NO_INTERNET_ACCESS</p>
+			<p class="info nospacing">It'll restart in: <span id="counter"></span> seconds</p>
+		</div>
+	</body>
+</html>
