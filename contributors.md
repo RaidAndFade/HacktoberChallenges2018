@@ -43,6 +43,7 @@
 - [LatGeek](https://github.com/latgeek)
 - [yulioaj290](https://github.com/yulioaj290)
 - [Timmy](https://github.com/Timmy)
+- [Archaeologist03](https://github.com/Archaeologist03)
 
 
 # Contributors
