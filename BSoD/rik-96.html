@@ -1,0 +1,111 @@
+<html>
+  <head>
+  <title>BSoD</title>
+  <style>
+  body{
+    background-color: blue;
+    text-align: center;
+    padding-top: 5%;
+  }
+  .warn,
+  .warn::before,
+  .warn::after
+  {
+    position: relative;
+    padding: 0;
+    margin: 0;
+  }
+
+  .warn {
+    font-size: 36px;
+    color: transparent;
+  }
+
+  .warn.warning {
+    display: inline-block;
+
+    top: 0.225em;
+
+    width: 1.15em;
+    height: 1.15em;
+
+    overflow: hidden;
+    border: none;
+    background-color: transparent;
+    border-radius: 0.625em;
+  }
+
+  .warn.warning::before {
+    content: "";
+    display: block;
+    top: -0.08em;
+    left: 0.0em;
+    position: absolute;
+    border: transparent 0.6em solid;
+    border-bottom-color: #aaa;
+    border-bottom-width: 1em;
+    border-top-width: 0;
+    box-shadow: #000 0 1px 1px;
+  }
+
+  .warn.warning::after {
+    display: block;
+    position: absolute;
+    top: 0.3em;
+    left: 0;
+    width: 100%;
+    padding: 0 1px;
+    text-align: center;
+    font-family: "Garamond";
+    content: "!";
+    font-size: 0.65em;
+    font-weight: bold;
+    color: blue;
+  }
+  #warn-head{
+    font-size: calc(10px + 1vw);
+    margin-top: 1%;
+    display: inline-block;
+    padding: 0 1%;
+    background-color: #aaa;
+    color: blue;
+  }
+  #warn-text{
+    font-size: calc(7px + 0.7vw);
+    color: #aaa;
+    margin-top: 3%;
+  }
+  #warn-text-2{
+    font-size: calc(7px + 0.7vw);
+    color: #aaa;
+    margin-top: 3%;
+  }
+  progress::-webkit-progress-value { background: #aaa !important; }
+  progress::-webkit-progress-value {background-color: blue !important;}
+  progress {background-color: blue;}
+  progress::-moz-progress-bar { background: #aaa; }
+  </style>
+  <script>
+  var timeleft = 10;
+  var downloadTimer = setInterval(function(){
+    document.getElementById("progressBar").value = 10 - --timeleft;
+    if(timeleft <= 0)
+      clearInterval(downloadTimer);
+  },1000);
+  </script>
+  </head>
+  <body>
+    <div id="heading">
+      <span class="warn warning"></span>
+      <br />
+      <div id="warn-head">Warning</div>
+      <div id="warn-text">
+        This screen depicts something isn't right. Please restart!
+      </div>
+      <div id="warn-text-2">
+        Restarting in
+      </div>
+      <progress value="0" max="10" id="progressBar"></progress>
+    </div>
+  </body>
+</html>

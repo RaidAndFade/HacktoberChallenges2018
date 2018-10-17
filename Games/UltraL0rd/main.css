@@ -1,0 +1,109 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  background: black;
+}
+
+#now-what.stage1.title:after{
+    content:"READY?!";
+    color:#b72020;
+    position: absolute;
+    left: 45%;
+    top: 45%;
+    font-size: 3em;
+}
+
+#now-what.stage1.begin:after{
+    content:"FIGHT";
+    color:#b72020;
+    position: absolute;
+    left: 45%;
+    top: 45%;
+    font-size: 3em;
+    transition : "opacity 1s";
+    opacity: "0";
+}
+
+#now-what.stage1.lost:after{
+    content:"YOU DIED!";
+    color:#b72020;
+    position: absolute;
+    left: 45%;
+    top: 45%;
+    font-size: 3em;
+    transition : "opacity 1s";
+    opacity: "0";
+}
+
+#now-what.stage1.won:after{
+    content:"YOU WON!";
+    color:#036ee4;
+    position: absolute;
+    left: 45%;
+    top: 45%;
+    font-size: 3em;
+    transition : "opacity 1s";
+    opacity: "0";
+}
+
+
+/*STAGE 2 and on */
+#now-what:not(.stage1){
+  background-color: white;
+  width: 100%;
+  height: 50vh;
+  display: flex;
+  position: relative;
+}
+
+#player1{
+  background-color: #036ee4;
+  width: 1em;
+  height: 2em;
+  display: inline;
+  position: absolute;
+  z-index: 10;
+  bottom: 1px;
+  left:10%;
+}
+
+#player2{
+  background-color: red;
+  width: 1em;
+  height: 2em;
+  display: inline;
+  position: absolute;
+  z-index: 10;
+  bottom: 1px;
+  right:10%;
+}
+
+.player.dead{
+  width: 2em !important;
+  height: 1em !important;
+}
+
+.fireball{
+  background-color: #ff9800;
+  position: absolute;
+  width: 0.5em;
+  height: 0.5em;
+  display: inline;
+  z-index:10;
+
+}
+
+.fireball.original{
+  display: none;
+}
+
+.stage1 #player1, .stage1 #player2, .stage1 .fireball{
+  display:none;
+}

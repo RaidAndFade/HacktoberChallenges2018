@@ -19,13 +19,12 @@ So basically, when your computer has some giant fatal error and can't bother any
 
 ## RULES 
 
-1. Your submission must be in "BSoD/{YourUsername}"
-2. You must submit ONLY ONE file, `index.html`.
-3. Don't just use an IMG tag of some BSoD screenshot. Try and template it.
-4. No Malicious Code (cookie sniffing, iframe hacking, css local file stealing, ios rootkits, while loops that never end, CPU Monero Miners)
-5. No NSFW (porn, nudes, pictures of your cat's testicles, severed heads)
-6. No ADS (No advertising your product, No third party ads)
-7. DO NOT MODIFY OTHER PEOPLE'S SUBMISSIONS. THESE PRS WILL BE INSTANTLY DENIED AND MARKED SPAM.
+1. Your submission must be in the HTML file "BSoD/{YourUsername}.html"
+2. Don't just use an IMG tag of some BSoD screenshot. Try and template it.
+3. No Malicious Code (cookie sniffing, iframe hacking, css local file stealing, ios rootkits, while loops that never end, CPU Monero Miners)
+4. No NSFW (porn, nudes, pictures of your cat's testicles, severed heads)
+5. No ADS (No advertising your product, No third party ads)
+6. DO NOT MODIFY OTHER PEOPLE'S SUBMISSIONS. THESE PRS WILL BE INSTANTLY DENIED AND MARKED SPAM.
 
 ## But why is this a challenge?
 
