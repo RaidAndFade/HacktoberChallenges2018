@@ -45,7 +45,6 @@
 - [yulioaj290](https://github.com/yulioaj290)
 - [Timmy](https://github.com/Timmy)
 - [Archaeologist03](https://github.com/Archaeologist03)
-- [MiguelGT98](https://github.com/MiguelGT98) 
 
 # Contributors
 *(People who have not participated in challenges but want to be a part of the project!)*
