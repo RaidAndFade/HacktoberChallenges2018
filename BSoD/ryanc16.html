@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>BSOD - ryanc16</title>
+  <style>
+    html,body{
+      
+      font-family: 'Courier New', Courier, monospace;
+      margin: 0;
+      padding: 0;
+      -moz-user-select: none;
+      -webkit-user-select: none;
+      -ms-user-select: none;
+      -o-user-select: none;
+      cursor: none;
+    }
+    body {
+      color: white;
+      height: 100vh;
+      width: 100vw;
+    }
+    body.bsod {
+      background-color: blue;
+    }
+    body.bios {
+      background-color: black;
+    }
+    body.bsod div.content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      width: 100vw;
+    }
+    h1 {
+      font-size: 36pt;
+      margin-bottom: 6px;
+      margin-top: 6px;
+    }
+    h2 {
+      font-size: 24pt;
+      margin-bottom: 6px;
+      margin-top: 6px;
+    }
+    p {
+      font-size: 14pt;
+    }
+    #restartMsg {
+      margin-top: 2em;
+    }
+  </style>
+</head>
+<body class="bsod">
+  <div class="content">
+      <h1>:/ Well, this is embarrassing...</h1>
+      <h2>Your computer has run into a problem and needs to restart.</h2>
+      <p>For debugging information, please refer to mem.dmp and err.log files or contact your system administrator for additional help.</p>
+      <p>The following may also be helpful for debugging.</p>
+      <span>SYSTEM.proccess exited with codes: 0xDEADBEEF, 0xDE1E7ED, 0xACAB005E, 0xF007BA11</span>
+      <p id="restartMsg">restarting in: <span id="countdown">10</span></p>
+  </div>
+    
+    <script type="text/javascript">
+
+      let body = document.querySelector('body');
+      let content = document.querySelector('.content');
+      let bsodContent = content.innerHTML;
+      
+      function initBSOD() {
+        content.innerHTML = bsodContent;
+        let counter = 10;
+        let countdown = document.querySelector('#countdown');
+        body.className = '';
+        body.classList.add('bsod');
+        let timer = setInterval(() => {
+          countdown.innerText = (--counter)+'';
+          if(counter === 0) {
+            initBIOS();
+            clearInterval(timer);
+          }
+        }, 1000);
+      }
+
+      function initBIOS() {
+        content.innerHTML = 'Booting from DISK 0';
+        body.className = '';
+        body.classList.add('bios');
+        let filecount = Math.round(Math.random() * 30)+10;
+        let filelisting = setInterval(() =>{
+          if(filecount > 0) {
+            content.innerHTML += `<div>starting: ${generateRandomFileName()}</div>`;
+            filecount--;
+          }
+          else {
+            clearInterval(filelisting);
+            initBSOD();
+          }
+        }, 500);
+      }
+
+      function generateRandomFileName() {
+        let techy_terms = [
+          'print', 'system', 'kernel', 'program', 'keyboard', 'mouse', 'screen', 'input', 'USB', 'antivirus', 'sdcard0', 'disk', 'cdrom', 'file', 'folder', 'boot'
+        ];
+        let task_purpose = [
+          'loader', 'helper', 'runner', 'cmd', 'pager', 'notifier', 'listener', 'server', 'throttler', 'process', 'monitor'
+        ];
+        let rand1 = Math.round(Math.random() * (techy_terms.length-1));
+        let rand2 = Math.round(Math.random() * (task_purpose.length-1));
+        return [techy_terms[rand1], task_purpose[rand2]].join('_');
+      }
+
+      initBSOD();
+    </script>
+</body>
+</html>
