@@ -1,0 +1,95 @@
+* {
+    font-family: "Verdana";
+    font-weight: lighter
+}
+
+.container {
+    width: 700px;
+    margin: auto;
+}
+
+.container h1 {
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 0px;
+}
+
+.copy {
+    font-size: 12px;
+    text-align: center;
+    margin: 0;
+}
+
+.action {
+    width: 620px;
+    box-shadow: 0 0 10px #ccc;
+    margin: 25px auto;
+    padding: 20px 40px;
+    text-align: center;
+}
+
+.action.right{
+    box-shadow: 0 0 10px #00bb00;
+}
+
+.action.wrong{
+    box-shadow: 0 0 10px #bb0000;
+}
+
+#target {
+    display: inline-block;
+    width: 80%;
+    margin: 0;
+    font-size: 30px;
+    color: #666
+}
+
+.action .button {
+    margin: 0;
+    /* width: 19%; */
+}
+
+.rose {
+    position: relative;
+}
+
+.options {
+    position: absolute;
+}
+
+.b0 {position: absolute; left: 332px; top: 40px;}
+.b1 {position: absolute; left: 412px; top: 125px;}
+.b2 {position: absolute; left: 525px; top: 147px;}
+.b3 {position: absolute; left: 550px; top: 257px;}
+.b4 {position: absolute; left: 635px; top: 338px;}
+.b5 {position: absolute; left: 550px; top: 418px;}
+.b6 {position: absolute; left: 525px; top: 528px;}
+.b7 {position: absolute; left: 412px; top: 550px;}
+.b8 {position: absolute; left: 332px; top: 635px;}
+.b9 {position: absolute; left: 250px; top: 550px;}
+.b10 {position: absolute; left: 135px; top: 528px;}
+.b11 {position: absolute; left: 115px; top: 418px;}
+.b12 {position: absolute; left: 30px; top: 338px;}
+.b13 {position: absolute; left: 115px; top: 257px;}
+.b14 {position: absolute; left: 135px; top: 147px;}
+.b15 {position: absolute; left: 250px; top: 125px;}
+
+.nautical-rose {
+    width: 700px;
+    height: 700px;
+}
+
+.button {
+    background-color: #0063dc;
+    color: #ffffff;
+    border: 1px solid #0063dc;
+    border-radius: 2px;
+    font-weight: lighter;
+    font-size: 16px;
+    padding: 8px 20px;
+}
+
+.button:hover {
+    background-color: #006699;
+    cursor: pointer;
+}  
