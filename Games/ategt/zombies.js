@@ -1,3 +1,14 @@
+// This project was loosely based on the following kata
+//
+// https://github.com/ardalis/kata-catalog/blob/master/katas/Zombie%20Survivors.md
+// 
+// and this tutorial
+//
+// https://www.w3schools.com/graphics/game_intro.asp
+
+// Visit https://github.com/ategt for more projects by the author and perhaps
+// an updated version of this game.
+
 Array.prototype.randomElement = function(){ return this[Math.floor(Math.random() * this.length)] }
 
 var currentScore;
