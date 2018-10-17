@@ -42,6 +42,7 @@
 - [rg3456](https://github.com/rg3456)
 - [LatGeek](https://github.com/latgeek)
 - [Timmy](https://github.com/Timmy)
+- [Archaeologist03](https://github.com/Archaeologist03)
 
 
 # Contributors
