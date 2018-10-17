@@ -51,7 +51,7 @@
       <span id="friends"><a class="github-button" href="https://github.com/RaidAndFade/Hacktoberfest2018/blob/master/README.md" data-icon="octicon-repo-forked" data-size="large" data-show-count="true" aria-label="Add yourself to the list of friends!">Join the list!</a></span>
     </div>
     <hr>
-    <button id="flistbtn" onclick="changelist('Friends','flist')">Friends List</button><button id="glistbtn" onclick="changelist('Games','glist')">Games List</button><br><br>
+    <button id="flistbtn" onclick="changelist('Friends','flist')">Friends List</button><button id="glistbtn" onclick="changelist('Games','glist')">Games List</button><button id="blistbtn" onclick="changelist('BSoD','blist')">BSoD List</button><br><br>
     <select id="c" onchange="page(0)">
       <option value="10">Show 10 per page</option>
       <option value="25" selected>Show 25 per page</option>
@@ -171,9 +171,13 @@ function page(i){
 }
 
 var h = window.location.hash
-if(h.split("_",1)[0]=="#glist"){
+tagname = h.split("_",1)[0]
+if(tagname=="#glist"){
   curlist = "glist"
   curURL = "Games"
+}else if(tagname=="#blist"){
+  curlist = "blist"
+  curURL = "BSoD"
 }else{
   curlist = "flist"
   curURL = "Friends"
