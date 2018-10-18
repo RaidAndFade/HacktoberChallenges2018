@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>An exception has occureed</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="media">
+            <!-- Information icon -->
+            <i class="fas fa-info-circle fa-3x mr-3"></i>
+            <div class="media-body">
+              <!-- Header text-->
+              <span class="align-bottom">
+                <h1>An exception has occured</h1>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <!-- Messages -->
+          <p>Most likely causes:</p>
+          <ul>
+            <li>You are not connected to the Internet.</li>
+            <li>The website is encountering problems.</li>
+            <li>There might be a typing error in the address.</li>
+          </ul>
+          <!-- Solution links -->
+          <p>What you can try:</p>
+          <ul>
+            <li><a href="">Diagnose Connection Problems</a></li>
+            <li><a href="">More Information</a></li>
+          </ul>
+          <!-- Browser version -->
+          <p id="userAgent"></p>
+          <script>
+          document.getElementById("userAgent").innerHTML = navigator.userAgent;
+          </script>
+        </div>
+      </div>
+    </div>
+  </body>
+</html> 
