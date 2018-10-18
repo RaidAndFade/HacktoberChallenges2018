@@ -50,7 +50,7 @@
       <a class="github-button" href="https://github.com/RaidAndFade" data-size="large" data-show-count="true" aria-label="Follow @RaidAndFade on GitHub">Follow @RaidAndFade</a>
       <!-- Fork Repo. -->
       &nbsp;
-      <span id="friends"><a class="github-button" href="https://github.com/RaidAndFade/Hacktoberfest2018/blob/master/README.md" data-icon="octicon-repo-forked" data-size="large" data-show-count="true" aria-label="Add yourself to the list of friends!">Join the list!</a></span>
+      <span id="friends"><a class="github-button" href="https://github.com/RaidAndFade/HacktoberChallenges/blob/master/README.md" data-icon="octicon-repo-forked" data-size="large" data-show-count="true" aria-label="Add yourself to the list of friends!">Join the list!</a></span>
     </div>
     <hr>
     <button id="flistbtn" onclick="changelist('Friends','flist')">Friends List</button><button id="glistbtn" onclick="changelist('Games','glist')">Games List</button><button id="blistbtn" onclick="changelist('BSoD','blist')">BSoD List</button><br><br>
@@ -134,7 +134,7 @@ function changelist(URL,LSName){
   isCacheExpired = localStorage.getItem(curlist+"time") == null || (epochSecs()-localStorage.getItem(curlist+"time"))>cacheexpirysecs
   if(localStorage.getItem(curlist) == null || isCacheExpired){
     document.getElementById("d").innerHTML = "<li>Loading "+URL+"...</li>"
-    const gitapiurl = "https://api.github.com/repos/raidandfade/hacktoberfest2018/contents/"+curURL;
+    const gitapiurl = "https://api.github.com/repos/raidandfade/hacktoberchallenges/contents/"+curURL;
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
