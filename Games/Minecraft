@@ -1,0 +1,40 @@
+package me.zakarls.StackFix;
+
+import java.util.logging.Logger;
+import org.bukkit.Server;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.plugin.PluginDescriptionFile;
+import org.bukkit.plugin.PluginManager;
+import org.bukkit.plugin.java.JavaPlugin;
+
+public class Main
+  extends JavaPlugin
+  implements Listener
+{
+  public final Logger logger = Logger.getLogger("Minecraft");
+  
+  public void onDisable()
+  {
+    PluginDescriptionFile pdfFile = getDescription();
+    this.logger.info(pdfFile.getName() + " Has Been Disabled!");
+  }
+  
+  public void onEnable()
+  {
+    PluginManager pm = getServer().getPluginManager();
+    PluginDescriptionFile pdfFile = getDescription();
+    this.logger.info(pdfFile.getName() + " Version " + pdfFile.getVersion() + " Has Been Enabled!");
+    pm.registerEvents(this, this);
+  }
+  
+  @EventHandler
+  public void onInventoryClick(InventoryClickEvent event)
+  {
+    if (event.getCurrentItem().getAmount() >= 3) {
+      event.setCancelled(true);
+    }
+  }
+}
