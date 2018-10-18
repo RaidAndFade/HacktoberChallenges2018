@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<!-- 
+ MacOSX BSOD cloned to a static HTML page
+ hacktoberfest 2018
+ yulioaj290 on github -->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>BSoD MacOSX</title>
+    <style type="text/css" rel="stylesheet">
+        * { font-family: "Verdana"; font-weight: normal; font-size: 40px; text-align: left; color: #ffffff; }
+        body { background-color: #222222; position: relative; }
+        .text {
+            position: absolute;
+            left: calc(50% - 600px);
+            top: 80px;
+            width: 1200px;
+            z-index: 100;
+        }
+        .globe {
+            position: absolute;
+            background-color: #555555;
+            width: 600px;
+            height: 600px;
+            left: calc(50% - 330px);
+            top: 140px;
+            z-index: 1;
+            border-radius: 50%;
+        }
+        .circle {
+            position: absolute;
+            background-color: #222222;
+            width: 400px;
+            height: 400px;
+            left: calc(50% - 200px);
+            top: 100px;
+            z-index: 1;
+            border-radius: 50%;
+        }
+        .circle .internal {
+            position: absolute;
+            background-color: #555555;
+            width: 320px;
+            height: 320px;
+            left: calc(50% - 160px);
+            top: 40px;
+            z-index: 1;
+            border-radius: 50%;
+        }
+        .circle .internal .divider {
+            position: absolute;
+            background-color: #222222;
+            width: 40px;
+            height: 250px;
+            left: calc(50% - 20px);
+            top: -80px;
+            z-index: 100;
+            border-radius: 40px;
+        }
+        .circle .internal .divider .point-l {
+            position: absolute;
+            background-color: #222222;
+            width: 40px;
+            height: 40px;
+            left: calc(50% - 137px);
+            top: 83px;
+            z-index: 100;
+            border-radius: 40px;
+        }
+        .circle .internal .divider .point-r {
+            position: absolute;
+            background-color: #222222;
+            width: 40px;
+            height: 40px;
+            left: calc(50% + 97px);
+            top: 83px;
+            z-index: 100;
+            border-radius: 40px;
+        }
+        .circle .internal .spacer {
+            position: absolute;
+            background-color: #555555;
+            width: 200px;
+            height: 200px;
+            left: calc(50% - 100px);
+            top: -100px;
+            z-index: 1;
+            transform: rotate(45deg);
+        }
+    </style>
+
+</head>
+<body>
+    <div class="globe">
+        <div class="circle">
+            <div class="internal">
+                <div class="divider">
+                    <div class="point-l"></div>
+                    <div class="point-r"></div>
+                </div>
+                <div class="spacer"></div>
+            </div>
+        </div>
+    </div>
+    <div class="text">
+        <p>You need to restart your computer. Hold down the Power button for several seconds or press the Restart button.</p>
+        <p>Veuillez red&eacute;marrer votre ordinateur. Maintenez la touche de d&eacute;marrage enfonc&eacute;e pendant plusieurs secondes ou bien appuyez sur le bouton de r&eacute;initialisation.</p>
+        <p>Sie m&uuml; Ihren Computer neu starten. Halten Sie dazu die Einschalttaste einige Sekunden gedr&uuml;ckt oder dr&uuml;cken Sie die Neustart-Taste.</p>
+        <p>コンピュータを再起動する必要があります。 電源ボタンを数秒間押し続けるか、またはリセットボタンを押します。</p>
+    </div>
+</body>
+</html>  
