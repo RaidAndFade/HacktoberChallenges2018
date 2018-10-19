@@ -59,6 +59,9 @@
                     cdrom: {
                         url: "linux3.iso"
                     },
+                    hda: { 
+                       buffer: new ArrayBuffer(16 * 1024 * 1024)
+                    },
                     autostart: true,
                     network_relay_url: "wss://relay.widgetry.org/"
                });
