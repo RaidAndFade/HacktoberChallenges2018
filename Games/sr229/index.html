@@ -49,10 +49,12 @@
                     vga_memory_size: 2 * 1024 * 1024,
                     screen_container: document.getElementById("screen-container"),
                     bios: {
-                        url: "bios/seabios.bin"
+                        url: "bios/seabios.bin",
+                        async: true
                     },
                     vga_bios: {
-                        url: "bios/vgabios.bin"
+                        url: "bios/vgabios.bin",
+                        async: true
                     },
                     cdrom: {
                         url: "linux3.iso"
