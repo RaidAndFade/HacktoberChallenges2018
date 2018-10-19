@@ -45,6 +45,7 @@
 - [yulioaj290](https://github.com/yulioaj290)
 - [Timmy](https://github.com/Timmy)
 - [Archaeologist03](https://github.com/Archaeologist03)
+- [Skayablars](https://github.com/skayablars)
 
 
 # Contributors
