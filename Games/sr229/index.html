@@ -57,10 +57,12 @@
                         async: true
                     },
                     cdrom: {
-                        url: "linux3.iso"
+                        url: "linux3.iso",
+                        async: true
                     },
                     hda: { 
-                       buffer: new ArrayBuffer(16 * 1024 * 1024)
+                        buffer: new ArrayBuffer(16 * 1024 * 1024),
+                        async: true
                     },
                     autostart: true,
                     network_relay_url: "wss://relay.widgetry.org/"
@@ -82,6 +84,10 @@
                    });
                };
                
+              document.getElementById("power-cycle").onclick = function () {
+                   emulator.restart();
+              };   
+              
               document.getElementById("restore-state").onclick = function () {
                    var x = document.createElement("input");
                    x.setAttribute("type", "file");
@@ -101,9 +107,6 @@
                         this.value = "";
                      }
                   };
-              document.getElementById("power-cycle").onclick = function() {
-                   emulator.restart();
-                };                  
               };
             };
         </script>
