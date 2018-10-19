@@ -16,11 +16,12 @@
         <title> x86 Emulator </title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons|Roboto+Mono">
         <style>
             body {
-                display: flex !important;
-                margin: 1.5rem !important;
-                text-align: center !important;
+                display: flex;
+                margin: 1.5rem;
+                text-align: center;
             }
             .container {
                 flex-direction: column;
@@ -28,14 +29,107 @@
         </style>
     </head>
     <body>
+        <script src="libv86.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script>
+            "use strict";
+            /* global M */
+            /* global instances */
+            /* global V86Starter */
+            
+              document.addEventListener('DOMContentLoaded', function() {
+                var elems = document.querySelectorAll('.fixed-action-btn');
+                var instances = M.FloatingActionButton.init(elems);
+                var tooltips = document.querySelectorAll('.tooltipped');
+                var instances = M.Tooltip.init(tooltips);
+              });
+            window.onload = function() {
+               var emulator = new V86Starter({
+                    memory_size: 32 * 1024 * 1024,
+                    vga_memory_size: 2 * 1024 * 1024,
+                    screen_container: document.getElementById("screen-container"),
+                    bios: {
+                        url: "bios/seabios.bin"
+                    },
+                    vga_bios: {
+                        url: "bios/vgabios.bin"
+                    },
+                    cdrom: {
+                        url: "linux3.iso"
+                    },
+                    autostart: true,
+                    network_relay_url: "wss://relay.widgetry.org/"
+               });
+
+               /* global Blob */
+               
+               document.getElementById("save-state").onclick = function() {
+                   emulator.save_state(function(error, new_state) {
+                       if (!error) {
+                           var a = document.createElement("a");
+                           a.download = "machine_snapshot.bin";
+                           a.href = window.URL.createObjectURL(new Blob([new_state]));
+                           a.dataset.downloadurl = "application/octet-stream:" + a.download + ":" + a.href;
+                           a.click();
+                       } else {
+                           throw error;
+                       }
+                   });
+               };
+               
+              document.getElementById("restore-state").onclick = function () {
+                   var x = document.createElement("input");
+                   x.setAttribute("type", "file");
+                   x.click();
+                   
+                   x.onclick = function () {
+                    if (this.files.length) {
+                        var fileReader = new FileReader();
+                        emulator.stop();
+                       
+                        fileReader.onload = function (e) {
+                            emulator.restore_state(e.target.result);
+                            emulator.run();
+                        };
+                       
+                        fileReader.readAsArrayBuffer(this.files[0]);
+                        this.value = "";
+                     }
+                  };
+              document.getElementById("power-cycle").onclick = function() {
+                   emulator.restart();
+                };                  
+              };
+            };
+        </script>
         <div class="container">
             <div class="row">
-                <div class="col s5">
-                    x86 Emulator
-                    </div>
+                <div class="col s12">
+                    <h2> x86 Emulator</h2>
+                    <p>This website emulates a <code>i686</code> processor with Linux.</p>
+                </div>
             </div>
+        <div class="container">
+            <div class="row">
+                <div class="col s12">
+                     <!-- Terminal Canvas goes here. -->
+                     <div id="screen-container">
+                         <div style="white-space: pre; font: 14px monospace; line-height: 14px"></div>
+                         <canvas style="display: none"></canvas>
+                     </div>
+                </div>
+            </div>
+    <div class="fixed-action-btn">
+    <a class="btn-floating btn-large red">
+       <i class="large material-icons">computer</i>
+        </a>
+           <ul>
+            <li><button class="btn-floating green tooltipped" id="save-state" data-position="left" data-tooltip="Save machine snapshot"><i class="material-icons">save</i></button></li>
+            <li><button class="btn-floating blue tooltipped" id="restore-state" data-position="left" data-tooltip="Load machine snapshot"><i class="material-icons">open_in_browser</i></button></li>
+            <li><button class="btn-floating orange tooltipped" id="power-cycle" data-position="left" data-tooltip="Reboot machine"><i class="material-icons">repeat</i></button></li>            
+          </ul>
         </div>
-        <script src="https://vm.maidcafe.me/build/libv86.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+      </div>
+     </div>
     </body>
 </html>
