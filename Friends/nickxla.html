@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css">
+    <title> </title>
+</head>
+
+<style>
+    html,
+    body {
+        height: 100%;
+        background-color: #222
+    }
+
+    body {
+        display: flex;
+        align-items: center;
+    }
+</style>
+
+<body>
+
+    <div class="card mx-auto" style="width: 18rem;">
+        <img class="card-img-top" src="https://github.com/nickxla.png" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">nickxla</h5>
+            <p class="card-text">That's me !
+                <hr>Have an awesome Hacktoberfest 2018 and happy hacking !</p>
+            <a href="https://github.com/nickxla" target="_blank" class="btn btn-primary">Github&nbsp;<span id="badge"
+                    class="badge badge-light"></span></a>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/js/bootstrap.min.js"></script>
+    <script>
+        var public_repos = 0;
+        fetch('https://api.github.com/users/nickxla')
+            .then(response => response.json())
+            .then(data => {
+                public_repos = data['public_repos']
+                let s = document.getElementById('badge');
+                s.textContent = public_repos.toString() + " repos";
+            }).catch(error => console.error(error))
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bottersnike</title>
+    
+    <link href="https://fonts.googleapis.com/css?family=Charmonman" rel="stylesheet">
+    <style>    
+    * {
+        padding: 0;
+        border: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-size: inherit;
+        font-family: inherit;
+        color: inherit;
+        text-decoration: none;
+    }
+    
+    html, body {
+        width: 100vw;
+        height: 100vh;
+        background-color: #111;
+        color: #fff;
+        font-family: 'Charmonman', cursive;
+        font-size: 2.5em;
+        position: relative;
+        
+        overflow: hidden;
+    }
+    
+    #title {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        
+        font-weight: 800;
+        
+        transition: font-size 100ms ease-out, transform 100ms ease-out;
+    }
+    
+    #title::after {
+        width: 0;
+        left: 50%;
+        position: absolute;
+        bottom: 30%;
+        display: block;
+        content: "";
+        height: 2px;
+        background-color: #fff;
+        transition: width 200ms ease-out, left 200ms ease-out;
+    }
+    
+    #title:hover::after {
+        left: 20%;
+        width: 60%;
+    }
+    
+    #title:hover {
+        font-size: 150%;
+        transform: translate(-50%, -50%) rotate(-5deg);
+    }
+    
+    .hbar {
+        height: 2px;
+        position: absolute;
+        width: 0;
+        left: 0;
+       animation: spin 1s ease-in-out infinite;   
+    }
+    
+    #bar {
+        background-color: #FF9800;
+        bottom: 40%;
+    }
+    
+    #bar2 {
+        background-color: #2196F3;
+        bottom: 35%;
+        animation-delay: -500ms;
+    }
+    
+    #bar7 {
+        background-color: #673AB7;
+        top: 30%;
+        animation-delay: -250ms;
+    }
+    
+    #bar8 {
+        background-color: #8BC34A;
+        top: 35%;
+        animation-delay: -750ms;
+    }
+    
+    @keyframes spin {
+        0% {
+            left: 0;
+            width: 0;
+        }
+        50% { 
+            left: 100%;
+            width: 100%;
+        }
+        100% {
+            left: 0;
+            width: 0;
+        }
+    }
+    
+    .vbar {
+        height: 0;
+        position: absolute;
+        width: 2px;
+        animation: vspin 1s ease-in-out infinite;
+        top: 0;
+    }
+    
+    #bar3 {
+        left: 20%;
+        background-color: #CDDC39;
+    }
+    
+    #bar4 {
+        left: 22%;
+        background-color: #E91E63;
+        animation-delay: -500ms;
+    }
+    
+    #bar5 {
+        right: 20%;
+        background-color: #FFC107;
+        animation-delay: -250ms;
+    }
+    
+    #bar6 {
+        right: 22%;
+        background-color: #9E9E9E;
+        animation-delay: -750ms;
+    }
+    
+    @keyframes vspin {
+        0% {
+            top: 0;
+            height: 0;
+        }
+        50% { 
+            top: 100%;
+            height: 100%;
+        }
+        100% {
+            top: 0;
+            height: 0;
+        }
+    }
+    </style>
+</head>
+
+<body>
+    <div id="title"><a href="https://github.com/Bottersnike">Bottersnike</a></div>
+    <div class="hbar" id="bar"></div>
+    <div class="hbar" id="bar2"></div>
+    <div class="vbar" id="bar3"></div>
+    <div class="vbar" id="bar4"></div>
+    <div class="vbar" id="bar5"></div>
+    <div class="vbar" id="bar6"></div>
+    <div class="hbar" id="bar7"></div>
+    <div class="hbar" id="bar8"></div>
+</body>
+</html>

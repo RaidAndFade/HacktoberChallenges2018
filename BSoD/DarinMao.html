@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BSoD</title>
+  <style type="text/css">
+	html, body {
+		height: 100%;
+	}
+	body {
+		margin: 0;
+		font-family: "Segoe UI";
+		font-weight: 320;
+		background-color: #0972ac;
+		color: #ffffff;
+		align-items: center;
+	}
+	.container {
+		text-align: left;
+		width: 60%;
+		margin: auto;
+	}
+	h1 {
+		font-size: 12rem;
+		font-weight: 320;
+		margin-bottom: 1rem;
+	}
+	p {
+		font-size: 1.75rem;
+		margin-bottom: 3rem;
+	}
+	small {
+		font-size: 0.9rem;
+	}
+  </style>
+ </head>
+ <body onload="increment();">
+  <div class="container">
+	<h1>:(</h1>
+	<p>Your PC ran into a problem and needs to restart. We're just collecting some error info, and then we'll restart for you. (<span id="progress">0</span>% complete)</p>
+	<small>If you'd like to know more, you can search online later for this error: HACKTOBERFEST_2018_IS_GREAT</small>
+  </div>
+  <script type="text/javascript">
+  <!--
+	var progress = 0;
+	var element = document.getElementById("progress");
+	function increment() {
+		progress++;
+		setTimeout(function() {
+			element.innerHTML = progress;
+			if (progress < 100)
+			{
+				increment();
+			}
+		}, Math.floor(Math.random() * (500 - 100 + 1)) + 100);
+	}
+  //-->
+  </script>
+ </body>
+</html>

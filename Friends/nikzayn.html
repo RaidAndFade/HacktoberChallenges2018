@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+<title>My Bio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
+<style>
+  .frame {
+  position: absolute;
+  margin-top: 20px;
+  margin-left: 330px;
+  width: 700px;
+  height: 300px;
+  border-radius: 3px 3px;
+  overflow: hidden;
+  background: #111;
+  color: #fff;
+  background-origin: padding-box;
+  font-family: 'Open Sans', Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+html {
+  background: #111;
+}
+.word {
+  position: absolute;
+  top: 140px;
+  left: 0;
+  height: 120px;
+  width: 400px;
+}
+.word .light {
+  position: absolute;
+  background: #1a1e24;
+  box-shadow: 0px 0px 6px 0px #1a1e24;
+  border-radius: 3px;
+}
+.word .nn {
+  position: absolute;
+  width: 84px;
+  height: 120px;
+  top: 0;
+  left: 68px;
+}
+.word .nn .left {
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 120px;
+  animation: flickr 6s ease-in-out 3.21s infinite alternate both;
+}
+.word .nn .middle {
+  top: 0;
+  left: 9px;
+  width: 135px;
+  height: 6px;
+  transform-origin: 3px 3px;
+  transform: rotate(62deg);
+  animation: flickr 6s ease-in-out 3.59s infinite alternate both;
+}
+.word .nn .right {
+  top: 0;
+  right: 0px;
+  width: 6px;
+  height: 120px;
+  animation: flickr 6s ease-in-out 1.91s infinite alternate both;
+}
+.word .ii {
+  position: absolute;
+  width: 172px;
+  height: 120px;
+  top: 0;
+  left: 74px;
+}
+.word .ii .top {
+  top: 0;
+  right: 0;
+  height: 6px;
+  width: 60px;
+  animation: flickr 6s ease-in-out 0.04s infinite alternate both;
+}
+.word .ii .middle {
+  top: 9px;
+  right: 28px;
+  height: 103px;
+  width: 6px;
+  animation: flickr 6s ease-in-out 3.81s infinite alternate both;
+}
+.word .ii .bottom {
+  bottom: -2px;
+  right: 0;
+  height: 6px;
+  width: 60px;
+  animation: flickr 6s ease-in-out 1.46s infinite alternate both;
+}
+.word .kk {
+  position: absolute;
+  width: 190px;
+  height: 120px;
+  top: 0;
+  left: 80px;
+}
+.word .kk .left {
+  top: 0;
+  left: 200px;
+  width: 6px;
+  height: 122px;
+  animation: flickr 6s ease-in-out 0.7s infinite alternate both;
+}
+.word .kk .middle {
+  top: 3px;
+  left: 254px;
+  width: 6px;
+  height: 75px;
+  transform-origin: 3px 3px;
+  transform: rotate(40deg);
+  animation: flickr 6s ease-in-out 3.54s infinite alternate both;
+}
+.word .kk .right {
+  bottom: -17px;
+  left: 211.5px;
+  width: 6px;
+  height: 70px;
+  transform-origin: 3px 3px;
+  transform: rotate(-40deg);
+  animation: flickr 6s ease-in-out 2.78s infinite alternate both;
+}
+.word .hh {
+  position: absolute;
+  width: 220px;
+  height: 120px;
+  top: 0;
+  left: 88px;
+}
+.word .hh .left {
+  top: 0;
+  left: 290px;
+  height: 120px;
+  width: 6px;
+  animation: flickr 6s ease-in-out 1.1s infinite alternate both;
+}
+.word .hh .middle {
+  top: 57px;
+  left: 344px;
+  height: 6px;
+  width: 50px;
+  transform-origin: 3px 3px;
+  transform: rotate(180deg);
+  animation: flickr 6s ease-in-out 3.17s infinite alternate both;
+}
+.word .hh .right {
+  top: 0;
+  left: 353px;
+  height: 120px;
+  width: 6px;
+  animation: flickr 6s ease-in-out 0.65s infinite alternate both;
+}
+.word .iii {
+  position: absolute;
+  width: 250px;
+  height: 120px;
+  top: 0;
+  left: 290px;
+}
+.word .iii .top {
+  top: 0;
+  right: 0;
+  height: 6px;
+  width: 60px;
+  animation: flickr 6s ease-in-out 3.31s infinite alternate both;
+}
+.word .iii .middle {
+  top: 9px;
+  right: 28px;
+  height: 103px;
+  width: 6px;
+  animation: flickr 6s ease-in-out 1.7s infinite alternate both;
+}
+.word .iii .bottom {
+  bottom: -2px;
+  right: 0;
+  height: 6px;
+  width: 60px;
+  animation: flickr 6s ease-in-out 0.29s infinite alternate both;
+}
+.word .ll {
+  position: absolute;
+  width: 250px;
+  height: 120px;
+  top: 0;
+  left: 320px;
+}
+.word .ll .left {
+  top: 0;
+  left: 250px;
+  width: 6px;
+  height: 110px;
+  animation: flickr 6s ease-in-out 3.95s infinite alternate both;
+}
+.word .ll .bottom {
+  bottom: -1px;
+  height: 6px;
+  left: 305px;
+  width: 60px;
+  transform-origin: 3px 3px;
+  transform: rotate(180deg);
+  animation: flickr 6s ease-in-out 2.67s infinite alternate both;
+}
+.bio {
+  position: absolute;
+  text-align: center;
+  left: 24%;
+  top: 55%;
+  color: #fff;
+  font-family: 'Nunito', sans-serif;
+}
+
+.button {
+  position: absolute;
+  width: 200px;
+  height: 60px;
+  top: 69%;
+  left: 40%;
+  background: #fff;
+  text-transform: uppercase;
+  overflow: hidden;
+  color: #34495e;
+  font-size: 20px;
+  font-weight: 400;
+  font-family: 'Nunito', sans-serif;
+  line-height: 58px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 5px;
+  -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.button:hover {
+  -webkit-transform: scale(1.05, 1.05);
+  transform: scale(1.05, 1.05);
+}
+@keyframes flickr {
+  35%, 37%, 40%, 55%, 100% {
+    background: #f1f4f5;
+    box-shadow: 0px 0px 10px 0px #f1f4f5;
+  }
+  0%, 34%, 36%, 36%, 38%, 40% {
+    background: #1a1e24;
+    box-shadow: 0px 0px 6px 0px #1a1e24;
+  }
+}
+
+</style>
+
+<body>
+<div class = "frame">
+   <div class = "word">
+     <div class = "nn">
+       <div class = "light left"></div>
+       <div class = "light middle"></div>
+       <div class = "light right"></div>
+     </div>
+     <div class = "ii">
+       <div class = "light top"></div>
+       <div class = "light middle"></div>
+       <div class = "light bottom"></div>
+     </div>
+     <div class = "kk">
+       <div class = "light left"></div>
+       <div class = "light middle"></div>
+       <div class = "light right"></div>
+     </div>
+     <div class = "hh">
+       <div class = "light left"></div>
+       <div class = "light middle"></div>
+       <div class = "light right"></div>
+     </div>
+     <div class = "iii">
+       <div class = "light top"></div>
+       <div class = "light middle"></div>
+       <div class = "light bottom"></div>
+     </div>
+     <div class = "ll">
+       <div class = "light left"></div>
+       <div class = "light bottom"></div>
+     </div>
+  </div>
+</div>
+
+<div class = "bio">
+  I am a Web/ReactNative/ReactJs Developer. I love to paint and travel. A good pubg and fifa player.  
+</div>
+
+<div class = "button" onclick = "window.location.href='https://github.com/nikzayn'">Github Profile</div>
+</body>
+</html>         
+       

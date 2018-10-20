@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<title>DS1 "Peace Moon" Orbital Battle Station</title>
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+	<style>
+		@keyframes mmspin {
+			0% { transform: rotate(0deg); }
+			50% { transform: rotate(180deg); }
+			100% { transform: rotate(360deg); }
+		}
+
+		@keyframes rainbow {
+			0% { color: #007fff; }
+			16% { color: #00ff7f; }
+			33% { color: #7f00ff; }
+			50% { color: #ff007f; }
+			66% { color: #7fff00; }
+			82% { color: #ff7f00; }
+			100% { color: #007fff; }
+		}
+
+		@keyframes rainbow2 {
+			0% { color: #007fff; border-color: #007fff; }
+			16% { color: #00ff7f; border-color: #00ff7f; }
+			33% { color: #7f00ff; border-color: #7f00ff; }
+			50% { color: #ff007f; border-color: #ff007f; }
+			66% { color: #7fff00; border-color: #7fff00; }
+			82% { color: #ff7f00; border-color: #ff7f00; }
+			100% { color: #007fff; border-color: #007fff; }
+		}
+
+		html {
+			background: #333; color: #ddd;
+		}
+		html, body, body > div.content-wrapper {
+			width: 100%; height: 100%;
+			margin: 0; padding: 0;
+			border: none;
+			box-sizing: border-box;
+			
+			font: 12pt 'Roboto','Noto Sans','Helvetica','Arial',sans-serif;
+			font-weight: 400;
+		}
+		body {
+			display: table;
+		}
+		body::before {
+			pointer-events: none;
+			background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCEtLQoJTmFtZToJCQlIYXhpY29yZCBMb2dvCglBdXRob3I6CQkJRW16aTA3NjcKCVRpbWVzdGFtcDoJCTIwMTctMDgtMjQgMDE6MTEgKzAyOjAwCglMaWNlbnNlOgkJTUlUCgkKCT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PQoJCglNSVQgTGljZW5zZQoKCUNvcHlyaWdodCAoYykgMjAxNyBFbXppMDc2NwoKCVBlcm1pc3Npb24gaXMgaGVyZWJ5IGdyYW50ZWQsIGZyZWUgb2YgY2hhcmdlLCB0byBhbnkgcGVyc29uIG9idGFpbmluZyBhIGNvcHkKCW9mIHRoaXMgc29mdHdhcmUgYW5kIGFzc29jaWF0ZWQgZG9jdW1lbnRhdGlvbiBmaWxlcyAodGhlICJTb2Z0d2FyZSIpLCB0byBkZWFsCglpbiB0aGUgU29mdHdhcmUgd2l0aG91dCByZXN0cmljdGlvbiwgaW5jbHVkaW5nIHdpdGhvdXQgbGltaXRhdGlvbiB0aGUgcmlnaHRzCgl0byB1c2UsIGNvcHksIG1vZGlmeSwgbWVyZ2UsIHB1Ymxpc2gsIGRpc3RyaWJ1dGUsIHN1YmxpY2Vuc2UsIGFuZC9vciBzZWxsCgljb3BpZXMgb2YgdGhlIFNvZnR3YXJlLCBhbmQgdG8gcGVybWl0IHBlcnNvbnMgdG8gd2hvbSB0aGUgU29mdHdhcmUgaXMKCWZ1cm5pc2hlZCB0byBkbyBzbywgc3ViamVjdCB0byB0aGUgZm9sbG93aW5nIGNvbmRpdGlvbnM6CgoJVGhlIGFib3ZlIGNvcHlyaWdodCBub3RpY2UgYW5kIHRoaXMgcGVybWlzc2lvbiBub3RpY2Ugc2hhbGwgYmUgaW5jbHVkZWQgaW4gYWxsCgljb3BpZXMgb3Igc3Vic3RhbnRpYWwgcG9ydGlvbnMgb2YgdGhlIFNvZnR3YXJlLgoKCVRIRSBTT0ZUV0FSRSBJUyBQUk9WSURFRCAiQVMgSVMiLCBXSVRIT1VUIFdBUlJBTlRZIE9GIEFOWSBLSU5ELCBFWFBSRVNTIE9SCglJTVBMSUVELCBJTkNMVURJTkcgQlVUIE5PVCBMSU1JVEVEIFRPIFRIRSBXQVJSQU5USUVTIE9GIE1FUkNIQU5UQUJJTElUWSwKCUZJVE5FU1MgRk9SIEEgUEFSVElDVUxBUiBQVVJQT1NFIEFORCBOT05JTkZSSU5HRU1FTlQuIElOIE5PIEVWRU5UIFNIQUxMIFRIRQoJQVVUSE9SUyBPUiBDT1BZUklHSFQgSE9MREVSUyBCRSBMSUFCTEUgRk9SIEFOWSBDTEFJTSwgREFNQUdFUyBPUiBPVEhFUgoJTElBQklMSVRZLCBXSEVUSEVSIElOIEFOIEFDVElPTiBPRiBDT05UUkFDVCwgVE9SVCBPUiBPVEhFUldJU0UsIEFSSVNJTkcgRlJPTSwKCU9VVCBPRiBPUiBJTiBDT05ORUNUSU9OIFdJVEggVEhFIFNPRlRXQVJFIE9SIFRIRSBVU0UgT1IgT1RIRVIgREVBTElOR1MgSU4gVEhFCglTT0ZUV0FSRS4KLS0+CjxzdmcgdmVyc2lvbj0iMS4xIiB2aWV3Qm94PSIwIDAgMjQ1IDI0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KIDxzdHlsZT4uc3Qwe2ZpbGw6IzcyODlEQTt9PC9zdHlsZT4KIDxwYXRoIGQ9Im01NS41IDIwYy0xMS4zIDAtMjAuNSA5LjE5OTYtMjAuNSAyMC42djEzNS4yYzAgMTEuNCA5LjIgMjAuNiAyMC41IDIwLjZoMTEzLjRsLTUuMzAwOC0xOC41IDEyLjgwMSAxMS45IDEyLjEgMTEuMTk5IDIxLjUgMTl2LTE3OS40YzAtMTEuNC05LjItMjAuNi0yMC41LTIwLjZoLTEzNHoiIGZpbGw9IiNmZmYiIHN0cm9rZT0iIzcyODlkYSIvPgogPGcgdHJhbnNmb3JtPSJtYXRyaXgoMS4wMzA3IDAgMCAxLjAzMDcgLTMuNzU3NiAtMy4yOTc0KSIgc3Ryb2tlLXdpZHRoPSIuMTYxODYiPgogIDxwYXRoIGlkPSJwYXRoMjRfMV8iIGQ9Im0xMjIuNSA2My45ODItMzIuNTAyLTIuOTcwMi0yNS41MTMtMTEuNTM0aDI5LjAwN2wyOS4wMDkgMTQuNDkiIGZpbGw9IiNhMmIxZTYiLz4KICA8cGF0aCBpZD0icGF0aDI2XzFfIiBkPSJtMTIyLjUgNjMuOTgyIDM0LjQ0Ny0zLjk5MDEgMjMuNTcyLTEwLjUxNGgtMjkuMDExbC0yOS4wMDggMTQuNDkiIGZpbGw9IiNhMmIxZTYiLz4KICA8cGF0aCBpZD0icGF0aDI4XzFfIiBkPSJtMTIyLjUgMTUxLjAxIDI5LjAwOCAzLjQ1MzEgMjkuMDExIDExLjA1aC0yOS4wMTFsLTI5LjAwOC0xNC41MiIgZmlsbD0iIzcyODlkYSIvPgogIDxwYXRoIGlkPSJwYXRoMzBfMV8iIGQ9Im0xMjIuNSAxNTEuMDEtMjkuMDA5IDMuMTE4LTI5LjAwNyAxMS4zODVoMjkuMDA3bDI5LjAwOS0xNC41MiIgZmlsbD0iIzUyNmVkMiIvPgogIDxwYXRoIGlkPSJwYXRoMzJfMV8iIGQ9Im03OC45ODYgMTA3LjUtNC4yODEzIDM0LjA1OS0xMC4yMjIgMjMuOTU3di0yOS4wMDdsMTQuNTAzLTI5LjAyNiIgZmlsbD0iI2IxYmVlYiIvPgogIDxwYXRoIGlkPSJwYXRoMzRfMV8iIGQ9Im03OC45ODYgMTA3LjUtMy4yNjE1LTMxLjE5Mi0xMS4yNDItMjYuODI2djI5LjAwOGwxNC41MDMgMjguOTkzIiBmaWxsPSIjYjFiZWViIi8+CiAgPHBhdGggaWQ9InBhdGgzNl8xXyIgZD0ibTE2Ni4wMSAxMDcuNSA0LjE4NTgtMzEuNTMyIDEwLjMxOC0yNi40ODZ2MjkuMDA4bC0xNC41MDQgMjguOTkzIiBmaWxsPSIjMzQ1NWM4Ii8+CiAgPHBhdGggaWQ9InBhdGgzOF8xXyIgZD0ibTE2Ni4wMSAxMDcuNSAyLjgyOTYgMzIuMDIgMTEuNjc0IDI1Ljk5N3YtMjkuMDA3bC0xNC41MDQtMjkuMDI2IiBmaWxsPSIjMzQ1NWM4Ii8+CiAgPHBhdGggaWQ9InBhdGgxNl8xXyIgZD0ibTY0LjQ4MyA0OS40NzggNTguMDE2IDE0LjUwNHY0My40ODloLTQzLjUxMmwtMTQuNTAzLTU3Ljk2NCIgZmlsbD0iIzkyYTRlMiIvPgogIDxwYXRoIGlkPSJwYXRoMjJfMV8iIGQ9Im02NC40ODMgMTY1LjUxIDE0LjUwMy01OC4wMTcgNDMuNTEyLTAuMDI0NHY0My41MDVsLTU4LjAxNiAxNC40NzciIGZpbGw9IiM5MmE0ZTIiLz4KICA8cGF0aCBpZD0icGF0aDE4XzFfIiBkPSJtMTgwLjUyIDQ5LjQ3OC0xNC41MDYgNTguMDE2LTQzLjUxMi0wLjAyMjR2LTQzLjQ5MWw1OC4wMTktMTQuNDcyIiBmaWxsPSIjNTI2ZWQyIi8+CiAgPHBhdGggaWQ9InBhdGgyMF8xXyIgZD0ibTE4MC41MiAxNjUuNTEtNTguMDE5LTE0LjUwM3YtNDMuNTM4bDQzLjUxMiAwLjAyNDQgMTQuNTA2IDU3Ljk1OCIgZmlsbD0iIzUyNmVkMiIvPgogIDxwYXRoIGlkPSJwYXRoMTRfMV8iIGQ9Im0xMjIuNSA2My45ODItNDMuNTEyIDQzLjUxMyA0My41MTIgNDMuNTE0IDQzLjUxMi00My41MTYtNDMuNTEyLTQzLjUyNiIgZmlsbD0iIzcyODlkYSIvPgogPC9nPgogPHBhdGggY2xhc3M9InN0MCIgZD0ibTEwNC40IDk2LjM5NWMtNS43IDAtMTAuMiA1LTEwLjIgMTEuMXM0LjYgMTEuMSAxMC4yIDExLjFjNS43IDAgMTAuMi01IDEwLjItMTEuMSAwLjEtNi4xLTQuNS0xMS4xLTEwLjItMTEuMXptMzYuNSAwYy01LjcgMC0xMC4yIDUtMTAuMiAxMS4xczQuNiAxMS4xIDEwLjIgMTEuMWM1LjcgMCAxMC4yLTUgMTAuMi0xMS4xcy00LjUtMTEuMS0xMC4yLTExLjF6IiBmaWxsPSIjZmZmIi8+Cjwvc3ZnPgo=) center no-repeat fixed;
+			background-size: contain;
+			opacity: 0.003;
+			margin: 0; padding: 0;
+			border: none;
+			box-sizing: border-box;
+			position: absolute;
+			top: 0; left: 0; bottom: 0; right: 0;
+			content: ' ';
+		}
+		body > div.content-wrapper {
+			display: table-cell;
+			vertical-align: middle; text-align: center;
+		}
+		body > div.content-wrapper > span.spinner {
+			animation: mmspin 1s linear infinite;
+			font-size: 120pt;
+			font-weight: 700;
+			display: inline-block;
+		}
+		span.str {
+			text-decoration: line-through;
+		}
+		a:link, a:visited {
+			color: #007fff;
+			text-decoration: none;
+			transition: all 0.3s;
+			animation: rainbow 5s infinite;
+		}
+		a:hover {
+			animation: none;
+			color: #ff00ff;
+		}
+		html {
+			transition: background 1s, color 1s;
+		}
+		div.badware {
+			margin: 0; padding: 0;
+			box-sizing: border-box;
+			display: inline-block;
+			position: fixed;
+			bottom: 8px;
+			left: 8px;
+			font-weight: 700;
+			font-size: 14pt;
+			animation: rainbow2 5s infinite;
+			background: #333;
+			border: 1px solid white;
+			padding: 6pt 24pt;
+			border-radius: 8pt;
+			box-shadow: 2pt 2pt 4pt -2pt #ddd;
+			transition: box-shadow 1s;
+		}
+	</style>
+</head>
+<body>
+	<div class="content-wrapper">
+		<span class="spinner">:^)&nbsp;</span><br>
+		I am Emzi, <span class="str">your new robotic overlord</span> a totally <span class="str">friendly</span> human being.<br>
+		I exist on this thing called GitHub <a href="https://github.com/Emzi0767" title="Malware" taget="_blank">around here</a>.
+	</div>
+	<div class="badware" id="toggle-badware">Toggle bad mode</div>
+	<script>
+		(function(){
+			var badMode = false;
+			document.getElementById('toggle-badware').addEventListener('click', function(e) {
+				var rootStyle = document.documentElement.style;
+				var tgtStyle = e.target.style;
+				if (badMode) {
+					rootStyle.background = '#333';
+					rootStyle.color = '#ddd';
+					tgtStyle.boxShadow = '2pt 2pt 4pt -2pt #ddd';
+				} else {
+					rootStyle.background = '#ddd';
+					rootStyle.color = '#333';
+					tgtStyle.boxShadow = '2pt 2pt 4pt -2pt #333';
+				}
+				badMode = !badMode;
+			});
+		})();
+	</script>
+</body>
+</html>

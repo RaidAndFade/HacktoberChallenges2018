@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Change Color</title>
+</head>
+<body onload="changeColor()">
+	<h1>Hi my name is Priyam Agrawal</h1>
+	<a href="https://github.com/PriyamAgrawal">Click here to visit my Github Profile</a>
+</body>
+</html>
+<script type="text/javascript">
+	function changeColor() {
+		var colors=['red','green','blue','brown','orange'];
+		var index = Math.floor(Math.random() * 5);
+		var newColor=colors[index];
+		document.body.style.backgroundColor=newColor;	
+	}
+</script>

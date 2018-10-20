@@ -1,0 +1,39 @@
+body {
+  	background: hsl(220, 100%, 50%);
+	font-family:
+		-apple-system,
+		BlinkMacSystemFont,
+		"Segoe UI",
+		"Roboto",
+		"Helvetica Neue", Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	height: 100vh;
+	margin: 0;
+	padding: 0;
+  	text-rendering: optimizeLegibility;
+  	-moz-osx-font-smoothing: grayscale;
+  	-webkit-font-smoothing: antialiased;
+
+  	/* Center everything in the middle */
+  	display: flex;
+  	align-items: center;
+  	justify-content: center;
+  	flex-direction: column;
+}
+
+.game-title {
+	color: #fff;
+	font-style: italic;
+	font-weight: 300;
+}
+
+#game {
+  	background: hsl(220, 100%, 30%);
+  	display: grid;
+  	height: 500px;
+  	width: 500px;
+  	grid-template-columns: repeat(15, 1fr);
+  	text-align: center;
+  	padding: 1rem;
+  	border-radius: .25rem;
+}

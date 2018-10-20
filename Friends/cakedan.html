@@ -1,0 +1,138 @@
+<html>
+  <head>
+    <title>fat man</title>
+    <link rel='shortcut icon' href='https://cdn.discordapp.com/avatars/120308435639074816/a_409d8edf0c0535b5d039776a8e6870d0.gif?size=64'/>
+    <style>
+      body {
+        background-color: rgb(54, 57, 63);
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      canvas {
+        background-color: rgb(54, 57, 63);
+        height: 100%;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas></canvas>
+    <script>
+      (() => {
+        const canvas = document.getElementsByTagName('canvas')[0];
+
+        const balls = [];
+        (() => {
+          class Ball {
+            constructor(canvas) {
+              this.radius = Math.round(Math.random() * 20) + 20;
+
+              this.x = Math.round(Math.random() * (canvas.width - (this.radius * 2))) + this.radius;
+              this.y = Math.round(Math.random() * (canvas.height - (this.radius * 2))) + this.radius;
+
+              this.vx = ((Math.random() < 0.5) ? -1 : 1) * (Math.round(Math.random() * 5) + 1);
+              this.vy = ((Math.random() < 0.5) ? -1 : 1) * (Math.round(Math.random() * 5) + 1);
+
+              this.rgb = {
+                r: Math.round(Math.random() * 255),
+                g: Math.round(Math.random() * 255),
+                b: Math.round(Math.random() * 255),
+              };
+
+              this.textRotation = (Math.round(Math.random() * 10) / 10) + 0.1;
+            }
+
+            get fillStyle() {
+              const r = this.rgb.r = ((this.rgb.r + 1) % 255);
+              const g = this.rgb.g = ((this.rgb.g + 1) % 255);
+              const b = this.rgb.b = ((this.rgb.b + 1) % 255);
+              return `rgba(${r}, ${g}, ${b}, 0.9)`;
+            }
+
+            get textStyle() {
+              const r = ((this.rgb.r * 2) % 255);
+              const g = ((this.rgb.g * 2) % 255);
+              const b = ((this.rgb.b * 2) % 255);
+              return `rgba(${r}, ${g}, ${b}, 0.9)`;
+            }
+
+            draw(context, canvas) {
+              let boundaryX = this.x + this.vx;
+              if ((boundaryX + this.radius) > canvas.width) {
+                this.vx = -Math.abs(this.vx);
+              } else if ((boundaryX - this.radius) < 0) {
+                this.vx = Math.abs(this.vx);
+              }
+
+              let boundaryY = this.y + this.vy;
+              if ((boundaryY + this.radius) > canvas.height) {
+                this.vy = -Math.abs(this.vy);
+              } else if ((boundaryY - this.radius) < 0) {
+                this.vy = Math.abs(this.vy);
+              }
+
+              this.x = this.x + this.vx;
+              this.y = this.y + this.vy;
+
+              context.fillStyle = this.fillStyle;
+              context.beginPath();
+              context.fillStyle = this.fillStyle;
+              context.arc(this.x, this.y, this.radius, 0, 2 * Math.PI, false);
+              context.fill();
+              context.closePath();
+
+              const text = 'gaylord';
+              context.fillStyle = this.textStyle;
+              context.font = `${this.radius / 2.5}px Arial`;
+              context.lineWidth = this.radius;
+
+              context.beginPath();
+              context.textAlign = 'center';
+              context.fillText('a proud member of the LGBT society', this.x, this.y);
+              context.closePath();
+            }
+          }
+
+          const rect = canvas.getBoundingClientRect();
+          canvas.width = rect.width;
+          canvas.height = rect.height;
+
+          const amount = Math.round(Math.random() * 500) + 100;
+          for (let i = 0; i < amount; i++) {
+            balls.push(new Ball(canvas));
+          }
+        })();
+
+        window.addEventListener('resize', () => {
+          const rect = canvas.getBoundingClientRect();
+          canvas.width = rect.width;
+          canvas.height = rect.height;
+        });
+        const frame = () => {
+          const context = canvas.getContext('2d');
+          context.clearRect(0, 0, canvas.width, canvas.height);
+
+          context.beginPath();
+          context.fillStyle = 'white';
+          context.font = `${canvas.width / 5}px Arial`;
+          context.textAlign = 'center';
+          context.fillText('a proud member of the LGBT society', canvas.width / 2, canvas.height / 2);
+          context.closePath();
+
+          context.beginPath();
+          context.fillStyle = 'white';
+          context.font = `${canvas.width / 50}px Arial`;
+          context.textAlign = 'center';
+          context.fillText('not a proud member of the LGBT society: https://github.com/cakedan', canvas.width / 2, canvas.height - (canvas.height / 3));
+          context.closePath();
+
+          balls.forEach((ball) => ball.draw(context, canvas));
+          window.requestAnimationFrame(frame);
+        };
+        window.requestAnimationFrame(frame);
+      })();
+    </script>
+  </body>
+</html>

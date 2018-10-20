@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hi-manshu-kumar</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet"> 
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        html{
+            height: 100%;
+        }
+
+        body{
+            height: 100%;
+            padding: 0;
+            margin: 0;
+            position: relative;
+            font-family:'Montserrat', sans-serif;
+        }
+
+        .parent {
+            position: relative;
+        }
+        .child {
+            position: absolute;
+            top: 50%;
+            left: 52%;
+            transform: translate(-50%, -50%);
+        }
+
+        .center{
+
+            position: absolute;
+            top: 42%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .link{
+            display: block;
+            background-color: black;
+            height: 40px;
+            width: 175px;
+            margin-left: 21%;
+            margin-top: 10%;
+        }
+        a:link, a:visited {
+            text-transform: none;
+            text-decoration: none;
+            border: solid 3px #6c94f6 ;
+            color: #6c94f6;
+            margin: 10%;
+            padding: 3% 14%;
+            margin-left: -11px;
+            margin-top: 18%;
+            border-radius: 100px;
+            font-size: 1.3em;
+            width: 282px;
+            -webkit-transition: 1s;
+        }
+        
+        h1{
+            font-size: 2em;
+            font-family: 'Pacifico', cursive;
+            color: #6c94f6;
+        }
+
+        .name{
+            position: relative;
+            top: -0.5em;
+            left: 0;
+            font-size: 4em;
+        }
+        
+        .info{
+            font-size: 30px;
+            margin-bottom: 12%;
+        }
+
+        #text{
+            font-size: 30px;
+            text-align: center;
+        }
+        #typeContainer{
+            font-size: 30px;
+            display: block;
+            width: center;
+            margin: 0 auto;
+            text-align: center;
+            margin-top: -34px;
+        }
+        
+        a:hover, a:active {
+            -webkit-transition: 1s;
+            color: #fff;
+            background-color: #6c94f6;
+        }
+        
+        .icon{
+            margin-left: 23px;
+        }
+
+        /* Large desktops and laptops */
+        @media (min-width: 1200px) {
+            .name{
+                font-size: 3em;
+            }
+        }
+
+        /* Landscape tablets and medium desktops */
+        @media (min-width: 992px) and (max-width: 1199px) {
+            .name{
+                font-size: 3em;
+            }
+        }
+
+        /* Portrait tablets and small desktops */
+        @media (min-width: 768px) and (max-width: 991px) {
+            .name{
+                font-size: 2em;
+            }
+            #text{
+                font-size: 23px;
+            }
+            #typeContainer{
+                font-size: 23px;
+                margin-top: 2%;
+                margin-bottom: 2%;
+
+            }
+            
+            a:link, a:visited{
+                padding: 3% 19%;
+                margin-top: 34%;
+            }
+        }
+
+        /* Landscape phones and portrait tablets */
+        @media (max-width: 767px) {
+            .name{
+                font-size: 2em;
+            }
+            #text{
+                font-size: 23px;
+            }
+            #typeContainer{
+                font-size: 23px;
+                margin-top: 2%;
+                margin-bottom: 2%;
+
+            }
+
+            a:link, a:visited{
+                padding: 3% 19%;
+                margin-top: 34%;
+            }
+        }
+
+        @media (max-width: 631px){
+            .name{
+                font-size: 1.8em;
+            }
+            
+            #text{
+                font-size: 1em;
+            }
+            #typeContainer{
+                font-size: 1em;
+                margin-top: 2%;
+                margin-bottom: 2%;
+
+            }
+
+            a:link, a:visited{
+                padding: 3% 26%;
+                margin-top: 34%;
+                font-size: 1em;
+            }
+
+        }
+
+        @media (max-width: 568px){
+            .name{
+                font-size: 2em;
+            }
+
+            a:link, a:visited{
+                padding: 3% 26%;
+                margin-top: 34%;
+                font-size: 1em;
+            }
+        }
+
+        @media (max-width: 505px){
+            .name{
+                font-size: 2em;
+            }
+        }
+
+        @media (max-width: 489px){
+            .name{
+                font-size: 2em;
+            }
+
+            a:link, a:visited{
+                padding: 3% 26%;
+                margin-top: 34%;
+            }
+        }
+
+        /* Portrait phones and smaller */
+        @media (max-width: 480px) {
+            .name{
+                font-size: 2em;
+            }
+
+
+        }
+
+        @media (max-width: 410px ){
+            .name{
+                font-size: 1.5em;
+            }
+
+            a:link, a:visited{
+                padding: 3% 26%;
+                margin-top: 34%;
+                width: 188px;
+                font-size: 1em;
+            }
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="center">
+            <h1 class="name">Himanshu&nbsp;Kumar&nbsp;Das</h1>
+
+            <div id="typeContainer">
+            <span id="text"></span>
+            <span id="blinker">|</span>
+            </div>
+
+            <a class="child" href="https://github.com/hi-manshu-kumar">
+                <i class="fab fa-github-alt icon"></i>
+                <span class="text">Github</span>
+            </a>
+
+
+        </div>
+
+    </div>
+    <script>
+        function Typing(string,type_speed=100,blink_speed=300,backspace_speed=100,mainspanid="text",blinkerid="blinker"){return function(){let sin=string;let sout="";let mainspan=document.getElementById(mainspanid);let time_order=0;let blinkercontrol;var timeout=[];function startblinker(){blinkercontrol=setInterval(function(){let blinker=document.getElementById(blinkerid);if(blinker.style.visibility==""){blinker.style.visibility="hidden"}else{blinker.style.visibility=""}},blink_speed)}
+        function stopblinker(){clearInterval(blinkercontrol);let blinker=document.getElementById(blinkerid);blinker.style.visibility=""}
+        for(let i=0;i<sin.length+1;i++){if(sin[i]=="~"){let pause_det=calctime(i);pause(i,pause_det[1]);i=pause_det[0]}else if(sin[i]=="@"){next_line(i)}else if(sin[i]=="*"){let sen_back=wordsreplace(i);back_space(i,sen_back[1],backspace_speed);i=sen_back[0]}else if(sin[i]==undefined){timeout.push(setTimeout(function(){startblinker()},time_order))}else{put(i)}}
+        function calctime(a){a++;let int="";while(sin[a]!="~"){int=int+sin[a];a++}
+        let time=Number(int);if(time){return[a,time]}else{catcherror("Looks like you have entered wrong time in your delay statement")}}
+        function wordsreplace(a){a++;let line=""
+        while(sin[a]!="*"){line=line+sin[a];if(sin[a]=="~"||sin[a]=="*"){catcherror("Do not use ~ or * in  backspace statement")}
+        a++}
+        return[a,line]}
+        function back_space(a,text,speed){a=text.length+1;let index=text.length-1;while(index>=0){time_order=time_order+speed;(function(word){timeout.push(setTimeout(function(){if(word==sout[sout.length-1]){sout=sout.substring(0,sout.length-1);mainspan.innerHTML=sout}else if(sout[sout.length-1]==">"){sout=sout.substring(0,sout.length-5);mainspan.innerHTML=sout}else{catcherror("ahh look likes your backspace statement !== actual statement")}},time_order))})(text[index]);index--}}
+        function next_line(a){timeout.push(setTimeout(function(){sout=sout+"<br>";mainspan.innerHTML=sout},time_order))}
+        function pause(a,time){timeout.push(setTimeout(function(){startblinker()},time_order))
+        timeout.push(setTimeout(function(){stopblinker()},time_order+time));time_order=time_order+time}
+        function put(a){time_order=time_order+(type_speed)
+        timeout.push(setTimeout(function(){sout=sout+sin[a];mainspan.innerHTML=sout},time_order))}
+        function catcherror(errormsg){for(let c=0;c<timeout.length;c++){clearTimeout(timeout[c])}
+        throw new Error(errormsg)}}}
+
+        var typing=Typing("I am programmer~500~*programmer*web designer~500~*web designer*software engineer~500~*software engineer*software developer~500~*software developer*web developer.");
+        typing();
+        
+
+
+      </script>
+</body>
+</html>

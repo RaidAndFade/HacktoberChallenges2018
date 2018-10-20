@@ -1,0 +1,203 @@
+<html>
+  <head>
+    <title>RaidAndFade's Friends</title>
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <style>
+        body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
+        #mainContent { background: white; max-width: 660px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px;}
+        #mainContent h2 { color: #ffa100; font-weight: bold; font-size: 28px; margin: 0 0 16px; text-align: center;}
+        #mainContent h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
+        #mainContent p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
+        #mainContent a { display: inline-block; text-align: center; text-decoration: none; padding: 8px; border-radius: 4px; font-size: 20px; color:black;}
+        #mainContent a:hover { text-decoration: underline; }
+        #mainContent a:visited { color: #555555; }
+        #mainContent { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
+        #logo { width:50%;  }
+	@media (max-width: 600px) {
+          body, #mainContent { margin-top: 0; background: white; box-shadow: none; }
+          body { border-top: 16px solid #ffa100; }
+          #logo{
+            width: 50%;
+            
+          }
+        }
+        .someGap{
+          margin: 0 0 75px;
+        }
+        .githubButtons{
+          text-align: center;
+        }
+        .contentFooter{
+          text-align: center;
+        }
+        .contentFooterSmily{
+          color: black;
+          fill: orange;
+          font-size: 30px;
+          text-shadow: #ffa100;
+        }
+    </style>
+  </head>
+<body>
+  <!-- Main Content of Body -->
+  <div id="mainContent">
+    <span style="font-size:3em;width:100%;text-align:center;display:inline-block"> Welcome to my Friends List <br> <span style="font-size:0.5em;">Week 1 Challenge</span> </span>
+    <div class="someGap"></div>
+    <!-- Github Buttons -->
+    <div class="githubButtons">
+      <!-- Follow RaidAndFade -->
+      <a class="github-button" href="https://github.com/RaidAndFade" data-size="large" data-show-count="true" aria-label="Follow @RaidAndFade on GitHub">Follow @RaidAndFade</a>
+      <!-- Fork Repo. -->
+      &nbsp;
+      <span id="friends"><a class="github-button" href="https://github.com/RaidAndFade/HacktoberChallenges/blob/master/README.md" data-icon="octicon-repo-forked" data-size="large" data-show-count="true" aria-label="Add yourself to the list of friends!">Join the list!</a></span>
+    </div>
+    <hr>
+    <button id="flistbtn" onclick="changelist('Friends','flist')">Friends List</button><button id="glistbtn" onclick="changelist('Games','glist')">Games List</button><button id="blistbtn" onclick="changelist('BSoD','blist')">BSoD List</button><br><br>
+    <select id="c" onchange="page(0)">
+      <option value="10">Show 10 per page</option>
+      <option value="25" selected>Show 25 per page</option>
+      <option value="50">Show 50 per page</option>
+      <option value="100">Show 100 per page</option>
+    </select>
+    <button id="pgbtnprv" class="pgbtn" onclick="page(-1)">Prev Page</button><button id="pgbtnnxt" class="pgbtn" onclick="page(+1)">Next Page</button>
+    <h3 id="lbl"></h3>
+    <!-- User Files | Contribution File's Links -->
+    <ul id="d">
+        <li>Loading...</li>
+    </ul>
+    <button id="clearcachebtn" style="display: none" onclick="clearcacheandreload()">Clear ... Cache</button>
+    <!-- Content Footer -->
+    <hr>
+    <div class="contentFooter">
+	      <a href="https://hacktoberfest.digitalocean.com"><img id="logo" src="https://i.imgur.com/d08lZt8.png"></a><br>
+        <p>Thanks for being a part of Hacktoberfest 2018</p>
+        <p>You're Awesome!  <i class="contentFooterSmily">&#9786;</i></p>
+    </div>
+    <!-- Content Footer End -->
+  </div>
+</body>
+</html>
+
+<script>
+const mincacheage = 60; //dont allow manual clearing less than this many seconds
+const cacheexpirysecs = 900; //expire cache every 15 mins
+
+// setList(list, name, startindex, count) 
+// name is used to fill the lbl
+// sets the inside of element.d to that list from startindex to startindex+count
+function setList(l,name,s,c){
+  if(s==null || s<0)
+    s = 0
+  if(c==null || c<0 || s+c>l.length)
+    c = l.length-s
+  document.getElementById("lbl").innerHTML="Here are my "+l.length+" "+name+" (from "+(s+1)+" to "+(s+c)+"): "
+  var h = document.getElementById("d");
+  h.innerHTML = "";
+  l = l.slice(s,s+c)
+  i = s+1
+  for(var x of l){
+    h.innerHTML += "<li><a href=\""+x.path+"\">"+i+". "+x.name+"</a></li>";
+    i++
+  }
+}
+
+function clearcacheandreload(){
+  localStorage.removeItem(curlist)
+  changelist(curURL,curlist)
+}
+
+function handleClearCacheButton(canclear){
+  b = document.getElementById("clearcachebtn")
+  b.disabled = !canclear
+  cacheage = epochSecs()-localStorage.getItem(curlist+"time")
+  b.style.display = "block"
+  b.innerHTML = canclear?"Your cache is "+cacheage+" seconds old, clear?":"Your cache is only "+cacheage+"s old. clearing is not necessary."
+}
+
+function epochSecs(){
+  return ~~(new Date().getTime()/1000)
+}
+
+function getperpage(){
+  return document.getElementById("c").value-(-0);
+}
+
+function setperpage(i){
+  document.getElementById("c").value = -(-i)
+}
+
+// the url of the folder, and the local storage element name
+function changelist(URL,LSName){
+  curlist = LSName;
+  curURL = URL;
+  isCacheExpired = localStorage.getItem(curlist+"time") == null || (epochSecs()-localStorage.getItem(curlist+"time"))>cacheexpirysecs
+  if(localStorage.getItem(curlist) == null || isCacheExpired){
+    document.getElementById("d").innerHTML = "<li>Loading "+URL+"...</li>"
+    const gitapiurl = "https://api.github.com/repos/raidandfade/hacktoberchallenges/contents/"+curURL;
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        localStorage.setItem(curlist,this.responseText)
+        localStorage.setItem(curlist+"time",epochSecs())
+        handleClearCacheButton(epochSecs()-localStorage.getItem(curlist+"time")>mincacheage)
+        setList(JSON.parse(this.responseText),curpage*getperpage(),getperpage())
+        page(0)
+      }
+    };
+    xhttp.open("GET", gitapiurl, true);
+    xhttp.send();
+  }else{
+    handleClearCacheButton(epochSecs()-localStorage.getItem(curlist+"time")>mincacheage)
+    setList(JSON.parse(localStorage.getItem(curlist)),curURL,curpage*getperpage(),getperpage())
+    page(0)
+  }
+}
+
+var curlist = "";
+var curURL = "";
+var curpage = 0;
+function page(i){
+  l = JSON.parse(localStorage.getItem(curlist))
+  numpages = Math.ceil(l.length/getperpage())
+  curpage += i
+  if(curpage < 0)
+    curpage = 0
+  if(curpage > numpages)
+    curpage = numpages-1
+  document.getElementById("pgbtnprv").disabled = curpage == 0
+  document.getElementById("pgbtnnxt").disabled = curpage == (numpages-1)
+  curcount = curpage*getperpage()
+  window.location.hash = "#"+curlist+"_"+getperpage()+"_"+curpage
+  setList(l,curURL,curpage*getperpage(),getperpage())
+}
+
+var h = window.location.hash
+tagname = h.split("_",1)[0]
+if(tagname=="#glist"){
+  curlist = "glist"
+  curURL = "Games"
+}else if(tagname=="#blist"){
+  curlist = "blist"
+  curURL = "BSoD"
+}else{
+  curlist = "flist"
+  curURL = "Friends"
+}
+validhash = false
+if(h!=""){
+  hl = h.split("_",3)
+  if(hl.length==3){
+    pc = hl[1]
+    pn = hl[2]
+    if(!isNaN(pn) && !isNaN(pc)){
+      setperpage(-(-pc))
+      page(-(-pn))
+      validhash = true
+    }
+  }
+}
+if(!validhash){
+  page(0)
+}
+</script>
