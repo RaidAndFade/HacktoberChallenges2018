@@ -57,6 +57,7 @@
 - [capturethemoon](https://github.com/capturethemoon)
 - [Ashley](https://github.com/agerwitz)
 - [andrescalco](https://github.com/andrescalco)
+- [tom-raley](https://github.com/tom-raley)
 - [Melissa](https://github.com/mbain108)
 - [BucSy](https://github.com/BucSy)
 - [Andyacosta](https://github.com/andyacosta)
