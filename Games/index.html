@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+		canvas {
+			border:2px solid black; 
+			background-color: #b5b4a4;
+		}
+	</style>
+	<title>Dodger</title>
+</head>
+<body onload="startgame()">
+<script>
+	var dabba;
+	var obstacle = [];
+	var score;
+	function startgame(){
+		
+		dabba = new component(40,40,"red",10,120);
+		score = new component("30px","Consolas","black",280,40,"text");
+		gamearea.start();
+	}
+	var gamearea = {
+		canvas : document.createElement("canvas"),
+		start  : function() {
+			this.canvas.width = 500;
+			this.canvas.height = 300;
+			this.context = this.canvas.getContext("2d");
+			document.body.insertBefore(this.canvas,document.body.childNodes[0]);
+			this.frameNo = 0;
+			this.interval = setInterval(updategamearea, 5);
+		},
+		clear : function() {
+			this.context.clearRect(0,0, this.canvas.width, this.canvas.height);
+		},
+		over : function(){
+			clearInterval(this.interval);
+		}
+	}
+	
+	function component (width , height,color, x, y,type){
+		this.type = type;
+		this.width = width;
+		this.height = height;
+		this.speedx = 0;
+		this.speedy = 0;
+		this.x=x;
+		this.y=y;
+		
+		this.update = function(){
+		ctx = gamearea.context;
+		if (this.type == "text") {
+    	ctx.font = this.width + " " + this.height;
+      	ctx.fillStyle = color;
+     	ctx.fillText(this.text, this.x, this.y);
+  		} 
+  		
+  		else{
+		ctx.fillStyle = color;
+		ctx.fillRect(this.x,this.y, this.width,this.height);}
+
+		}
+		this.newpos = function(){
+			this.x += this.speedx;
+			this.y += this.speedy;
+		}
+		this.crash = function(obs){
+			var myleft = this.x;
+			var myright = this.x + (this.width);
+			var mytop = this.y;
+			var mybottom = this.y + (this.height);
+			var obsleft = obs.x;
+			var obsright = obs.x + (obs.width);
+			var obstop = obs.y;
+			var obsbottom = obs.y + (obs.height); 
+			var crash = true;
+			if ((mybottom<obstop)||(mytop>obsbottom)||(myright<obsleft)||(myleft>obsright)){
+				crash = false;
+			}
+			return crash;
+		}
+	}
+	function updategamearea() {
+		var x,y;
+		for (i = 0; i<obstacle.length ; i += 1){
+		if (dabba.crash(obstacle[i])){
+			gamearea.over();
+			return;
+			}
+		}
+		gamearea.clear();
+		gamearea.frameNo += 1;
+		if(gamearea.frameNo == 1 || everyinterval(120)){
+			x = gamearea.canvas.width;
+			y = Math.floor((Math.random() * 300) + 1);
+			obstacle.push(new component(50 ,30, "#61e00d",x,y));
+		}
+		for (i=0;i<obstacle.length; i += 1){
+			obstacle[i].x += -1;
+			obstacle[i].update();
+		}
+		score.text="SCORE: " + gamearea.frameNo;
+		score.update();
+		dabba.newpos(); 
+		dabba.update();
+		
+		}
+		function everyinterval(n) {
+		if ((gamearea.frameNo/n)%1 == 0){return true;}
+		return false;
+	}
+	function moveup() {
+		dabba.speedy -= 1;
+	}
+	function movedown() {
+		dabba.speedy += 1;
+	}
+	function moveleft(){
+		dabba.speedx -=1;
+	}
+	function moveright(){
+		dabba.speedx +=1;
+	}
+	function stop() {
+		dabba.speedx = 0;
+		dabba.speedy = 0;
+
+	}
+
+</script>
+<div style="text-align: center;width: 500px; padding: 20px;">
+<button onmousedown="moveup()" onmouseup="stop()" ontouchstart="moveup()">Up</button><br/>
+<button onmousedown="moveleft()" onmouseup="stop()" ontouchstart="moveleft()">Left</button>
+<button onmousedown="moveright()" onmouseup="stop()" ontouchstart="moveright()">Right</button><br/>
+<button onmousedown="movedown()" onmouseup="stop()" ontouchstart="movedown()">Down</button>
+</div>	
+
+</body>
+</html>
