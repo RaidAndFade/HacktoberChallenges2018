@@ -1,0 +1,23 @@
+<html class="element">
+  <head>
+    <meta charset="utf-8">
+    <title>Blue Screen of Death</title>
+    <style>
+        body {
+            background-color: black;
+        }
+        x {
+            color: red;
+            font-family: "Consolas";
+        }
+    </style>
+</head>
+
+<body>
+
+<x style="margin-left: 25%;font-size: 40px;margin-right:25%;line-height: 35px; align="center"><br><br><br><br><br></x>
+<h1 style="font-size: 40; font-family:Consolas; color: red" align="center">Try harder next time</h1>
+
+    
+</body>
+</html>
