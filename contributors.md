@@ -1,18 +1,23 @@
 ## This is a list of Contributors / Maintainers.
 
 ### Feel free to add yourself to the list
- **If you have participated in a weekly challenge, add yourself to [Challenge Participants](#challenge) following the existing format**
 
- **If you have not participated in a challenge, add yourself under [Contributors](#contributors). I really suggest you participate though, they're pretty fun.**
+**If you have participated in a weekly challenge, add yourself to [Challenge Participants](#challenge) following the existing format**
+
+**If you have not participated in a challenge, add yourself under [Contributors](#contributors). I really suggest you participate though, they're pretty fun.**
 
 # Maintainers
-*(Do not modify this list unless you are a maintainer)*
+
+_(Do not modify this list unless you are a maintainer)_
+
 - [RaidAndFade](https://github.com/raidandfade)
 - [NCPlayz](https://github.com/NCPlayz)
 - [Izumemori](https://github.com/Izumemori)
 
 # Challenge Participants
-*(People who have participated in the challenges!)*
+
+_(People who have participated in the challenges!)_
+
 - [edpen](https://github.com/edpen)
 - [fuj1n](https://github.com/fuj1n)
 - [leahmpersand](https://github.com/leahmpersand)
@@ -47,9 +52,11 @@
 - [Archaeologist03](https://github.com/Archaeologist03)
 - [LishiTrinity](https://github.com/LishiTrinity)
 
-
 # Contributors
-*(People who have not participated in challenges but want to be a part of the project!)*
+
+_(People who have not participated in challenges but want to be a part of the project!)_
+
+- [lisa-broedlin](https://github.com/lisa-broedlin)
 - [KojiAdrianoJr.](https://github.com/kojiadrianojr)
 - [mahis929](https://github.com/mahis929)
 - [Tushar](https://github.com/tusharkavya)
