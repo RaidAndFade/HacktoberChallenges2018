@@ -46,7 +46,7 @@
 - [Timmy](https://github.com/Timmy)
 - [Archaeologist03](https://github.com/Archaeologist03)
 - [LishiTrinity](https://github.com/LishiTrinity)
-
+- [Bartlomiej-Przymus](https://github.com/bartlomiej-przymus)
 
 # Contributors
 *(People who have not participated in challenges but want to be a part of the project!)*
