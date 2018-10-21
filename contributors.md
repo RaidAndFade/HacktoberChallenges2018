@@ -61,6 +61,7 @@ _(People who have not participated in challenges but want to be a part of the pr
 - [KojiAdrianoJr.](https://github.com/kojiadrianojr)
 - [mahis929](https://github.com/mahis929)
 - [Tushar](https://github.com/tusharkavya)
+- [Mikaela](https://github.com/mikaelaatfrantic)
 - [mohitsharma29](https://github.com/mohitsharma29)
 - [capturethemoon](https://github.com/capturethemoon)
 - [Ashley](https://github.com/agerwitz)
