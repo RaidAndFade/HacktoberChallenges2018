@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Snake</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.js"></script>
+</head>
+
+<body>
+
+
+    <script>
+
+        var snake;
+        var food;
+
+        function setup() {
+            createCanvas(500, 500);
+            snake = new Snake();
+            frameRate(10);
+            initialLocation();
+            alert("Welcome to Snake\n Press arrow-keys to move!")
+
+        }
+
+        function initialLocation() {
+            var column = floor(width / 20);
+            var rows = floor(height / 20);
+            food = createVector(floor(random(column)), floor(random(rows)));
+            food.mult(20);
+        }
+
+        function draw() {
+            background(50);
+
+            if (snake.eat(food)) {
+                initialLocation();
+            }
+            snake.death();
+            snake.upateSnake();
+            snake.drawSnake();
+
+            fill(255, 0, 100);
+            rect(food.x, food.y, 20, 20);
+        }
+
+        function keyPressed() {
+            if (keyCode == UP_ARROW) {
+                snake.setDirection(0, -1);
+            } else if (keyCode == DOWN_ARROW) {
+                snake.setDirection(0, 1);
+            } else if (keyCode == RIGHT_ARROW) {
+                snake.setDirection(1, 0);
+            } else if (keyCode == LEFT_ARROW) {
+                snake.setDirection(-1, 0);
+            }
+        }
+
+        function Snake() {
+            this.x = 0;
+            this.y = 0;
+            this.xmove = 0;
+            this.ymove = 0;
+            this.total = 0;
+            this.tail = [];
+
+            this.setDirection = function (x, y) {
+                this.xmove = x;
+                this.ymove = y;
+            }
+
+            this.death = function () {
+                for (var i = 0; i < this.tail.length; i++) {
+                    var p = this.tail[i];
+                    var d = dist(this.x, this.y, p.x, p.y);
+                    if (d < 1) {
+                        alert("Game over\n " + (this.tail.length * 10) + " Points!\n Restart Game")
+                        this.total = 0;
+                        this.tail = [];
+                        this.x = 0;
+                        this.y = 0;
+                        this.xmove = 0;
+                        this.ymove = 0;
+                    }
+                }
+            }
+
+            this.eat = function (food) {
+                var dis = dist(this.x, this.y, food.x, food.y);
+                if (dis < 1) {
+                    this.total++;
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+
+            this.drawSnake = function () {
+                fill(255);
+                for (var i = 0; i < this.tail.length; i++) {
+                    rect(this.tail[i].x, this.tail[i].y, 20, 20);
+                }
+                rect(this.x, this.y, 20, 20);
+            }
+
+            this.upateSnake = function () {
+                for (var i = 0; i < this.tail.length - 1; i++) {
+                    this.tail[i] = this.tail[i + 1];
+                }
+                if (this.total >= 1) {
+                    this.tail[this.total - 1] = createVector(this.x, this.y);
+                }
+                this.x = this.x + this.xmove * 20;
+                this.y = this.y + this.ymove * 20;
+
+                this.x = constrain(this.x, 0, width - 20);
+                this.y = constrain(this.y, 0, height - 20);
+            }
+
+        }
+
+    </script>
+</body>
+
+</html>
