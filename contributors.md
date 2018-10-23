@@ -69,6 +69,7 @@ _(People who have not participated in challenges but want to be a part of the pr
 - [tom-raley](https://github.com/tom-raley)
 - [Melissa](https://github.com/mbain108)
 - [BucSy](https://github.com/BucSy)
+- [itsmrkundu](https://github.com/itsmrkundu)
 - [Andyacosta](https://github.com/andyacosta)
 - [stephanieadwill](https://github.com/stephanieadwill)
 - [sohail764245](https://github.com/sohail764245)
