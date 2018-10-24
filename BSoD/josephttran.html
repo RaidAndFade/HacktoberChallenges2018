@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">  
+  <title>BSoD Challenge</title>
+<style>
+  html {
+    /* mouse */
+    cursor: none;
+    pointer-events: none;
+  }
+
+  body {
+    margin: 0;
+    padding-left: 20px;
+    background-color: #02f;
+    color: #fff;
+    font-family: Arial;
+    font-size: 1rem; 
+  }
+
+  .message {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  #tech-info {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  progress {
+    width: 25%;
+    border: 1px solid white;    
+  }
+
+</style>
+</head>
+  
+<body> 
+  <h1>Your PC has run into a problem</h1>
+
+  <div class="message">
+    If this is your first time you've seen this error code, restart your computer.
+  </div>
+
+  <div class="message">
+    Check to make sure your hardware is installed properly.
+  </div>
+
+  <div id="tech-info">
+    Error Code: 0x000000FE (USB driver)
+  </div>
+
+  <div id="dump">
+    Dump: collecting information
+  </div>
+  <br>
+
+  <div id="val">
+    5%
+    <progress id="progress-bar" name="progress-bar" value="5" max="100"></progress>
+  </div>
+
+<script>
+  /* disable right click */
+  document.addEventListener('contextmenu', e => event.preventDefault());
+
+  /* progress bar */
+  var myVar = setInterval(updateBar, 500);
+
+  function updateBar() {
+    let val = document.getElementById("val")
+    let progressVal = document.getElementById("progress-bar").value;
+
+    if (progressVal >= 99) {
+      clearInterval(myVar);
+    }
+
+    if (progressVal === 80) {
+      clearInterval(myVar);
+      myVar =  setInterval(updateBar, 2000);
+
+    }
+    progressVal++;
+
+    val.innerHTML = `${progressVal}% 
+      <progress id="progress-bar" 
+        name="progress-bar" 
+        value="${progressVal}" 
+        max="100">
+      </progress>`;   
+  }
+</script>  
+</body>
+</html>
