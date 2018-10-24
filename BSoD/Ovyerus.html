@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>A problem has occured</title>
+
+    <style>
+        :root {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 18px;
+        }
+
+        body {
+            background: #000080;
+            color: #FFF;
+            margin: 0;
+            margin-top: 1rem;
+        }
+
+        div {
+            max-width: 80ch;
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        A problem has been detected and ReactOS has been shut down to prevent damage to your computer.<br><br>
+    
+        If this is the first time you've seen this Stop error screen, restart your computer.
+        If this screen appears again, follow these steps:<br><br>
+
+        Check to be sure you have adequate disk space.
+        If a driver is identified in the Stop message, disable the driver or check with the manufacturer for driver updates.
+        Try changing video adapters.<br><br>
+
+        Check with your hardware vendor for any BIOS updates.
+        Disable BIOS memory options such as caching or shadowing.
+        If you need to use Safe Mode to remove or disable components, restart your computeer, press F8 to select Advanced Startup Options,
+        and then select Safe Mode.<br><br>
+
+        Technical information:<br><br>
+        *** STOP: 0x0000001E (0xHAC708ER, 0xF3570000, 0x20180000, 0x00000000)
+        <br><br><br>
+
+        *** HCKTBR.EXE - Address 0xHAC708ER base at 80000000, DateStamp 1539949297958<br>
+        *** HCKTBR.EXE - Address 0xF3570000 base at 80000000, DateStamp 1539949297958
+        *** HCKTBR.EXE - Address 0x20180000 base at 80000000, DateStamp 1539949297958
+    </div>
+    <script>
+        const codes = ['0xHAC708ER', '0xF3570000', '0x20180000'];
+        const main = document.getElementById('main');
+        let i = 0;
+
+        setInterval(() => {
+            const text = document.createTextNode(`*** HCKTBR.EXE - Address ${codes[i++]} base at 80000000, DateStamp ${Date.now()}`);
+            const br = document.createElement('br');
+
+            if (i > 2) i = 0;
+
+            main.appendChild(text);
+            main.appendChild(br);
+        }, 1000);
+    </script>
+</body>
+</html>

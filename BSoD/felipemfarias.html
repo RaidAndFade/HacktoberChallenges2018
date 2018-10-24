@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>Total failure</title>
+  <link href="https://fonts.googleapis.com/css?family=Teko" rel="stylesheet">
+  </head>
+  <style>
+    body {
+      font-family: 'Teko', sans-serif;
+      background: #222;
+
+    }
+    .alert {
+      width: 1000px;
+      color: #000;
+      text-align: right;
+      font-size: 128px;
+      position: absolute;
+      right: 10%;
+      bottom: 50%;
+      background: #FF8C00;
+      padding: 16px;
+      border-radius: 8px;
+      -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+      -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+      box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    }
+    .alert > .message {
+      font-size: 48px;
+    }
+    .alert > .message > .countdown {
+      width: 20px;
+    }
+  </style>
+  <body>
+    <div class="alert">
+      SYSTEM FAILURE!
+      <div class="message">
+        The system encountered a fatal error and will shutdown in <span class="countdown" id="countdown">60</span> seconds
+      </div>
+    </div>
+  </body>
+  <script>
+  setInterval(function() {
+    document.getElementById('countdown').innerText -= 1;
+    if (document.getElementById('countdown').innerText < 0) {
+      document.getElementById('countdown').innerText = 60;
+    }
+  }, 1000)
+  
+  </script>
+</html>
