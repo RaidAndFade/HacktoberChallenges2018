@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>BSoD</title>
+
+    <style>
+        html {
+            font-size: 62.5%;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: inherit
+        }
+
+        body {
+            background-color: #176ea0e5;
+            text-align: center;
+            color: aliceblue;
+            background-color: #176ea0e5;
+
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .wrapper {
+            width: 100%;
+            height: 100%;
+
+        }
+
+        .container {
+            margin: 0 auto;
+            margin-top: 10%;
+            width: 70%;
+        }
+
+
+        h3 {
+            margin-bottom: 5rem;
+            font-size: 17rem;
+            text-align: left;
+            margin-left: 5rem;
+            font-weight: 400;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 500;
+            margin-bottom: 5rem;
+            display: block;
+
+        }
+
+        p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        ul {
+            list-style: none;
+            font-size: 2rem;
+        }
+
+        .dont-click {
+            font-size: 5px;
+        }
+
+        .screen-change {
+            background-color: darkblue;
+            transition: all .5s;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="wrapper">
+        <p class="dont-click">ps. dont click screen.</p>
+
+        <div class="container">
+
+            <h3>:(</h3>
+            <h1>BLUE SCREEN of DEATH is upon you. You do not have many options now.</h1>
+            <p>Fallow steps to procede:</p>
+            <ul>
+                <li>-Turn off your PC.</li>
+                <li>-Take your motherboard out.</li>
+                <li>-Send it to: 00 BSoD NoWhere.</li>
+            </ul>
+        </div>
+    </div>
+
+
+
+
+    <script>
+        const wrapper = document.querySelector(".wrapper");
+
+        wrapper.addEventListener("click", function () {
+            let int = setInterval(() => {
+                if (!wrapper.classList.contains("screen-change")) {
+                    wrapper.classList.add("screen-change");
+                } else {
+                    wrapper.classList.remove("screen-change");
+                }
+            }, 55);
+        })
+    </script>
+
+</body>
+
+</html>

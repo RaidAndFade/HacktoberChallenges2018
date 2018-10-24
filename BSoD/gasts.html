@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>BSOD</title>
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Source Code Pro', monospace;
+            color: #adaaad;
+            font-weight: normal;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #000000;
+        }
+        p{
+            margin-left: 10px;
+        }
+        .curser{
+            animation: blinking 2s linear infinite;
+        }
+        @keyframes blinking {  
+            50% { opacity: 0; }
+        }
+    </style>
+</head>
+
+<body>
+    <p>Pid: 0, comm: swapper Not tainted 2.6.18-164.9.1.el5 #1</p>
+    <p>RIP: 0010:[&lt;fffffff80006fb6c&gt;] [&lt;fffffff80006fb6c&gt;] identify_cpu+0x294/0x6ee</p>
+    <p>RSP: 0018:fffffff8003f3f58 EFLAG: 00010246</p>
+    <p>RAX: 0000000000000000 RBX: 0000000000000000 RCX: 0000000000000c00</p>
+    <p>RDX: 0000000000000000 RSI: 0000000000000000 RDI: 0000000000000000</p>
+    <p>RBP: fffffff800e8900f R08: 0000000000ffffff R09: 0000000000000020</p>
+    <p>R10: 0000000000000000 R11: 0000000000000000 R12: 0000000000000000</p>
+    <p>R13: 0000000000000000 R14: 0000000000000000 R15: 0000000000000000</p>
+    <p>FS: 0000000000000000(0000) GS: fffffffff803c100(0000) knIGS: 0000000000000000</p>
+    <p>CS: 0010 DS: 0018 ES: 0018 CR0: 0000000080500eba</p>
+    <p>CR2: 0000000000000000 CR3: 0000000002001000 CR4: 00000000000006a0</p>
+    <p>Process swapper (pid: 0, threadinfo fffffff803f20001, task fffffff803000ae0)</p>
+    <p>Stack: 0000000000000000 0000000000000000 0000000000000000 0000000000000246</p>
+    <p>0000000000000800 0000000000090000 0000000000000000 0000000000000000</p>
+    <p>0000000000000000 fffffff803fd7ee 0000000000090000 0000000000000000</p>
+    <p>Call Trace:</p>
+    <p>[&lt;ffffffff56e0fb2e&gt;] start_kernel+0x211/0x255</p>
+    <p>[&lt;ffffffff9aa074f0&gt;] _sinittext+0x22f/0x236</p>
+    <br>
+    <br>
+    <p>Code: f7 f6 88 95 bb 00 00 00 49 63 c6 8a 90 80 56 30 80 44 89 e8</p>
+    <p>RIP [&lt;ffffffff8006fb6c&gt;] identify_cpu+0x294/0x6ee</p>
+    <p>RSP &lt;fffffff803f3ff58&gt;</p>
+    <p>&lt;0&gt; Kernal panic - not syncing: Fatal exception</p>
+    <p class="curser">_</p>
+</body>
+
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>algoreriddum</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <!-- font awesome -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">    
+		<!-- bootstrap 4.0 -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        
+        <style type="text/css">
+            /* navbar */
+            .navbar { background:#F97300; text-decoration-line: none;}
+
+            .nav-link , .navbar-brand { 
+	            color: #f4f4f4; 
+	            cursor: pointer;
+                text-decoration: none;
+            }
+
+            .navbar-brand:hover { color: #000000; text-decoration: none; }
+
+            .nav-link { margin-right: 1em !important; text-decoration: none; }
+
+            .nav-link:hover { 
+	            /* background: #f4f4f4;  */
+	            color: #000000; 
+            }
+
+            /* justify-content: flex-end; places the navbar on the right side of the page */
+            .navbar-collapse { justify-content: flex-end; }
+
+            /* .navbar-toggler { background:#f97300 !important; }
+
+            .navbar-toggler-icon { background: #000000; } */
+
+            /* header */
+            /* .header {
+            	background-image: url('');
+            	background-repeat: no-repeat;
+            	background-attachment: fixed;
+            	background-size: cover;
+            	background-position: center;
+            } */
+
+            /* overlay */
+            .overlay {
+                position: absolute;
+                min-height: 100%;
+                min-width: 100%;
+                left: 0;
+                top: 0;
+                background: rgba(244, 244, 244, 0.79); /* puts a haze over your background image */
+            }
+            
+            .container {
+                position: absolute;
+                min-height: 100%;
+                min-width: 100%;
+            }
+
+            /* description */
+            .description {
+                position: absolute;
+                /* top: 10%; */
+                bottom: 10%;  
+                margin: 10em;
+                padding: 10em;
+            }
+
+            .description h1{
+            	color:#F97300 ;
+            }
+
+            .description p{
+            	color:#666;
+            	font-size: 20px;
+            	width: 100%;
+            	line-height: 1.5;
+            }
+
+            .btn {
+            	border:1px  solid #F97300;
+            	background:#F97300;
+            	color:#fff;
+            }
+
+            .ghost {
+                color: #000000;
+            }
+
+            .terminal {
+                color: #000000;
+            }
+
+            .plane {
+                color: #fff;
+            }
+
+            .plane:hover {
+                color: #000000;
+            }
+
+        </style>
+    </head>
+    <body>
+        <!-- navbar -->  
+		<nav class="navbar navbar-expand-lg fixed-top ">  <!-- fixed-top gives the navbar a fixed position -->
+            <!-- bg-dark = gray; bg-light = white; bg-primary = blue; -->
+            <a class="navbar-brand" href="https://github.com/algoreriddum" target="_blank"><i class="terminal fas fa-terminal"></i> algoreriddum</a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">  
+                <span class="navbar-toggler-icon"><i class="plane far fa-paper-plane fa-1x"></i></span>
+            </button>
+
+            <div class="collapse navbar-collapse " id="navbarSupportedContent">     
+                <ul class="navbar-nav mr-4">
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://twitter.com/algoreriddum" target="_blank"><i class="fab fa-twitter fa-2x"></i></a>
+                    </li>  
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://instagram.com/algoreriddum" target="_blank"><i class="fab fa-instagram fa-2x"></i></a>    
+                    </li>
+                    <li class="nav-item"> 
+                        <a class="nav-link" href="https://codepen.io/algoreriddum" target="_blank"><i class="fab fa-codepen fa-2x"></i></a>         
+                    </li>   
+                    <li class="nav-item">  
+                    <a class="nav-link" href="https://slack.com" target="_blank"><i class="fab fa-slack-hash fa-2x"></i></a>       
+                    </li>  
+                    <li class="nav-item"> 
+                    <a class="nav-link" href="https://meetup.com" target="_blank"><i class="fab fa-meetup fa-2x"></i></a>       
+                    </li>
+                </ul> 
+            </div>
+
+        </nav>
+
+        <!-- header -->
+        <header class="header">
+            <div class="overlay"></div>	<!-- for style -->
+
+            <!-- container is a bootstrap class that will help to wrap content and make layout more responsive-->
+            <div class="container">
+                <div class="description text-center">
+                    <h1>H<i class="ghost fas fa-ghost"></i>cktoberfest 2018</h1>
+                    <p>Open Source software is an awesome concept!</p>   
+                    <a class="btn" href="https://github.com/algoreriddum" target="_blank"><i class="fab fa-github fa-3x"></i></a>
+                </div>
+            </div>
+        </header>
+
+
+<!-- scripts -->
+
+    <!-- jQuery -->
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> --> -->
+    <!-- popper -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script> -->
+    <!-- bootstrap --> 
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
+    
+    </body>
+</html>
