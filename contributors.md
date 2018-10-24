@@ -53,8 +53,8 @@ _(People who have participated in the challenges!)_
 - [Archaeologist03](https://github.com/Archaeologist03)
 - [Jesussandrea12](https://github.com/Jesussandrea12)
 - [LishiTrinity](https://github.com/LishiTrinity)
+- [Bartlomiej-Przymus](https://github.com/bartlomiej-przymus)
 - [Ray](https://github.com/Ray6464)
-
 
 # Contributors
 
