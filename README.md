@@ -34,10 +34,11 @@ if __name__ == '__main__':
 1. Your submission must be in the `Hello World` directory `HelloWorld/hello_world.{language}`
 2. Your submission must NOT be a duplicate of someone else's submission. It MUST be UNIQUE (the language MUST be UNIQUE, the sample MUST be UNIQUE).
 3. Make sure to say who made it at the top of the file, using a comment.
-4. No Malicious Code (cookie sniffing, iframe hacking, css local file stealing, ios rootkits, while loops that never end, CPU Monero Miners)
-5. No NSFW (porn, nudes, pictures of your cat's testicles, severed heads)
-6. No ADS (No advertising your product, No third party ads)
-7. DO NOT MODIFY OTHER PEOPLE'S SUBMISSIONS. THESE PRS WILL BE INSTANTLY DENIED AND MARKED SPAM.
+4. The basics of hello world is that it expects some kind of input (eg. name) and outputs `Hello x!`. It MUST follow this principle.
+5. No Malicious Code (cookie sniffing, iframe hacking, css local file stealing, ios rootkits, while loops that never end, CPU Monero Miners)
+6. No NSFW (porn, nudes, pictures of your cat's testicles, severed heads)
+7. No ADS (No advertising your product, No third party ads)
+8. DO NOT MODIFY OTHER PEOPLE'S SUBMISSIONS. THESE PRS WILL BE INSTANTLY DENIED AND MARKED SPAM.
 
 ## But why is this a challenge?
 
