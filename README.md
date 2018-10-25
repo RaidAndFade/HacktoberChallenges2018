@@ -16,25 +16,26 @@ Raid, although boasts about knowing so many languages, actually only knows a few
 ## What do you mean by a sample of hello world?
 
 It must be a unique version of hello world in your chosen language. The language you choose must be one that has not been done by another fellow contributor.
+
+***TEMPLATE***
+
+Your file must ask for their name, with `Enter your name: `, and then use that input to respond with `Hello x!`, replacing `x` with their name.
+
 Here is an example of what you could do. Python is already taken.
 
 ```python
 # By RaidAndFade - https://github.com/RaidAndFade
 
-if __name__ == '__main__':
-    name = input('Enter your name: ')
-    if len(name) > 5:
-        print('Hello {}, I hope you have a BAD time! (You suck)'.format(name))
-    else:
-        print("Hey {}, you're cool! Can you be my friend?".format(name))
+name = input('Enter your name: ')
+print("Hello",name+"!")
 ```
 
 ## RULES 
 
-1. Your submission must be in the `Hello World` directory `HelloWorld/hello_world.{language}`
+1. Your submission must be in the `HelloWorld` directory `HelloWorld/hello_world.{language}`
 2. Your submission must NOT be a duplicate of someone else's submission. It MUST be UNIQUE (the language MUST be UNIQUE, the sample MUST be UNIQUE).
 3. Make sure to say who made it at the top of the file, using a comment.
-4. The basics of hello world is that it expects some kind of input (eg. name) and outputs `Hello x!`. It MUST follow this principle.
+4. The submissions are all checked automatically, if it fails because your response is wrong, then you're not following the template.
 5. No Malicious Code (cookie sniffing, iframe hacking, css local file stealing, ios rootkits, while loops that never end, CPU Monero Miners)
 6. No NSFW (porn, nudes, pictures of your cat's testicles, severed heads)
 7. No ADS (No advertising your product, No third party ads)
@@ -47,4 +48,4 @@ The point of this challenge is to prove that you know how to code in coding lang
 
 ## Final note
 
-Remember to check that your codes work by executing it in your language's compiler!
+Remember to check that your codes work by testing it beforehand! The template provided is VERY strict, you must follow the exact template in order to be merged.
