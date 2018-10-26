@@ -1,3 +1,5 @@
+// By TORRESDESIGN - https://github.com/TORRESDESIGN
+
 var greeting = "Hello ";
 
 var myName = prompt("Hello, whats your name?", "Frankenstein");
