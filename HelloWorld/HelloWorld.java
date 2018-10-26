@@ -1,4 +1,4 @@
-// by Conny Heb - https://github.com/ConnyHeb
+// by Conny Heb -- https://github.com/ConnyHeb
 
 import java.util.Scanner;
 
