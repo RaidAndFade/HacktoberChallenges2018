@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Blue Screen of Death</title>
+    <link href="https://fonts.googleapis.com/css?family=Monoton|Roboto" rel="stylesheet">
+    <style media="screen">
+      html, body {
+        height: 100%;
+      }
+      body {
+        background-image: linear-gradient(to left top, #7b3bb4, #692fac, #5623a5, #41179d, #250a96);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: "Roboto"
+      }
+      .message {
+        color: #fff;
+        width: 100%;
+        max-width: 600px;
+        text-align: center;
+        text-rendering: optimizeLegibility;
+      }
+      h1 {
+        font-size: 60px;
+        font-family: "Monoton";
+        font-weight: normal;
+      }
+      @-webkit-keyframes blink {
+        from {
+          opacity: 0.0;
+        }
+        to {
+          opacity: 1.0;
+        }
+      }
+      .blink-3 {
+        -webkit-animation-name: blink;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-timing-function: cubic-bezier(1.0, 0, 0, 1.0);
+        -webkit-animation-duration: 4s;
+        -webkit-animation-delay: 2s;
+      }
+      .blink-2 {
+        -webkit-animation-name: blink;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-timing-function: cubic-bezier(1.0, 0, 0, 1.0);
+        -webkit-animation-duration: 4s;
+        -webkit-animation-delay: 1s;
+      }
+      .blink-1 {
+        -webkit-animation-name: blink;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-timing-function: cubic-bezier(1.0, 0, 0, 1.0);
+        -webkit-animation-duration: 4s;
+      }
+    </style>
+
+  </head>
+
+  <body>
+    <div class="message">
+      <pre>
+                  <span class="blink-3">z</span>
+         ___    <span class="blink-2">z</span>
+       _/   |  <span class="blink-1">z</span>
+      |_____|{)_
+        --- ==\/\ |
+      [_____]  __)|
+       |   |  //| |
+      </pre>
+      <h1>Buenas noches</h1>
+      <p>
+        Your computer took a siesta.
+      </p>
+    </div>
+  </body>
+
+</html>

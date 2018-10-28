@@ -24,6 +24,7 @@ _(People who have participated in the challenges!)_
 - [nik1082](https://github.com/nik1082)
 - [ryanc16](https://github.com/ryanc16)
 - [darrenrector91](https://github.com/darrenrector91)
+- [shubham-purohit](https://github.com/shubham-purohit)
 - [JanuriDP](https://github.com/JanuriDP)
 - [Rahul-Vijay](https://github.com/Rahul-Vijay)
 - [ConnyHeb](https://github.com/ConnyHeb)
@@ -51,8 +52,12 @@ _(People who have participated in the challenges!)_
 - [yulioaj290](https://github.com/yulioaj290)
 - [Timmy](https://github.com/Timmy)
 - [Archaeologist03](https://github.com/Archaeologist03)
+- [Skayablars](https://github.com/skayablars)
+- [Jesussandrea12](https://github.com/Jesussandrea12)
 - [LishiTrinity](https://github.com/LishiTrinity)
 - [ephan627](https://github.com/ephan627)
+- [Bartlomiej-Przymus](https://github.com/bartlomiej-przymus)
+- [Ray](https://github.com/Ray6464)
 
 # Contributors
 
@@ -70,6 +75,7 @@ _(People who have not participated in challenges but want to be a part of the pr
 - [tom-raley](https://github.com/tom-raley)
 - [Melissa](https://github.com/mbain108)
 - [BucSy](https://github.com/BucSy)
+- [itsmrkundu](https://github.com/itsmrkundu)
 - [Andyacosta](https://github.com/andyacosta)
 - [stephanieadwill](https://github.com/stephanieadwill)
 - [sohail764245](https://github.com/sohail764245)
