@@ -55,6 +55,7 @@ _(People who have participated in the challenges!)_
 - [Skayablars](https://github.com/skayablars)
 - [Jesussandrea12](https://github.com/Jesussandrea12)
 - [LishiTrinity](https://github.com/LishiTrinity)
+- [ephan627](https://github.com/ephan627)
 - [Bartlomiej-Przymus](https://github.com/bartlomiej-przymus)
 - [Ray](https://github.com/Ray6464)
 
