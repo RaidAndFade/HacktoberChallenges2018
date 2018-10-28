@@ -57,6 +57,7 @@ _(People who have participated in the challenges!)_
 - [LishiTrinity](https://github.com/LishiTrinity)
 - [Bartlomiej-Przymus](https://github.com/bartlomiej-przymus)
 - [Ray](https://github.com/Ray6464)
+- [GaganBhat](https://github.com/GaganBhat)
 
 # Contributors
 
