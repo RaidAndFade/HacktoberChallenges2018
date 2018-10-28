@@ -27,7 +27,7 @@ Here is an example of what you could do. Python is already taken.
 # By RaidAndFade - https://github.com/RaidAndFade
 
 name = input('Enter your name: ')
-print("Hello",name+"!")
+print("Hello ",name+"!")
 ```
 
 ## RULES 
