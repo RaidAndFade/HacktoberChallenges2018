@@ -52,6 +52,7 @@ _(People who have participated in the challenges!)_
 - [Timmy](https://github.com/Timmy)
 - [Archaeologist03](https://github.com/Archaeologist03)
 - [LishiTrinity](https://github.com/LishiTrinity)
+- [Eric Phan](https://github.com/ephan627)
 
 # Contributors
 
