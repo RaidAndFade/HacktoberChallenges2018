@@ -58,6 +58,7 @@ _(People who have participated in the challenges!)_
 - [ephan627](https://github.com/ephan627)
 - [Bartlomiej-Przymus](https://github.com/bartlomiej-przymus)
 - [Ray](https://github.com/Ray6464)
+- [TigerAsH94](https://github.com/TigerAsH94)
 
 # Contributors
 
