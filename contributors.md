@@ -58,7 +58,7 @@ _(People who have participated in the challenges!)_
 - [ephan627](https://github.com/ephan627)
 - [Bartlomiej-Przymus](https://github.com/bartlomiej-przymus)
 - [Ray](https://github.com/Ray6464)
-
+- [vinay72](https://github.com/vinay72)
 # Contributors
 
 _(People who have not participated in challenges but want to be a part of the project!)_
