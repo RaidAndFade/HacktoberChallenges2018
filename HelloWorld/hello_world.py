@@ -1,4 +1,4 @@
-# By NCPlayz - https://github.com/NCPlayz
+# By wisetreewildfi - https://github.com/wisetreewildfi
 
-name = input("Enter your name: ")
-print("Hello "+name+"!")
+Name_19_12 = input('Your Name plz....: ')
+print("Hey",Name_19_12+"!")
