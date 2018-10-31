@@ -2,7 +2,7 @@
 
 import java.util.Scanner;
 
-public class HelloWorld {
+public class hello_world {
 
     public static void main(String[] args) {
 
