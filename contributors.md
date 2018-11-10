@@ -80,6 +80,7 @@ _(People who have not participated in challenges but want to be a part of the pr
 - [itsmrkundu](https://github.com/itsmrkundu)
 - [Andyacosta](https://github.com/andyacosta)
 - [stephanieadwill](https://github.com/stephanieadwill)
+- [MarlonDemas](https://github.com/MarlonDemas)
 - [sohail764245](https://github.com/sohail764245)
 - [AbhishekJindal](https://github.com/jindalabhishek1)
 - [ftsell](https://github.com/ftsell)
