@@ -15,7 +15,7 @@ Raid, although boasts about knowing so many languages, actually only knows a few
 
 ## What do you mean by a sample of hello world?
 
-It must be a unique version of hello world in your chosen language. The language you choose must be one that has not been done by another fellow contributor.
+It must be a command line hello world in your chosen language. The language you choose must not have already been chosen!
 
 ***TEMPLATE***
 
@@ -43,8 +43,8 @@ print("Hello",name+"!")
 
 ## But why is this a challenge?
 
-The point of this challenge is to prove that you know how to code in coding languages, rather than simple HTML.
-***THE LAST THING I WANT TO SEE FROM THIS CHALLENGE IS A BUNCH OF GENERIC HELLO WORLD FILES***
+The point of this challenge is to show the insane variety of languages that nobody knows about. Cool huh?
+
 
 ## Final note
 

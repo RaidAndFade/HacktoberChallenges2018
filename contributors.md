@@ -59,6 +59,8 @@ _(People who have participated in the challenges!)_
 - [Bartlomiej-Przymus](https://github.com/bartlomiej-przymus)
 - [Ray](https://github.com/Ray6464)
 - [techtolentino](https://github.com/techtolentino)
+- [vinay72](https://github.com/vinay72)
+- [TigerAsH94](https://github.com/TigerAsH94)
 
 # Contributors
 
@@ -79,6 +81,7 @@ _(People who have not participated in challenges but want to be a part of the pr
 - [itsmrkundu](https://github.com/itsmrkundu)
 - [Andyacosta](https://github.com/andyacosta)
 - [stephanieadwill](https://github.com/stephanieadwill)
+- [MarlonDemas](https://github.com/MarlonDemas)
 - [sohail764245](https://github.com/sohail764245)
 - [AbhishekJindal](https://github.com/jindalabhishek1)
 - [ftsell](https://github.com/ftsell)
