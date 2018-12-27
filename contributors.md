@@ -51,6 +51,7 @@ _(People who have participated in the challenges!)_
 - [rik-96](https://github.com/rik-96)
 - [yulioaj290](https://github.com/yulioaj290)
 - [Timmy](https://github.com/Timmy)
+- [shubhamrsangle](https://github.com/shubhamrsangle)
 - [Archaeologist03](https://github.com/Archaeologist03)
 - [Skayablars](https://github.com/skayablars)
 - [Jesussandrea12](https://github.com/Jesussandrea12)
